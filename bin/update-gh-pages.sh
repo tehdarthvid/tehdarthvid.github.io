@@ -22,7 +22,7 @@ git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
 npm install
 #npm run build
-npm run deploy
+
 
 #rm -rf "$build_dir"
 #mv public "$build_dir"
@@ -34,5 +34,7 @@ npm run deploy
 #    exit 0
 #fi
 
-#git remote set-url "$remote_name" "$repo_uri" # includes access token
+git remote set-url "$remote_name" "$repo_uri" # includes access token
 #git push --force-with-lease "$remote_name" "$target_branch"
+
+npm run deploy
