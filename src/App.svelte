@@ -49,7 +49,7 @@
     &nbsp;
     <p>
 
-      <a href="https://github.com/tehdarthvid/darthvid.com">try</a>
+      <a href="https://github.com/tehdarthvid/tehdarthvid.github.io">try</a>
 
     </p>
   </div>
