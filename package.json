@@ -1,13 +1,13 @@
 {
   "name": "darthvid-site",
   "version": "0.0.1",
-  "homepage": "https://tehdarthvid.github.io/",
+  "homepage": "https://tehdarthvid.github.io",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d public"
+    "deploy": "gh-pages -b master -d public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
