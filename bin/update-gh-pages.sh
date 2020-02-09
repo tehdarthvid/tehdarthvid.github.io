@@ -16,7 +16,7 @@ cd "$GITHUB_WORKSPACE"
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
-git checkout "master"
+#git checkout "master"
 #git checkout --orphan "$target_branch"
 #git rebase "${remote_name}/${main_branch}"
 
