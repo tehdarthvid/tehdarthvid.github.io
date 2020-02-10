@@ -46,10 +46,11 @@ cd "$build_dir"
 
 git init
 git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
-git fetch
+echo fetch
+#git fetch
 GITHASH=`git log --pretty=format:'%h' -n 1`
 git add .
 git commit -m "updating from ${GITHUB_SHA}"
-
+echo push
 git remote set-url "$remote_name" "$repo_uri" # includes access token
 git push --force-with-lease "$remote_name" "$target_branch"
