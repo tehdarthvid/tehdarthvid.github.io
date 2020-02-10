@@ -49,7 +49,9 @@
     &nbsp;
     <p>
 
-      <a href="https://github.com/tehdarthvid/tehdarthvid.github.io">try</a>
+      <a href="https://github.com/tehdarthvid/tehdarthvid.github.io/tree/dev">
+        source
+      </a>
 
     </p>
   </div>
