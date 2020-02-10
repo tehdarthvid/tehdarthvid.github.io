@@ -44,8 +44,13 @@ npm install
 npm run build
 cd "$build_dir"
 
+echo git inits
 git init
 git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
+
+git config user.name "$GITHUB_ACTOR"
+git config user.email "${GITHUB_ACTOR}@bots.github.com"
+
 echo fetch
 git fetch
 #GITHASH=`git log --pretty=format:'%h' -n 1`
