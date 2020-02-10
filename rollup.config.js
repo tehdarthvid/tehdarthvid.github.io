@@ -4,6 +4,8 @@ import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 
+import replace from "@rollup/plugin-replace";
+
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
@@ -15,6 +17,13 @@ export default {
     file: "public/build/bundle.js"
   },
   plugins: [
+    replace({
+      process: JSON.stringify({
+        env: {
+          gaID: process.env.GA_TRACKING_ID
+        }
+      })
+    }),
     svelte({
       // enable run-time checks when not in production
       dev: !production,

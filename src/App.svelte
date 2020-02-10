@@ -1,5 +1,6 @@
 <script>
-
+  import { googleAnalytics } from "./utils/google-analytics.js";
+  if (process.env.gaID) googleAnalytics(process.env.gaID);
 </script>
 
 <style>
