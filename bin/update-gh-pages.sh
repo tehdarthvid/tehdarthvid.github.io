@@ -48,7 +48,8 @@ git init
 git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
 echo fetch
 git fetch
-GITHASH=`git log --pretty=format:'%h' -n 1`
+#GITHASH=`git log --pretty=format:'%h' -n 1`
+echo commit
 git add .
 git commit -m "updating from ${GITHUB_SHA}"
 echo push
