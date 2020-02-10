@@ -27,7 +27,8 @@ git clone -b master --single-branch https://github.com/tehdarthvid/tehdarthvid.g
 rm -rf temp/*
 
 echo [Step 3] Commit new artifacts to cleaned master branch
-cp -r "$build_dir"/ temp/
+cp -r "$build_dir"/. temp/
+cp ../README.md .
 cd temp
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
@@ -42,5 +43,3 @@ fi
 git remote set-url "$remote_name" "$repo_uri" # includes access token
 git push --force-with-lease "$remote_name" "$target_branch"
 
-echo [Step 5] Copy README.md from dev branch just so main branch has one
-cp ../README.md .
