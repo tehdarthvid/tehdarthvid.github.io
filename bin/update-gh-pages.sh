@@ -45,11 +45,11 @@ npm run build
 cd "$build_dir"
 
 git init
-git remote add origin ${GITHUB_REPOSITORY}
+git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
 git fetch
 GITHASH=`git log --pretty=format:'%h' -n 1`
 git add .
-git commit -m "updating from $GITHASH"
+git commit -m "updating from ${GITHUB_SHA}"
 
 git remote set-url "$remote_name" "$repo_uri" # includes access token
 git push --force-with-lease "$remote_name" "$target_branch"
