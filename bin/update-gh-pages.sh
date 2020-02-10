@@ -46,7 +46,7 @@ cd "$build_dir"
 
 git init
 git remote add origin ${GITHUB_REPOSITORY}
-
+git fetch
 GITHASH=`git log --pretty=format:'%h' -n 1`
 git add .
 git commit -m "updating from $GITHASH"
