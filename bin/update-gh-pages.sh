@@ -28,7 +28,7 @@ rm -rf temp/*
 
 echo [Step 3] Commit new artifacts to cleaned master branch
 cp -r "$build_dir"/. temp/
-cp ../README.md .
+cp README.md temp/
 cd temp
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
