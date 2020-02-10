@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Getting this working:
+# References:
 # https://www.innoq.com/en/blog/github-actions-automation/
 # https://medium.com/swlh/deploying-react-apps-to-github-pages-on-master-branch-creating-a-user-site-bc96c2a37dc8
 # https://hackernoon.com/how-to-set-up-godaddy-domain-with-github-pages-a9300366c7b 
@@ -15,55 +15,32 @@ build_dir="public"
 
 cd "$GITHUB_WORKSPACE"
 
+echo [Step 1] Build dev branch
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
-
-#git checkout "master"
-#git checkout --orphan "$target_branch"
-#git rebase "${remote_name}/${main_branch}"
-
 npm install
-#npm run build
-
-
-#rm -rf "$build_dir"
-#mv public "$build_dir"
-#git add "$build_dir"
-
-#git commit -m "updated GitHub Pages"
-#if [ $? -ne 0 ]; then
-#    echo "nothing to commit"
-#    exit 0
-#fi
-
-#git remote set-url "$remote_name" "$repo_uri" # includes access token
-#git push --force-with-lease "$remote_name" "$target_branch"
-
-#npm run deploy
-
 npm run build
 rm -rf .git/
 
+echo [Step 2] Clone master branch at temp/ and erase contents
 git clone -b master --single-branch https://github.com/tehdarthvid/tehdarthvid.github.io.git temp
 rm -rf temp/*
+
+echo [Step 3] Commit new artifacts to cleaned master branch
 cp -r "$build_dir"/ temp/
-
-#cd "$build_dir"
 cd temp
-
-echo git inits
-#git init
-#git remote add origin https://github.com/${GITHUB_REPOSITORY}.git
-
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
-
-#echo fetch
-#git fetch
-#GITHASH=`git log --pretty=format:'%h' -n 1`
-echo commit
 git add .
 git commit -m "updating from ${GITHUB_SHA}"
-echo push
+
+echo [Step 4] Push new artifacts to master branch for GitHub Pages rendering
+if [ $? -ne 0 ]; then
+    echo "nothing to commit"
+    exit 0
+fi
 git remote set-url "$remote_name" "$repo_uri" # includes access token
 git push --force-with-lease "$remote_name" "$target_branch"
+
+echo [Step 5] Copy README.md from dev branch just so main branch has one
+cp ../README.md .

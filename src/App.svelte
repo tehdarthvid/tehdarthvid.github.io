@@ -19,7 +19,7 @@
 
 <main>
   <h1>
-    <a href="/">darthvid ix</a>
+    <a href="/">darthvid</a>
   </h1>
   <p>サイトへようこそ!</p>
   <h2>social</h2>
