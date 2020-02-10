@@ -42,6 +42,8 @@ npm install
 #npm run deploy
 
 npm run build
+rm -rf .git/
+
 cd "$build_dir"
 
 echo git inits
