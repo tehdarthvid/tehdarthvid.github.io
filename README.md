@@ -24,4 +24,5 @@ Ran into quite a few hoops to get this working:
 1. custom domains has to be an apex or subdomain, not a sub resource
 1. if you use a `CNAME` file, you can't have the same CNAME in another repo in GitHub
 1. GitHub Actions can run shell scripts
-1. pushing to `master` with GITHUB_TOKEN from a workflow supposedly won't trigger GitHub Pages to build, so you'll need to generate a _personal access token_ and use that for the git transactions to the repo
+1. At any error exit code the script will terminate and no longer proceed
+1. pushing to `master` with `GITHUB_TOKEN` from a workflow supposedly won't trigger GitHub Pages to build, so you'll need to generate a _personal access token_ and use that for the git push to `master` to trigger the page build
