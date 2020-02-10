@@ -11,7 +11,7 @@ repo_uri="https://x-access-token:${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY}
 remote_name="origin"
 main_branch="master"
 target_branch="gh-pages"
-build_dir="docs"
+build_dir="public"
 
 cd "$GITHUB_WORKSPACE"
 
@@ -36,7 +36,20 @@ npm install
 #    exit 0
 #fi
 
-git remote set-url "$remote_name" "$repo_uri" # includes access token
+#git remote set-url "$remote_name" "$repo_uri" # includes access token
 #git push --force-with-lease "$remote_name" "$target_branch"
 
-npm run deploy
+#npm run deploy
+
+npm run build
+cd "$build_dir"
+
+git init
+git remote add origin ${GITHUB_REPOSITORY}
+
+GITHASH=`git log --pretty=format:'%h' -n 1`
+git add .
+git commit -m "updating from $GITHASH"
+
+git remote set-url "$remote_name" "$repo_uri" # includes access token
+git push --force-with-lease "$remote_name" "$target_branch"
