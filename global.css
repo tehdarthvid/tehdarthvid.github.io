@@ -1,0 +1,70 @@
+html,
+body {
+  position: relative;
+  width: 95%;
+  height: 100%;
+}
+
+body {
+  color: #f7f7f7;
+  background-color: #333333;
+  font-family: "Source Code Pro", "Lexend Deca", "Ubuntu", "Noto Sans JP",
+    "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 1.618em;
+}
+
+a {
+  color: #66aa66;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline overline;
+}
+
+a:visited {
+  color: #669966;
+}
+
+label {
+  display: block;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+input:disabled {
+  color: #ccc;
+}
+
+input[type="range"] {
+  height: 0;
+}
+
+button {
+  color: #333;
+  background-color: #f4f4f4;
+  outline: none;
+}
+
+button:disabled {
+  color: #999;
+}
+
+button:not(:disabled):active {
+  background-color: #ddd;
+}
+
+button:focus {
+  border-color: #666;
+}
