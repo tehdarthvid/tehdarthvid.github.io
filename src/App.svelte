@@ -1,6 +1,10 @@
 <script>
   import { googleAnalytics } from "./utils/google-analytics.js";
   if (process.env.gaID) googleAnalytics(process.env.gaID);
+
+  var strGitHash = process.env.git_hash;
+  strGitHash = strGitHash.slice(0, 7);
+  //console.log(strHash);
 </script>
 
 <style>
@@ -55,6 +59,11 @@
       </a>
 
     </p>
+    <a
+      href="https://github.com/tehdarthvid/tehdarthvid.github.io/commit/{process.env.git_hash}">
+      {strGitHash}
+    </a>
+
   </div>
 
 </main>
