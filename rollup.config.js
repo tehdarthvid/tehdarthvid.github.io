@@ -21,7 +21,7 @@ export default {
       process: JSON.stringify({
         env: {
           gaID: process.env.GA_TRACKING_ID,
-          git_hash: process.env.GIT_HASH
+          git_hash: process.env.GITHUB_SHA
         }
       })
     }),
