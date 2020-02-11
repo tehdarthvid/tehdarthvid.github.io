@@ -4,13 +4,20 @@ Just the source for my homepage. Hosted on GitHub Pages.
 
 ## Automation
 
-This is setup so that commits to `dev` branch`triggers a GitHub Action that runs a script in`/bin`. The script:
+The key files to note are:
+
+1. `.github/workflows/pages.yml`
+1. `bin/update-gh-pages.sh`
+
+`pages.yml` is a GitHub Action triggered by pushes to `dev` branch. After checking out the current push, it runs the `update-gh-pages.sh` bash script in `/bin`. The script:
 
 1. builds the `dev` branch
 1. clones `master` branch
-1. cleans all contents, but keeping current git `master` branch state
-1. puts artifacts from the `dev` build into the `master`
+1. removes all local `master` content (to handle removed files), keeping current git `master` branch state
+1. puts artifacts from the `dev` build into the local `master`
 1. commits and pushes `master`
+
+After pushing to `master`, a _GitHub Pages Deploy_ action is triggered that processes these files and serves it to your GitHub Page.
 
 ## Learnings
 
