@@ -61,7 +61,7 @@
     </p>
     <a
       href="https://github.com/tehdarthvid/tehdarthvid.github.io/commit/{process.env.git_hash}">
-      {strGitHash}
+      build {strGitHash}
     </a>
 
   </div>
