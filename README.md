@@ -4,6 +4,8 @@ Just the source for my homepage. Hosted on GitHub Pages.
 
 ## Automation
 
+![GitHub Pages Deploy](https://github.com/tehdarthvid/tehdarthvid.github.io/workflows/GitHub%20Pages%20Deploy/badge.svg)
+
 The key files to note are:
 
 1. `.github/workflows/pages.yml`
