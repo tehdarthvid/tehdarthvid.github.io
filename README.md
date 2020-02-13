@@ -11,7 +11,7 @@ The key files to note are:
 1. `.github/workflows/pages.yml`
 1. `bin/update-gh-pages.sh`
 
-`pages.yml` is a GitHub Action triggered by pushes to `dev` branch. After checking out the current push, it runs the `update-gh-pages.sh` bash script in `/bin`. The script:
+`pages.yml` is a GitHub Action triggered by pushes to `dev` branch (except if the push is just README.md). After checking out the current push, it runs the `update-gh-pages.sh` bash script in `/bin`. The script:
 
 1. builds the `dev` branch
 1. clones `master` branch
