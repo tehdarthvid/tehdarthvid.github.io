@@ -1,5 +1,10 @@
 name: GitHub Pages Deploy
 
+# Ensure the following 4 items are defined/updated:
+#   1. runner env GA_TRACKING_ID: Google Analytics tracking ID
+#   2. runner env PERSONAL_ACCESS_TOKEN: GitHub Personal Access Token with rights to the repo.
+
+#   3. Update source branch and other trigger filters.
 on:
   push:
     branches:
@@ -8,11 +13,10 @@ on:
       - "**"
       - "!README.md"
 
+#   4. Update destination branch and artifact folder source.
 env:
-  SRC_BRANCH: "dev"
   DEST_BRANCH: "master"
   ARTIFACT_DIR: "public"
-  DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
 jobs:
   build-job:
