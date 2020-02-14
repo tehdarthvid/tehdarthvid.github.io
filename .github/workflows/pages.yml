@@ -8,15 +8,50 @@ on:
       - "**"
       - "!README.md"
 
+env:
+  SRC_BRANCH: "dev"
+  DEST_BRANCH: "master"
+  ARTIFACT_DIR: "public"
+  DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+
 jobs:
-  build:
+  build-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Check-out ${{ github.ref }}
         uses: actions/checkout@v2
 
-      - name: Run update-gh-pages.sh
+      - name: Build ${{ github.ref }}
         env:
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
           GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
-        run: sh ./bin/update-gh-pages.sh
+        run: |
+          npm install
+          npm run build
+
+      - name: Check-out '${{ env.DEST_BRANCH }}' to 'temp'
+        run: |
+          git clone -b ${{ env.DEST_BRANCH }} --single-branch http://github.com/${{ github.repository }}.git temp
+
+      - name: Clean '${{ env.DEST_BRANCH }}' at 'temp'
+        run: |
+          rm -rf temp/*
+          rm -rf temp/.github/
+          echo '.git' folder retained at 'temp'
+
+      - name: Transfer '${{ env.ARTIFACT_DIR }}' contents to 'temp'
+        run: |
+          cp -r ${{ env.ARTIFACT_DIR }}/. temp/
+
+      - name: Commit new artifacts to cleaned '${{ env.DEST_BRANCH }}'
+        working-directory: ./temp
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@bots.github.com"
+          git add .
+          git commit -m "updating from ${{ github.sha }}"
+
+      - name: Soft force-push new artifacts to '${{ env.DEST_BRANCH }}' for GitHub Pages rendering
+        working-directory: ./temp
+        run: |
+          git remote set-url origin "https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git" # includes access token
+          git push --force-with-lease
