@@ -1,5 +1,6 @@
 <script>
   import Icon from "./components/icon.svelte";
+  import LinkTo from "./components/linkto.svelte";
   import { googleAnalytics } from "./utils/google-analytics.js";
   if (process.env.gaID) googleAnalytics(process.env.gaID);
 
@@ -34,35 +35,22 @@
     <a href="/">darthvid</a>
   </h1>
   <p>サイトへようこそ!</p>
-  <h2>social</h2>
+  <h2>is at</h2>
   <div class="wrapus">
-    <div>
-      【
-      <a href="https://twitter.com/darthvid">Twitter</a>
-      】
-    </div>
-    <div>
-      【
-      <a href="https://github.com/tehdarthvid">GitHub</a>
-      】
-    </div>
-    <div>
-      【
-      <a href="https://www.linkedin.com/in/darthvid/">LinkedIn</a>
-      】
-    </div>
+    <LinkTo title="GitHub" itemURL="https://github.com/tehdarthvid" />
+    <LinkTo title="LinkedIn" itemURL="https://www.linkedin.com/in/darthvid/" />
+    <LinkTo title="Twitter" itemURL="https://twitter.com/darthvid" />
+    <LinkTo
+      title="Letterboxd"
+      itemURL="https://letterboxd.com/darthvid/films/" />
   </div>
 
-  <h2>projects</h2>
+  <h2>pet projects</h2>
   <div class="wrapus">
-    <div>
-      【
-      <a href="https://dna.darthvid.com">influences</a>
-      】
-    </div>
+    <LinkTo title="influences" itemURL="https://dna.darthvid.com" />
   </div>
 
-  <h2>dabbles-in</h2>
+  <h2>dabbles in</h2>
   <div class="wrapus">
     <Icon
       title="Node.js"
