@@ -1,4 +1,8 @@
 /node_modules/
 /public/build/
-
 .DS_Store
+/cypress/*
+!/cypress/integration
+!/cypress/plugins
+!/cypress/webpack.config.js
+
