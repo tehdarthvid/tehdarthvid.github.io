@@ -127,7 +127,7 @@
 
     </p>
     <a
-      href="https://github.com/tehdarthvid/tehdarthvid.github.io/commit/{process.env.git_hash}">
+      href="https://github.com/tehdarthvid/tehdarthvid.github.io/commit/{git_hash}">
       build {strGitHash}
     </a>
 
