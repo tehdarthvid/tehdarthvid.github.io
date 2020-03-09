@@ -1,10 +1,13 @@
 <script>
+  export let gaID;
+  export let git_hash;
+
   import Icon from "./components/icon.svelte";
   import LinkTo from "./components/linkto.svelte";
   import { googleAnalytics } from "./utils/google-analytics.js";
-  if (process.env.gaID) googleAnalytics(process.env.gaID);
+  if (gaID) googleAnalytics(gaID);
 
-  var strGitHash = process.env.git_hash;
+  var strGitHash = git_hash;
   strGitHash = strGitHash.slice(0, 7);
   //console.log(strHash);
 </script>
