@@ -16,7 +16,9 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d public"
+    "deploy": "gh-pages -b master -d public",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^4.1.3",
