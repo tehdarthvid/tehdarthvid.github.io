@@ -8,8 +8,9 @@ Just the source for my homepage. Hosted on GitHub Pages.
 
 `.github/workflows/pages.yml` is a GitHub Action triggered by pushes to `dev` branch (except if the push is just README.md). The action does the following:
 
-1. checks-our the `dev` branch
+1. checks-out the `dev` branch
 1. builds the `dev` branch
+1. runs tests
 1. clones `master` branch
 1. removes all local `master` content (to handle files possibly removed in the new build), keeping current git `master` branch state
 1. puts artifacts from the `dev` build into the local `master`
