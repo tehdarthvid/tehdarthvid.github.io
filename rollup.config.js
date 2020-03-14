@@ -8,6 +8,16 @@ import replace from "@rollup/plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
 
+if (null == process.env.URL_RECENT_DECK) {
+  throw new Error("Missing environment variable `URL_RECENT_DECK`");
+}
+if (null == process.env.GITHUB_SHA) {
+  throw new Error("Missing environment variable `GITHUB_SHA`");
+}
+if (null == process.env.GA_TRACKING_ID) {
+  throw new Error("Missing environment variable `GA_TRACKING_ID`");
+}
+
 export default {
   input: "src/main.js",
   output: {
@@ -21,7 +31,8 @@ export default {
       process: JSON.stringify({
         env: {
           gaID: process.env.GA_TRACKING_ID,
-          git_hash: process.env.GITHUB_SHA
+          git_hash: process.env.GITHUB_SHA,
+          url_recent_deck: process.env.URL_RECENT_DECK
         }
       })
     }),
