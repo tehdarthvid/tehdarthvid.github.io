@@ -4,12 +4,13 @@
 
   import Icon from "./components/icon.svelte";
   import LinkTo from "./components/linkto.svelte";
+  import Deck from "./views/Deck.svelte";
+
   import { googleAnalytics } from "./utils/google-analytics.js";
   if (gaID) googleAnalytics(gaID);
 
   var strGitHash = git_hash;
   strGitHash = strGitHash.slice(0, 7);
-  //console.log(strHash);
 </script>
 
 <style>
@@ -47,6 +48,8 @@
       title="Letterboxd"
       itemURL="https://letterboxd.com/darthvid/films/" />
   </div>
+
+  <Deck />
 
   <h2>pet projects</h2>
   <div class="wrapus">
