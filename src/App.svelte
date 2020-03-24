@@ -2,6 +2,8 @@
   export let gaID;
   export let git_hash;
 
+  import * as site_data from "./stores/data.json";
+
   import Icon from "./components/icon.svelte";
   import LinkTo from "./components/linkto.svelte";
   import Deck from "./views/Deck.svelte";
@@ -36,89 +38,41 @@
 
 <main>
   <h1>
-    <a href="/">darthvid</a>
+    <a href="/">{site_data.name}</a>
   </h1>
-  <p>サイトへようこそ!</p>
-  <h2>is at</h2>
-  <div class="wrapus">
-    <LinkTo title="GitHub" itemURL="https://github.com/tehdarthvid" />
-    <LinkTo title="LinkedIn" itemURL="https://www.linkedin.com/in/darthvid/" />
-    <LinkTo title="Twitter" itemURL="https://twitter.com/darthvid" />
-    <LinkTo
-      title="Letterboxd"
-      itemURL="https://letterboxd.com/darthvid/films/" />
-  </div>
+  <p>{site_data.welcome_msg}</p>
+
+  {#if null != site_data.links}
+    <h2>is at</h2>
+    <div class="wrapus">
+      {#each site_data.links as linkData}
+        <LinkTo {...linkData} />
+      {/each}
+    </div>
+  {/if}
 
   <Deck />
+  <!--
+    <Deck />
+  -->
 
-  <h2>pet projects</h2>
-  <div class="wrapus">
-    <LinkTo title="influences" itemURL="https://dna.darthvid.com" />
-  </div>
+  {#if null != site_data.projects}
+    <h2>pet projects</h2>
+    <div class="wrapus">
+      {#each site_data.projects as linkData}
+        <LinkTo {...linkData} />
+      {/each}
+    </div>
+  {/if}
 
-  <h2>dabbles in</h2>
-  <div class="wrapus">
-    <Icon
-      title="Node.js"
-      itemURL="https://nodejs.org/"
-      imgURL="/assets/images/nodejs.svg" />
-    <Icon
-      title="Amazon Web Services"
-      itemURL="https://aws.amazon.com/"
-      imgURL="/assets/images/aws.png" />
-    <Icon
-      title="C"
-      itemURL="http://csapp.cs.cmu.edu/3e/docs/chistory.html"
-      imgURL="/assets/images/clang.jpg" />
-  </div>
-  <div class="wrapus">
-    <Icon
-      title="Google Cloud Platform"
-      itemURL="https://cloud.google.com/"
-      imgURL="/assets/images/gcp.png" />
-    <Icon
-      title="Svelte"
-      itemURL="https://svelte.dev/"
-      imgURL="/assets/images/svelte.png" />
-    <Icon
-      title="Vue.js"
-      itemURL="https://vuejs.org/"
-      imgURL="/assets/images/vue.png" />
-  </div>
-  <div class="wrapus">
-    <Icon
-      title="fish"
-      itemURL="https://fishshell.com/"
-      imgURL="/assets/images/fish.png" />
-    <Icon
-      title="kitty"
-      itemURL="https://sw.kovidgoyal.net/kitty/"
-      imgURL="/assets/images/kitty.png" />
-    <Icon
-      title="Visual Studio Code"
-      itemURL="https://code.visualstudio.com/"
-      imgURL="/assets/images/vscode.png" />
-  </div>
-  <div class="wrapus">
-    <Icon
-      title="GitHub Actions"
-      itemURL="https://github.com/features/actions"
-      imgURL="/assets/images/gh-actions.svg" />
-    <Icon
-      title="GitLab CI/CD"
-      itemURL="https://docs.gitlab.com/ee/ci/introduction/"
-      imgURL="/assets/images/gl-cicd.png" />
-  </div>
-  <div class="wrapus">
-    <Icon
-      title="Go"
-      itemURL="https://golang.org/"
-      imgURL="/assets/images/go-gopher.png" />
-    <Icon
-      title="Rust"
-      itemURL="https://www.rust-lang.org/"
-      imgURL="/assets/images/rust-ferris.svg" />
-  </div>
+  {#if null != site_data.dabbles}
+    <h2>dabbles in</h2>
+    <div class="wrapus">
+      {#each site_data.dabbles as linkData}
+        <Icon {...linkData} />
+      {/each}
+    </div>
+  {/if}
 
   <div id="build">
     &nbsp;

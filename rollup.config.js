@@ -5,6 +5,7 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 
 import replace from "@rollup/plugin-replace";
+import json from "@rollup/plugin-json";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -36,6 +37,7 @@ export default {
         }
       })
     }),
+    json(),
     svelte({
       // enable run-time checks when not in production
       dev: !production,
