@@ -13,7 +13,7 @@
 
 <div>
   {#if null != $deck}
-    <h2>recent finds</h2>
+    <h2>cache of interests</h2>
     <div class="container">
       {#each $deck as card}
         <Card {...card} />
