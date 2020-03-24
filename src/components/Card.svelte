@@ -2,7 +2,7 @@
   import { onMount, onDestroy, afterUpdate } from "svelte";
 
   export let title;
-  export let bgImageURL;
+  export let imgURL;
   export let date;
   export let url;
 
@@ -19,14 +19,14 @@
 
   //onMount(() => {
   afterUpdate(() => {
-    if (bgImageURL) {
+    if (imgURL) {
       img.onload = function() {
         //console.log(title + " onLoad");
         isBgImageLoaded = true;
       };
 
       //console.log(title + " onMount");
-      img.src = bgImageURL;
+      img.src = imgURL;
     }
   });
   onDestroy(() => {
@@ -191,7 +191,7 @@
       <div
         class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
         style="transform: translateX({tX}px) translateY({tY}px);
-        background-image: url({bgImageURL})" />
+        background-image: url({imgURL})" />
 
       <div class="card-info">
         <h1>{title ? title : ''}</h1>
