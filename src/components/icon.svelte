@@ -1,6 +1,6 @@
 <script>
   export let title;
-  export let itemURL;
+  export let url;
   export let imgURL;
 </script>
 
@@ -14,7 +14,7 @@
 </style>
 
 <div class="icon">
-  <a href={itemURL} {title} target="_blank">
+  <a href={url} {title} target="_blank">
     <img class="icon" alt={title} src={imgURL} />
   </a>
 </div>

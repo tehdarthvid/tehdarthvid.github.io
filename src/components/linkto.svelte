@@ -1,6 +1,6 @@
 <script>
   export let title;
-  export let itemURL;
+  export let url;
 </script>
 
 <style scoped>
@@ -9,6 +9,6 @@
 
 <div class="linkto">
   【
-  <a href={itemURL}>{title}</a>
+  <a href={url}>{title}</a>
   】
 </div>

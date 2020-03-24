@@ -2,87 +2,87 @@
   "name": "darthvid",
   "welcome_msg": "サイトへようこそ!",
   "links": [
-    { "title": "GitHub", "itemURL": "https://github.com/tehdarthvid" },
-    { "title": "LinkedIn", "itemURL": "https://www.linkedin.com/in/darthvid/" },
-    { "title": "Twitter", "itemURL": "https://twitter.com/darthvid" },
+    { "title": "GitHub", "url": "https://github.com/tehdarthvid" },
+    { "title": "LinkedIn", "url": "https://www.linkedin.com/in/darthvid/" },
+    { "title": "Twitter", "url": "https://twitter.com/darthvid" },
     {
       "title": "Letterboxd",
-      "itemURL": "https://letterboxd.com/darthvid/films/"
+      "url": "https://letterboxd.com/darthvid/films/"
     }
   ],
   "projects": [
     {
       "title": "influences",
-      "itemURL": "https://dna.darthvid.com"
+      "url": "https://dna.darthvid.com"
     }
   ],
   "dabbles": [
     {
       "title": "Node.js",
-      "itemURL": "https://nodejs.org/",
+      "url": "https://nodejs.org/",
       "imgURL": "/assets/images/nodejs.svg"
     },
     {
       "title": "Amazon Web Services",
-      "itemURL": "https://aws.amazon.com/",
+      "url": "https://aws.amazon.com/",
       "imgURL": "/assets/images/aws.png"
     },
     {
       "title": "C",
-      "itemURL": "http://csapp.cs.cmu.edu/3e/docs/chistory.html",
+      "url": "http://csapp.cs.cmu.edu/3e/docs/chistory.html",
       "imgURL": "/assets/images/clang.jpg"
     },
 
     {
       "title": "Google Cloud Platform",
-      "itemURL": "https://cloud.google.com/",
+      "url": "https://cloud.google.com/",
       "imgURL": "/assets/images/gcp.png"
     },
     {
       "title": "Svelte",
-      "itemURL": "https://svelte.dev/",
+      "url": "https://svelte.dev/",
       "imgURL": "/assets/images/svelte.png"
     },
     {
       "title": "Vue.js",
-      "itemURL": "https://vuejs.org/",
+      "url": "https://vuejs.org/",
       "imgURL": "/assets/images/vue.png"
     },
 
     {
       "title": "fish",
-      "itemURL": "https://fishshell.com/",
+      "url": "https://fishshell.com/",
       "imgURL": "/assets/images/fish.png"
     },
     {
       "title": "kitty",
-      "itemURL": "https://sw.kovidgoyal.net/kitty/",
+      "url": "https://sw.kovidgoyal.net/kitty/",
       "imgURL": "/assets/images/kitty.png"
     },
     {
       "title": "Visual Studio Code",
-      "itemURL": "https://code.visualstudio.com/",
+      "url": "https://code.visualstudio.com/",
       "imgURL": "/assets/images/vscode.png"
     },
 
     {
       "title": "GitHub Actions",
-      "itemURL": "https://github.com/features/actions",
+      "url": "https://github.com/features/actions",
       "imgURL": "/assets/images/gh-actions.svg"
     },
     {
       "title": "GitLab CI/CD",
-      "itemURL": "https://docs.gitlab.com/ee/ci/introduction/",
+      "url": "https://docs.gitlab.com/ee/ci/introduction/",
       "imgURL": "/assets/images/gl-cicd.png"
     },
     {
       "title": "Go",
-      "itemURL": "https://golang.org/",
+      "url": "https://golang.org/",
       "imgURL": "/assets/images/go-gopher.png"
     },
     {
       "title": "Rust",
-      "itemURL": "https://www.rust-lang.org/",
+      "url": "https://www.rust-lang.org/",
       "imgURL": "/assets/images/rust-ferris.svg"
     }
   ]
