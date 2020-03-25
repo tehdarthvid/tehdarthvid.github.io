@@ -12,6 +12,7 @@ on:
     paths:
       - "**"
       - "!README.md"
+      - "!CHANGELOG.md"
 
 #   4. Update destination branch and artifact folder source.
 env:
