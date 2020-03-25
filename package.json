@@ -16,8 +16,7 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d public",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "deploy": "gh-pages -b master -d public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
