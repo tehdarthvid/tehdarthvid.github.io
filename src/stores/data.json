@@ -20,70 +20,70 @@
     {
       "title": "Node.js",
       "url": "https://nodejs.org/",
-      "imgURL": "/assets/images/nodejs.svg"
+      "imgURL": "assets/images/nodejs.svg"
     },
     {
       "title": "Amazon Web Services",
       "url": "https://aws.amazon.com/",
-      "imgURL": "/assets/images/aws.png"
+      "imgURL": "assets/images/aws.png"
     },
     {
       "title": "C",
       "url": "http://csapp.cs.cmu.edu/3e/docs/chistory.html",
-      "imgURL": "/assets/images/clang.jpg"
+      "imgURL": "assets/images/clang.jpg"
     },
 
     {
       "title": "Google Cloud Platform",
       "url": "https://cloud.google.com/",
-      "imgURL": "/assets/images/gcp.png"
+      "imgURL": "assets/images/gcp.png"
     },
     {
       "title": "Svelte",
       "url": "https://svelte.dev/",
-      "imgURL": "/assets/images/svelte.png"
+      "imgURL": "assets/images/svelte.png"
     },
     {
       "title": "Vue.js",
       "url": "https://vuejs.org/",
-      "imgURL": "/assets/images/vue.png"
+      "imgURL": "assets/images/vue.png"
     },
 
     {
       "title": "fish",
       "url": "https://fishshell.com/",
-      "imgURL": "/assets/images/fish.png"
+      "imgURL": "assets/images/fish.png"
     },
     {
       "title": "kitty",
       "url": "https://sw.kovidgoyal.net/kitty/",
-      "imgURL": "/assets/images/kitty.png"
+      "imgURL": "assets/images/kitty.png"
     },
     {
       "title": "Visual Studio Code",
       "url": "https://code.visualstudio.com/",
-      "imgURL": "/assets/images/vscode.png"
+      "imgURL": "assets/images/vscode.png"
     },
 
     {
       "title": "GitHub Actions",
       "url": "https://github.com/features/actions",
-      "imgURL": "/assets/images/gh-actions.svg"
+      "imgURL": "assets/images/gh-actions.svg"
     },
     {
       "title": "GitLab CI/CD",
       "url": "https://docs.gitlab.com/ee/ci/introduction/",
-      "imgURL": "/assets/images/gl-cicd.png"
+      "imgURL": "assets/images/gl-cicd.png"
     },
     {
       "title": "Go",
       "url": "https://golang.org/",
-      "imgURL": "/assets/images/go-gopher.png"
+      "imgURL": "assets/images/go-gopher.png"
     },
     {
       "title": "Rust",
       "url": "https://www.rust-lang.org/",
-      "imgURL": "/assets/images/rust-ferris.svg"
+      "imgURL": "assets/images/rust-ferris.svg"
     }
   ]
 }
