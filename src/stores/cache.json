@@ -1,26 +1,27 @@
 [
   {
-    "title": "Atgtha in Absurdia",
-    "url": "https://itch.io/jam/7drl-challenge-2020/rate/583421",
-    "imgURL": "https://img.itch.zone/aW1nLzMwNzQ3OTIuZ2lm/315x250%23c/whTOyr.gif",
-    "date": "8 Mar 2020"
+    "title": "Curious Expidition",
+    "url": "https://curious-expedition.com",
+    "imgURL": "https://curious-expedition.com/img/pic_19.gif",
+    "date": "2 Sep 2016"
   },
   {
-    "title": "k6",
-    "url": "https://k6.io/",
-    "imgURL": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3a723e87788095.5dc2dc939a356.gif",
-    "date": "2016"
-  },
-  {
-    "title": "-Deedlit in Wonder Labyrinth-",
-    "url": "https://store.steampowered.com/app/1203630/Record_of_Lodoss_WarDeedlit_in_Wonder_Labyrinth/",
-    "imgURL": "https://steamcdn-a.akamaihd.net/steam/apps/1203630/extras/%E2%91%A3%E5%A6%96%E7%B2%BE%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88.gif",
-    "date": "15 Mar 2020 ea"
+    "title": "fish shell",
+    "url": "https://fishshell.com/",
+    "imgURL": "https://spin.atomicobject.com/wp-content/uploads/20170512131543/fish-history.gif",
+    "staticImgURL": "https://fishshell.com/assets/img/screenshots/works_out_of_the_box.png",
+    "date": "13 February 2005"
   },
   {
     "title": "A Short Hike",
     "url": "http://ashorthike.com/",
     "imgURL": "http://ashorthike.com/press/images/gif1.gif",
     "date": "5 Apr 2019"
+  },
+  {
+    "title": "-Deedlit in Wonder Labyrinth-",
+    "url": "https://store.steampowered.com/app/1203630/Record_of_Lodoss_WarDeedlit_in_Wonder_Labyrinth/",
+    "imgURL": "https://steamcdn-a.akamaihd.net/steam/apps/1203630/extras/%E2%91%A3%E5%A6%96%E7%B2%BE%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88.gif",
+    "date": "15 Mar 2020 ea"
   }
 ]
