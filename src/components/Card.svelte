@@ -104,6 +104,7 @@
   }
   .card {
     position: relative;
+    text-align: center;
     flex: 0 0 240px;
     width: 100%;
     height: 100%;
@@ -179,25 +180,23 @@
   }
 </style>
 
-<div>
-  <div
-    class="card-wrap"
-    on:mousemove={handleMouseMove}
-    on:mouseenter={handleMouseEnter}
-    on:mouseleave={handleMouseLeave}
-    on:dblclick={handleDblClick}>
-    <div class="card" style="transform: rotateY({rX}deg) rotateX({rY}deg)">
+<div
+  class="card-wrap"
+  on:mousemove={handleMouseMove}
+  on:mouseenter={handleMouseEnter}
+  on:mouseleave={handleMouseLeave}
+  on:dblclick={handleDblClick}>
+  <div class="card" style="transform: rotateY({rX}deg) rotateX({rY}deg)">
 
-      <div
-        class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
-        style="transform: translateX({tX}px) translateY({tY}px);
-        background-image: url({imgURL})" />
+    <div
+      class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
+      style="transform: translateX({tX}px) translateY({tY}px); background-image:
+      url({imgURL})" />
 
-      <div class="card-info">
-        <h1>{title ? title : ''}</h1>
-        <p>{date ? date : ''}</p>
-      </div>
-
+    <div class="card-info">
+      <h1>{title ? title : ''}</h1>
+      <p>{date ? date : ''}</p>
     </div>
+
   </div>
 </div>
