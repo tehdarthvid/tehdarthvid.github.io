@@ -8,7 +8,7 @@ Currently implemented in Svelte using rollup and npm.
 
 ## Automation
 
-Production ![GitHub Pages Deploy](https://github.com/tehdarthvid/tehdarthvid.github.io/workflows/GitHub%20Pages%20Deploy/badge.svg)
+![GitHub Pages Deploy](https://github.com/tehdarthvid/tehdarthvid.github.io/workflows/GitHub%20Pages%20Deploy/badge.svg)
 
 `.github/workflows/pages.yml` is a GitHub Action triggered by pushes to `dev` branch (except if the push is just README.md). The action does the following:
 
