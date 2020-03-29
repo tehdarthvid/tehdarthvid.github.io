@@ -1,0 +1,9 @@
+#build {
+  font-size: 0.38195em;
+}
+
+.wrapus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

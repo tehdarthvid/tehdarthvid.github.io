@@ -1,0 +1,13 @@
+{
+  "short_name": "darthvid.com",
+  "name": "darthvid's homepage",
+  "icons": [
+    {
+      "src": "favicon.png",
+
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}

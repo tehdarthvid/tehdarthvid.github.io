@@ -1,8 +1,7 @@
-html,
+@import url("https://fonts.googleapis.com/css?family=Lexend+Deca|Noto+Sans+JP|Source+Code+Pro|Ubuntu&display=swap");
 body {
   position: relative;
-  width: 95%;
-  height: 100%;
+  text-align: center;
 }
 
 body {
@@ -24,4 +23,8 @@ a:hover {
 
 a:visited {
   color: #669966;
+}
+
+main {
+  text-align: center;
 }
