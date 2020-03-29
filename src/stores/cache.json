@@ -1,5 +1,11 @@
 [
   {
+    "title": "Solid",
+    "url": "https://github.com/ryansolid/solid",
+    "imgURL": "https://raw.githubusercontent.com/ryansolid/solid/master/assets/logo.png",
+    "date": "2019"
+  },
+  {
     "title": "Curious Expedition",
     "url": "https://curious-expedition.com",
     "imgURL": "https://curious-expedition.com/img/pic_19.gif",
@@ -17,11 +23,5 @@
     "url": "http://ashorthike.com/",
     "imgURL": "http://ashorthike.com/press/images/gif1.gif",
     "date": "5 Apr 2019"
-  },
-  {
-    "title": "-Deedlit in Wonder Labyrinth-",
-    "url": "https://store.steampowered.com/app/1203630/Record_of_Lodoss_WarDeedlit_in_Wonder_Labyrinth/",
-    "imgURL": "https://steamcdn-a.akamaihd.net/steam/apps/1203630/extras/%E2%91%A3%E5%A6%96%E7%B2%BE%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88.gif",
-    "date": "15 Mar 2020 ea"
   }
 ]
