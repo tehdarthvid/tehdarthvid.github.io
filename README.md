@@ -1,3 +1,9 @@
+# `dev-solid` branch
+
+Experimental branch to learn SolidJS. Uses Parcel and yarn. Didn't use `npm init solid app my-app` tho I did take some premade stuff from it.
+
+Since it's still experimental, it's still kinda dirty.
+
 # homepage
 
 Just the source for my homepage. Hosted on GitHub Pages.
