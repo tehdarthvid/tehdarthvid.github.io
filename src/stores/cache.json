@@ -1,22 +1,16 @@
 [
   {
-    "title": "Solid",
-    "url": "https://github.com/ryansolid/solid",
-    "imgURL": "https://raw.githubusercontent.com/ryansolid/solid/master/assets/logo.png",
-    "date": "2019"
+    "title": "Flutter",
+    "url": "https://flutter.dev/",
+    "imgURL": "https://flutter.dev/assets/tools/android-studio/hot-reload-36252b9c05984443ea5cd1960bab0f4ca904a6dfbe71165af4ed7f1b1c037124.gif",
+    "date": "May 2017",
+    "added": "5 Apr 2020"
   },
   {
     "title": "Curious Expedition",
     "url": "https://curious-expedition.com",
     "imgURL": "https://curious-expedition.com/img/pic_19.gif",
     "date": "2 Sep 2016"
-  },
-  {
-    "title": "fish shell",
-    "url": "https://fishshell.com/",
-    "imgURL": "https://spin.atomicobject.com/wp-content/uploads/20170512131543/fish-history.gif",
-    "staticImgURL": "https://fishshell.com/assets/img/screenshots/works_out_of_the_box.png",
-    "date": "13 February 2005"
   },
   {
     "title": "A Short Hike",
