@@ -18,12 +18,13 @@
   let img = new Image();
   let mouseLeaveDelay = null;
 
-  //onMount(() => {
+  /*
+   * Svelte lifecycle handlers
+   */
+
   afterUpdate(() => {
     if (imgURL) {
-      img.onload = () => {
-        isBgImageLoaded = true;
-      };
+      img.onload = handleImageLoaded;
       img.src = imgURL;
     }
   });
@@ -32,9 +33,14 @@
     clearTimeout(mouseLeaveDelay);
   });
 
-  function handleImageLoaded() {
+  /*
+   * event handlers
+   */
+
+  // The behaviour changes if this is not an anonymous function.
+  const handleImageLoaded = () => {
     isBgImageLoaded = true;
-  }
+  };
   function handleMouseMove(e) {
     mX = (e.pageX - this.offsetLeft - this.clientWidth / 2) / this.clientWidth;
     mY = (e.pageY - this.offsetTop - this.clientHeight / 2) / this.clientHeight;
@@ -179,6 +185,11 @@
     transform: translateY(100%);
     transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   }
+
+  /* 
+   * Center the video inside the card like the image verison. 
+   * Otherwise, everything else rely on `card-bg`.
+   */
   video {
     position: absolute;
     top: 50%;
