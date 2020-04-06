@@ -3,6 +3,7 @@
 
   export let title;
   export let imgURL;
+  export let vidURL;
   export let date;
   export let url;
 
@@ -20,12 +21,7 @@
   //onMount(() => {
   afterUpdate(() => {
     if (imgURL) {
-      img.onload = function() {
-        //console.log(title + " onLoad");
-        isBgImageLoaded = true;
-      };
-
-      //console.log(title + " onMount");
+      img.onload = handleImageLoaded();
       img.src = imgURL;
     }
   });
@@ -34,6 +30,9 @@
     clearTimeout(mouseLeaveDelay);
   });
 
+  function handleImageLoaded() {
+    isBgImageLoaded = true;
+  }
   function handleMouseMove(e) {
     mX = (e.pageX - this.offsetLeft - this.clientWidth / 2) / this.clientWidth;
     mY = (e.pageY - this.offsetTop - this.clientHeight / 2) / this.clientHeight;
@@ -127,7 +126,7 @@
     background-position: center;
     background-size: cover;
     transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
-      opacity 2s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      opacity 2s 5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     pointer-events: none;
   }
   .card-bg__fade-in {
@@ -178,6 +177,12 @@
     transform: translateY(100%);
     transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   }
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 </style>
 
 <div
@@ -186,12 +191,27 @@
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseLeave}
   on:dblclick={handleDblClick}>
+
   <div class="card" style="transform: rotateY({rX}deg) rotateX({rY}deg)">
 
-    <div
-      class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
-      style="transform: translateX({tX}px) translateY({tY}px); background-image:
-      url({imgURL})" />
+    {#if null != vidURL}
+      <div
+        class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
+        style="transform: translateX({tX}px) translateY({tY}px); ">
+        <video
+          class={isBgImageLoaded ? 'video__fade-in' : ''}
+          src={vidURL}
+          autoplay="true"
+          loop="true"
+          muted="true"
+          on:playing={handleImageLoaded} />
+      </div>
+    {:else if null != imgURL}
+      <div
+        class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
+        style="transform: translateX({tX}px) translateY({tY}px);
+        background-image: url({imgURL})" />
+    {/if}
 
     <div class="card-info">
       <h1>{title ? title : ''}</h1>
