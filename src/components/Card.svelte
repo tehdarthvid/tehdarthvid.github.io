@@ -21,7 +21,9 @@
   //onMount(() => {
   afterUpdate(() => {
     if (imgURL) {
-      img.onload = handleImageLoaded();
+      img.onload = () => {
+        isBgImageLoaded = true;
+      };
       img.src = imgURL;
     }
   });
@@ -126,7 +128,7 @@
     background-position: center;
     background-size: cover;
     transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
-      opacity 2s 5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      opacity 2s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     pointer-events: none;
   }
   .card-bg__fade-in {
@@ -199,7 +201,6 @@
         class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
         style="transform: translateX({tX}px) translateY({tY}px); ">
         <video
-          class={isBgImageLoaded ? 'video__fade-in' : ''}
           src={vidURL}
           autoplay="true"
           loop="true"
