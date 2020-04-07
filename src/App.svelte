@@ -43,13 +43,13 @@
 </style>
 
 <header>
+  {#if null != site_data.welcome_msg}
+    <p>{site_data.welcome_msg}</p>
+  {/if}
   {#if null != site_data.name}
     <h1>
       <a href="/">{site_data.name}</a>
     </h1>
-  {/if}
-  {#if null != site_data.welcome_msg}
-    <p>{site_data.welcome_msg}</p>
   {/if}
 </header>
 
@@ -64,12 +64,9 @@
   {/if}
 
   <Deck />
-  <!--
-    <Deck />
-  -->
 
   {#if null != site_data.projects}
-    <h2>pet projects</h2>
+    <h2>plays with</h2>
     <div class="wrapus">
       {#each site_data.projects as linkData}
         <LinkTo {...linkData} />
