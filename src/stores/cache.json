@@ -3,6 +3,7 @@
     "title": "holedown",
     "url": "https://holedown.com/",
     "imgURL": "https://presskit.grapefrukt.com/data/holedown/images/holedown-animated-01.gif",
+    "vidURL": "https://holedown.com/video/teaser.mp4",
     "date": "26 Jul 2018"
   },
   {
@@ -16,7 +17,6 @@
     "title": "fish shell",
     "url": "https://fishshell.com/",
     "imgURL": "https://spin.atomicobject.com/wp-content/uploads/20170512131543/fish-history.gif",
-    "staticImgURL": "https://fishshell.com/assets/img/screenshots/works_out_of_the_box.png",
     "date": "13 February 2005"
   },
   {
