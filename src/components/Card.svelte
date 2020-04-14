@@ -24,7 +24,6 @@
 
   afterUpdate(() => {
     if (!vidURL && !isBgImageLoaded && imgURL) {
-      console.log(title);
       img = new Image();
       img.onload = handleImageLoaded;
       img.src = imgURL;
