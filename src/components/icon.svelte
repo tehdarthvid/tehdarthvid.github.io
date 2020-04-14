@@ -1,7 +1,33 @@
 <script>
+  import { afterUpdate } from "svelte";
+
   export let title;
   export let url;
   export let imgURL;
+
+  let isBgImageLoaded = false;
+  let img = null;
+
+  /*
+   * Svelte lifecycle handlers
+   */
+
+  afterUpdate(() => {
+    if (!isBgImageLoaded && imgURL) {
+      img = new Image();
+      img.onload = handleImageLoaded;
+      img.src = imgURL;
+    }
+  });
+
+  /*
+   * event handlers
+   */
+
+  // The behaviour changes if this is not an anonymous function.
+  const handleImageLoaded = () => {
+    isBgImageLoaded = true;
+  };
 </script>
 
 <style scoped>
@@ -15,6 +41,8 @@
 
 <div class="icon">
   <a href={url} {title} target="_blank">
-    <img class="icon" alt={title} src={imgURL} />
+    {#if isBgImageLoaded}
+      <img class="icon" alt={title} src={imgURL} />
+    {/if}
   </a>
 </div>
