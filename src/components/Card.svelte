@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy, afterUpdate } from "svelte";
+  import { onDestroy, afterUpdate } from "svelte";
 
   export let title;
   export let imgURL;
@@ -15,7 +15,7 @@
   $: tY = mY * -40;
 
   let isBgImageLoaded = false;
-  let img = new Image();
+  let img = null;
   let mouseLeaveDelay = null;
 
   /*
@@ -23,7 +23,9 @@
    */
 
   afterUpdate(() => {
-    if (imgURL) {
+    if (!vidURL && !isBgImageLoaded && imgURL) {
+      console.log(title);
+      img = new Image();
       img.onload = handleImageLoaded;
       img.src = imgURL;
     }
