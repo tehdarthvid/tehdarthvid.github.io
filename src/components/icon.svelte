@@ -33,6 +33,8 @@
 <style scoped>
   .icon {
     height: 8vh;
+    width: 8vh;
+    padding: 1px;
   }
   .icon:hover {
     box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, rgb(66, 99, 66) 0 0 0 1px;
