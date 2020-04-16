@@ -66,7 +66,7 @@
   <Deck />
 
   {#if null != site_data.projects}
-    <h2>plays with</h2>
+    <h2>dabbles in</h2>
     <div class="wrapus">
       {#each site_data.projects as linkData}
         <LinkTo {...linkData} />
@@ -74,10 +74,10 @@
     </div>
   {/if}
 
-  {#if null != site_data.dabbles}
-    <h2>dabbles in</h2>
+  {#if null != site_data.toybox}
+    <h2>plays with</h2>
     <div class="wrapus">
-      {#each site_data.dabbles as linkData}
+      {#each site_data.toybox as linkData}
         <Icon {...linkData} />
       {/each}
     </div>
