@@ -4,11 +4,11 @@
   "links": [
     { "title": "GitHub", "url": "https://github.com/tehdarthvid" },
     { "title": "LinkedIn", "url": "https://www.linkedin.com/in/darthvid/" },
-    { "title": "Twitter", "url": "https://twitter.com/darthvid" },
     {
       "title": "Letterboxd",
       "url": "https://letterboxd.com/darthvid/films/"
-    }
+    },
+    { "title": "Twitter", "url": "https://twitter.com/darthvid" }
   ],
   "projects": [
     {
