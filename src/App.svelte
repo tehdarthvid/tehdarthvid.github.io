@@ -82,6 +82,15 @@
       {/each}
     </div>
   {/if}
+
+  {#if null != site_data.testing}
+    <h2>wants to play</h2>
+    <div class="wrapus">
+      {#each site_data.testing as linkData}
+        <Icon {...linkData} />
+      {/each}
+    </div>
+  {/if}
 </main>
 
 <footer>

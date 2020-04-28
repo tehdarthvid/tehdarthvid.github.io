@@ -68,16 +68,6 @@
       "url": "http://csapp.cs.cmu.edu/3e/docs/chistory.html",
       "imgURL": "assets/images/clang.jpg"
     },
-    {
-      "title": "Go",
-      "url": "https://golang.org/",
-      "imgURL": "assets/images/go-gopher.png"
-    },
-    {
-      "title": "Flutter",
-      "url": "https://flutter.dev/",
-      "imgURL": "assets/images/flutter.svg"
-    },
 
     {
       "title": "fish",
@@ -93,8 +83,24 @@
       "title": "kitty",
       "url": "https://sw.kovidgoyal.net/kitty/",
       "imgURL": "assets/images/kitty.png"
+    }
+  ],
+  "testing": [
+    {
+      "title": "Go",
+      "url": "https://golang.org/",
+      "imgURL": "assets/images/go-gopher.png"
     },
-
+    {
+      "title": "Blender",
+      "url": "https://www.blender.org/",
+      "imgURL": "assets/images/blender.png"
+    },
+    {
+      "title": "Flutter",
+      "url": "https://flutter.dev/",
+      "imgURL": "assets/images/flutter.svg"
+    },
     {
       "title": "GitLab CI/CD",
       "url": "https://docs.gitlab.com/ee/ci/introduction/",
