@@ -107,11 +107,6 @@
       "imgURL": "assets/images/flutter.svg"
     },
     {
-      "title": "GitLab CI/CD",
-      "url": "https://docs.gitlab.com/ee/ci/introduction/",
-      "imgURL": "assets/images/gl-cicd.png"
-    },
-    {
       "title": "Rust",
       "url": "https://www.rust-lang.org/",
       "imgURL": "assets/images/rust-ferris.svg"
