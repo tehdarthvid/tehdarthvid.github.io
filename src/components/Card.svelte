@@ -1,11 +1,7 @@
 <script>
   import { onDestroy, afterUpdate } from "svelte";
 
-  export let title;
-  export let imgURL;
-  export let vidURL;
-  export let date;
-  export let url;
+  export let params;
 
   let mX = 0;
   let mY = 0;
@@ -23,11 +19,12 @@
    */
 
   afterUpdate(() => {
-    if (!vidURL && !isBgImageLoaded && imgURL) {
+    if (!params.vidURL && !isBgImageLoaded && params.imgURL) {
       img = new Image();
       img.onload = handleImageLoaded;
-      img.src = imgURL;
+      img.src = params.imgURL;
     }
+    //console.log("afterUpdate: " + params.title);
   });
   onDestroy(() => {
     //console.log("the component is being destroyed");
@@ -40,6 +37,7 @@
 
   // The behaviour changes if this is not an anonymous function.
   const handleImageLoaded = () => {
+    // console.log(params.title);
     isBgImageLoaded = true;
   };
   function handleMouseMove(e) {
@@ -56,8 +54,8 @@
     }, 1000);
   }
   function handleDblClick(e) {
-    console.log(title + " dblclick");
-    window.open(url, "_blank");
+    console.log(params.title + " dblclick");
+    window.open(params.url, "_blank");
   }
 </script>
 
@@ -191,7 +189,7 @@
    * Center the video inside the card like the image verison. 
    * Otherwise, everything else rely on `card-bg`.
    */
-  video {
+  .center_video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -207,28 +205,45 @@
   on:dblclick={handleDblClick}>
 
   <div class="card" style="transform: rotateY({rX}deg) rotateX({rY}deg)">
-
-    {#if null != vidURL}
+    {#if null != params.ytVideoID}
+      <div
+        class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg card-bg__fade-in'}
+        style="transform: translateX({tX}px) translateY({tY}px); ">
+        <iframe
+          title={params.title ? params.title : ''}
+          class="center_video"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/{params.ytVideoID}?rel=0&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={params.ytVideoID}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope;
+          picture-in-picture"
+          loop="1"
+          allowfullscreen
+          onStateChange={handleImageLoaded} />
+      </div>
+    {:else if null != params.vidURL}
       <div
         class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
         style="transform: translateX({tX}px) translateY({tY}px); ">
         <video
-          src={vidURL}
+          class="center_video"
+          src={params.vidURL}
           autoplay="true"
           loop="true"
           muted="true"
           on:playing={handleImageLoaded} />
       </div>
-    {:else if null != imgURL}
+    {:else if null != params.imgURL}
       <div
         class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
         style="transform: translateX({tX}px) translateY({tY}px);
-        background-image: url({imgURL})" />
+        background-image: url({params.imgURL})" />
     {/if}
 
     <div class="card-info">
-      <h1>{title ? title : ''}</h1>
-      <p>{date ? date : ''}</p>
+      <h1>{params.title ? params.title : ''}</h1>
+      <p>{params.date ? params.date : ''}</p>
     </div>
 
   </div>
