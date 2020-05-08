@@ -85,11 +85,16 @@
       "imgURL": "assets/images/kitty.png"
     }
   ],
-  "testing": [
+  "shelf": [
     {
       "title": "Go",
       "url": "https://golang.org/",
       "imgURL": "assets/images/go-gopher.png"
+    },
+    {
+      "title": "Deno",
+      "url": "https://deno.land/",
+      "imgURL": "assets/images/deno.svg"
     },
     {
       "title": "Blender",
@@ -110,11 +115,6 @@
       "title": "Rust",
       "url": "https://www.rust-lang.org/",
       "imgURL": "assets/images/rust-ferris.svg"
-    },
-    {
-      "title": "Deno",
-      "url": "https://deno.land/",
-      "imgURL": "assets/images/deno.svg"
     }
   ]
 }
