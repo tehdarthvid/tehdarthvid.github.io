@@ -110,6 +110,11 @@
       "title": "Rust",
       "url": "https://www.rust-lang.org/",
       "imgURL": "assets/images/rust-ferris.svg"
+    },
+    {
+      "title": "Deno",
+      "url": "https://deno.land/",
+      "imgURL": "assets/images/deno.svg"
     }
   ]
 }
