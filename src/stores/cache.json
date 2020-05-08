@@ -1,26 +1,16 @@
 [
   {
-    "title": "Fool Moon",
-    "url": "https://www.jim-butcher.com/books/dresden/fool-moon",
-    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1506892110l/1111757._SX318_.jpg",
-    "date": "1 Jan 2001"
+    "title": "Deno",
+    "url": "https://deno.land/",
+    "imgURL": "https://raw.githubusercontent.com/denolib/animated-deno-logo/master/deno-rect-24fps.gif",
+    "date": "13 May 2020",
+    "added": "8 May 2020"
   },
   {
-    "title": "CrossCode",
-    "url": "https://www.cross-code.com/",
-    "imgURL": "http://www.radicalfishgames.com/presskit/crosscode/images/0-01-boss-laser.gif",
-    "date": "21 Sep 2018"
-  },
-  {
-    "title": "Storm Front",
-    "url": "https://www.jim-butcher.com/books/dresden/storm-front",
-    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1579185054l/6219313._SY475_.jpg",
-    "date": "1 Apr 2000"
-  },
-  {
-    "title": "Blender 2.8 Basics",
-    "url": "https://cgcookie.com/course/learn-blender-2-8-the-basics-tutorial",
-    "imgURL": "https://s3.amazonaws.com/cgcookie-rails/uploads%2F1567114319751-Fill.gif",
-    "date": "2019"
+    "title": "Grave Peril",
+    "url": "https://www.jim-butcher.com/books/dresden/grave-peril",
+    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1330937863l/8171449.jpg",
+    "date": "1 Sep 2001",
+    "added": "8 May 2020"
   }
 ]
