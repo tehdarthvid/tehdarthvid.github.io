@@ -55,40 +55,48 @@
 
 <main>
   {#if null != site_data.links}
-    <h2>is at</h2>
-    <div class="wrapus">
-      {#each site_data.links as linkData}
-        <LinkTo {...linkData} />
-      {/each}
+    <div id="is-at">
+      <h2>is at</h2>
+      <div class="wrapus">
+        {#each site_data.links as linkData}
+          <LinkTo {...linkData} />
+        {/each}
+      </div>
     </div>
   {/if}
 
   <Deck />
 
   {#if null != site_data.projects}
-    <h2>dabbles in</h2>
-    <div class="wrapus">
-      {#each site_data.projects as linkData}
-        <LinkTo {...linkData} />
-      {/each}
+    <div id="dabbles-in">
+      <h2>dabbles in</h2>
+      <div class="wrapus">
+        {#each site_data.projects as linkData}
+          <LinkTo {...linkData} />
+        {/each}
+      </div>
     </div>
   {/if}
 
   {#if null != site_data.toybox}
-    <h2>plays with</h2>
-    <div class="wrapus">
-      {#each site_data.toybox as linkData}
-        <Icon {...linkData} />
-      {/each}
+    <div id="plays-with">
+      <h2>plays with</h2>
+      <div class="wrapus">
+        {#each site_data.toybox as linkData}
+          <Icon {...linkData} />
+        {/each}
+      </div>
     </div>
   {/if}
 
   {#if null != site_data.shelf}
-    <h2>wants to play</h2>
-    <div class="wrapus">
-      {#each site_data.shelf as linkData}
-        <Icon {...linkData} />
-      {/each}
+    <div id="wants-to-play">
+      <h2>wants to play</h2>
+      <div class="wrapus">
+        {#each site_data.shelf as linkData}
+          <Icon {...linkData} />
+        {/each}
+      </div>
     </div>
   {/if}
 </main>
