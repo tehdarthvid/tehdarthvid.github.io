@@ -1,5 +1,12 @@
 [
   {
+    "title": "Summer Knight",
+    "url": "https://www.jim-butcher.com/books/dresden/summer-knight",
+    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1345557469l/91478.jpg",
+    "date": "3 Sep 2002",
+    "added": "12 May 2020"
+  },
+  {
     "title": "Deno",
     "url": "https://deno.land/",
     "imgURL": "https://raw.githubusercontent.com/denolib/animated-deno-logo/master/deno-rect-24fps.gif",
