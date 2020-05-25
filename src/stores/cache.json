@@ -1,23 +1,16 @@
 [
   {
-    "title": "Summer Knight",
-    "url": "https://www.jim-butcher.com/books/dresden/summer-knight",
-    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1345557469l/91478.jpg",
-    "date": "3 Sep 2002",
-    "added": "12 May 2020"
+    "title": "Dead Beat",
+    "url": "https://www.jim-butcher.com/books/dresden/dead-beat",
+    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1304026532l/477732.jpg",
+    "date": "3 May 2005",
+    "added": "25 May 2020"
   },
   {
     "title": "Deno",
     "url": "https://deno.land/",
     "imgURL": "https://raw.githubusercontent.com/denolib/animated-deno-logo/master/deno-rect-24fps.gif",
     "date": "13 May 2020",
-    "added": "8 May 2020"
-  },
-  {
-    "title": "Grave Peril",
-    "url": "https://www.jim-butcher.com/books/dresden/grave-peril",
-    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1579186079l/7021986._SY475_.jpg",
-    "date": "1 Sep 2001",
     "added": "8 May 2020"
   }
 ]
