@@ -1,16 +1,23 @@
 [
   {
-    "title": "Dead Beat",
-    "url": "https://www.jim-butcher.com/books/dresden/dead-beat",
-    "imgURL": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1304026532l/477732.jpg",
-    "date": "3 May 2005",
-    "added": "25 May 2020"
+    "title": "『ルパン三世 THE FIRST』",
+    "url": "https://lupin-3rd-movie.com/",
+    "imgURL": "https://pbs.twimg.com/media/EKi4LbhUwAE31pt?format=png",
+    "date": "6 Dec 2019",
+    "added": "13 Jun 2020"
   },
   {
-    "title": "Deno",
-    "url": "https://deno.land/",
-    "imgURL": "https://raw.githubusercontent.com/denolib/animated-deno-logo/master/deno-rect-24fps.gif",
-    "date": "13 May 2020",
-    "added": "8 May 2020"
+    "title": "『映像研には手を出すな！』",
+    "url": "http://eizouken-anime.com/",
+    "imgURL": "https://i0.wp.com/doublesama.com/wp-content/uploads/2020/04/Keep-Your-Hands-Off-Eizouken-cover.jpg",
+    "date": "5 Jan 2020 - 22 Mar 2020",
+    "added": "13 Jun 2020"
+  },
+  {
+    "title": "『プリンセスコネクト！ Re:Dive』",
+    "url": "https://anime.priconne-redive.jp/",
+    "imgURL": "https://anime.priconne-redive.jp/assets/images/top_kv.png",
+    "date": "6 Apr 2020 - ongoing",
+    "added": "13 Jun 2020"
   }
 ]
