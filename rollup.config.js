@@ -19,13 +19,17 @@ if (null == process.env.GA_TRACKING_ID) {
   throw new Error("Missing environment variable `GA_TRACKING_ID`");
 }
 
+// delete public/build so all artifacts will be freshly made
+// holefully this will catch build problems by dirty artifacts in generated folders
+cleanBuildFolder();
+
 export default {
   input: "src/main.js",
   output: {
     sourcemap: true,
     format: "iife",
     name: "app",
-    file: "public/build/bundle.js"
+    file: "public/build/bundle.js",
   },
   plugins: [
     replace({
@@ -33,9 +37,9 @@ export default {
         env: {
           gaID: process.env.GA_TRACKING_ID,
           git_hash: process.env.GITHUB_SHA,
-          url_recent_deck: process.env.URL_RECENT_DECK
-        }
-      })
+          url_recent_deck: process.env.URL_RECENT_DECK,
+        },
+      }),
     }),
     json(),
     svelte({
@@ -43,9 +47,9 @@ export default {
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file - better for performance
-      css: css => {
+      css: (css) => {
         css.write("public/build/bundle.css");
-      }
+      },
     }),
 
     // If you have external dependencies installed from
@@ -55,7 +59,7 @@ export default {
     // https://github.com/rollup/plugins/tree/master/packages/commonjs
     resolve({
       browser: true,
-      dedupe: ["svelte"]
+      dedupe: ["svelte"],
     }),
     commonjs(),
 
@@ -69,11 +73,11 @@ export default {
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
-    production && terser()
+    production && terser(),
   ],
   watch: {
-    clearScreen: false
-  }
+    clearScreen: false,
+  },
 };
 
 function serve() {
@@ -86,9 +90,17 @@ function serve() {
 
         require("child_process").spawn("npm", ["run", "start", "--", "--dev"], {
           stdio: ["ignore", "inherit", "inherit"],
-          shell: true
+          shell: true,
         });
       }
-    }
+    },
   };
+}
+
+function cleanBuildFolder() {
+  console.log("echo....");
+  require("child_process").spawn("rm", ["-rf", "public/build"], {
+    stdio: ["ignore", "inherit", "inherit"],
+    shell: true,
+  });
 }
