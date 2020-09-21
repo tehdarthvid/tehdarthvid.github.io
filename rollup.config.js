@@ -9,9 +9,12 @@ import json from "@rollup/plugin-json";
 
 const production = !process.env.ROLLUP_WATCH;
 
+/*
+TODO: forRemoval: Current code reads from life, not URL. 
 if (null == process.env.URL_RECENT_DECK) {
-  throw new Error("Missing environment variable `URL_RECENT_DECK`");
+throw new Error("Missing environment variable `URL_RECENT_DECK`");
 }
+*/
 if (null == process.env.GITHUB_SHA) {
   throw new Error("Missing environment variable `GITHUB_SHA`");
 }
@@ -62,7 +65,7 @@ export default {
         env: {
           gaID: process.env.GA_TRACKING_ID,
           git_hash: process.env.GITHUB_SHA,
-          url_recent_deck: process.env.URL_RECENT_DECK,
+          //url_recent_deck: process.env.URL_RECENT_DECK,
         },
       }),
     }),

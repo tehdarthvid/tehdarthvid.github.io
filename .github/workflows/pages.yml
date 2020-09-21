@@ -28,7 +28,7 @@ jobs:
 
       - name: Build ${{ github.ref }}
         env:
-          URL_RECENT_DECK: ${{ secrets.URL_RECENT_DECK }}
+#          URL_RECENT_DECK: ${{ secrets.URL_RECENT_DECK }}
           GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
         run: |
           npm install
