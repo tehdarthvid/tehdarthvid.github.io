@@ -203,7 +203,6 @@
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseLeave}
   on:dblclick={handleDblClick}>
-
   <div class="card" style="transform: rotateY({rX}deg) rotateX({rY}deg)">
     {#if null != params.ytVideoID}
       <div
@@ -214,7 +213,7 @@
           class="center_video"
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/{params.ytVideoID}?rel=0&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={params.ytVideoID}"
+          src="https://www.youtube.com/embed/{params.ytVideoID}?rel=0&controls=0&autoplay=1&mute=1&loop=1&playlist={params.ytVideoID}"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope;
           picture-in-picture"
@@ -245,6 +244,5 @@
       <h1>{params.title ? params.title : ''}</h1>
       <p>{params.date ? params.date : ''}</p>
     </div>
-
   </div>
 </div>
