@@ -63,8 +63,7 @@
   p {
     font-size: 0.618em;
   }
-  h1 + p,
-  p + p {
+  h1 + p {
     margin-top: 10px;
   }
   * {
