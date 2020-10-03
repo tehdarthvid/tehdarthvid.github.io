@@ -1,24 +1,17 @@
 [
   {
+    "title": "Roguelike Celebration 2020",
+    "url": "https://roguelike.club/event2020.html",
+    "imgURL": "https://pbs.twimg.com/media/EjbCHFZVoAAOcFt?format=png",
+    "date": "3 Oct 2020 - 4 Oct 2020",
+    "added": "4 Oct 2020"
+  },
+  {
     "title": "Hades",
     "url": "https://www.supergiantgames.com/games/hades/",
     "imgURL": "https://images.ctfassets.net/5owu3y35gz1g/3m6R8B2VKMGauiMAUcMSCu/76b7cc05349b20feb08798d2742e8fe9/Hades_Wallpaper_01.jpg",
     "aytVideoID": "YZZFlcE0fWE",
     "date": "17 Sep 2020",
     "added": "26 Sep 2020"
-  },
-  {
-    "title": "Aria Chronicle",
-    "url": "https://www.aria-chronicle.com/",
-    "imgURL": "https://www.aria-chronicle.com/images/product/aria-chronicle.png",
-    "ytVideoID": "dV8q6zEDvp8",
-    "date": "12 Jul 2020"
-  },
-  {
-    "title": "Star Renegades",
-    "url": "http://starrenegades.com/",
-    "imgURL": "http://starrenegades.com/img/SR-New-Header.jpg",
-    "aytVideoID": "3Fe0gqTU3Bg",
-    "date": "8 Sep 2020"
   }
 ]
