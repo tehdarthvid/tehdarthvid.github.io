@@ -1,10 +1,19 @@
 [
   {
-    "title": "Roguelike Celebration 2020",
-    "url": "https://roguelike.club/event2020.html",
-    "imgURL": "https://pbs.twimg.com/media/EjbCHFZVoAAOcFt?format=png",
-    "date": "3 Oct 2020 - 4 Oct 2020",
-    "added": "4 Oct 2020"
+    "title": "Crown Trick",
+    "url": "https://www.nextstudios.com/crowntrick/",
+    "ref": "https://twitter.com/CrownTrickGame/status/1317012403188543488",
+    "imgURL": "https://www.team17.com/wp-content/uploads/2020/07/009.png",
+    "date": "16 Oct 2020",
+    "added": "20 Oct 2020"
+  },
+  {
+    "title": "Genshin Impact",
+    "url": "https://genshin.mihoyo.com/",
+    "imgURL": "https://webstatic-sea.mihoyo.com/hk4e/upload/fb/common.jpg",
+    "date": "28 Sep 2020: v1.0",
+    "added": "20 Oct 2020",
+    "ref":"https://twitter.com/GenshinImpact/status/1310398825039765505"
   },
   {
     "title": "Hades",
