@@ -1,13 +1,5 @@
 [
   {
-    "title": "Crown Trick",
-    "url": "https://www.nextstudios.com/crowntrick/",
-    "ref": "https://twitter.com/CrownTrickGame/status/1317012403188543488",
-    "imgURL": "https://www.team17.com/wp-content/uploads/2020/07/009.png",
-    "date": "16 Oct 2020",
-    "added": "20 Oct 2020"
-  },
-  {
     "title": "Genshin Impact",
     "url": "https://genshin.mihoyo.com/",
     "imgURL": "https://webstatic-sea.mihoyo.com/hk4e/upload/fb/common.jpg",
@@ -16,11 +8,11 @@
     "ref":"https://twitter.com/GenshinImpact/status/1310398825039765505"
   },
   {
-    "title": "Hades",
-    "url": "https://www.supergiantgames.com/games/hades/",
-    "imgURL": "https://images.ctfassets.net/5owu3y35gz1g/3m6R8B2VKMGauiMAUcMSCu/76b7cc05349b20feb08798d2742e8fe9/Hades_Wallpaper_01.jpg",
-    "aytVideoID": "YZZFlcE0fWE",
-    "date": "17 Sep 2020",
-    "added": "26 Sep 2020"
+    "title": "GUILTY GEAR -STRIVE-",
+    "url": "https://www.guiltygear.com/ggst/",
+    "imgURL": "https://arcsystemworks.com/wp-content/uploads/2020/09/GGS_Boxart.jpg",
+    "date": "11 Jun 2021",
+    "added": "31 Aug 2021",
+    "ref":"https://twitter.com/GUILTYGEAR_PR/status/1403245616717733891"
   }
 ]
