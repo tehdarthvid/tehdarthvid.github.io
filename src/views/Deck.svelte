@@ -3,17 +3,9 @@
   import { deck } from "../stores/deckStore.js";
 </script>
 
-<style scoped>
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-</style>
-
 <div id="ran-into">
   {#if null != $deck}
-    <h2>ran into</h2>
+    <h2>currently into</h2>
     <div class="container">
       {#each $deck as card}
         <Card params={{ ...card }} />
@@ -21,3 +13,11 @@
     </div>
   {/if}
 </div>
+
+<style scoped>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
