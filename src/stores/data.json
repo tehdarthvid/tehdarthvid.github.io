@@ -2,13 +2,17 @@
   "name": "darthvid",
   "welcome_msg": "サイトへようこそ!",
   "links": [
-    { "title": "GitHub", "url": "https://github.com/tehdarthvid" },
     { "title": "LinkedIn", "url": "https://www.linkedin.com/in/darthvid/" },
     {
       "title": "Letterboxd",
       "url": "https://letterboxd.com/darthvid/films/"
     },
-    { "title": "Twitter", "url": "https://twitter.com/darthvid" }
+    {
+      "title": "Backloggd",
+      "url": "https://www.backloggd.com/u/darthvid/"
+    },
+    { "title": "Twitter", "url": "https://twitter.com/darthvid" },
+    { "title": "GitHub", "url": "https://github.com/tehdarthvid" }
   ],
   "projects": [
     {
