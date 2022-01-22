@@ -1,50 +1,34 @@
 [
   {
-    "title": "Jade Legacy",
-    "url": "https://www.fondalee.com/books/jade-legacy/",
-    "imgURL": "https://www.fondalee.com/wp-content/uploads/2021/05/Lee_Jade-Legacy_HC.jpg",
-    "date": "30 Nov 2021",
-    "added": "23 Dec 2021",
-    "ref":"https://twitter.com/FondaJLee/status/1465683031151108096"
+    "title": "その 着せ替え人形 は 恋 を する",
+    "url": "https://bisquedoll-anime.com/",
+    "imgURL": "https://bisquedoll-anime.com/assets/img/top/kv.jpg",
+    "date": "9 Jan 2022",
+    "added": "22 Jan 2022",
+    "ref":"https://twitter.com/kisekoi_anime/status/1479830262087254016"
   },
   {
-    "title": "Blue Reflection: Second Light",
+    "title": "プリンセスコネクト！Re:Dive Season 2",
+    "url": "https://anime.priconne-redive.jp/",
+    "imgURL": "https://i.imgur.com/TWvkCSu.jpg",
+    "date": "11 Jan 2022",
+    "added": "22 Jan 2022",
+    "ref":"https://twitter.com/priconne_anime/status/1480556305098375172"
+  },
+  {
+    "title": "CUE!",
+    "url": "https://cue-animation.jp/",
+    "imgURL": "https://ponycanyon.us/wp-content/uploads/2021/11/cue_bnr_xs.jpg",
+    "date": "8 Jan 2022",
+    "added": "22 Jan 2022",
+    "ref":"https://twitter.com/cue_anime/status/1479498080445939712",
+    "ref2":"https://twitter.com/cue_anime/status/1479512236037218306"
+  },
+  {
+    "title": "Blue Reflection",
     "url": "https://blue-reflection.com/",
-    "imgURL": "https://blue-reflection.com/img/02.png",
-    "date": "21 Oct 2021",
-    "added": "6 Dec 2021",
-    "ref":"https://twitter.com/BR_general_info/status/1450839399374065665"
-  },
-  {
-    "title": "Atelier Sophie",
-    "url": "https://social.gust.co.jp/sophie/",
-    "imgURL": "https://www.nintendo-difference.com/wp-content/uploads/2021/02/Atelier-Sophie-4.jpg",
-    "date": "19 Nov 2015",
-    "added": "9 Dec 2021",
-    "ref":"https://www.famitsu.com/news/201506/29081919.html"
-  },
-  {
-    "title": "Atelier Ryza 2",
-    "url": "http://www.gamecity.ne.jp/atelier/ryza2/",
-    "imgURL": "https://www.koeitecmoamerica.com/ryza2/img/top/about_img010_zoom.jpg",
-    "date": "3 Dec 2020",
-    "added": "6 Dec 2021",
-    "ref":"https://twitter.com/GustAtelierPR/status/1334150474266644482"
-  },
-  {
-    "title": "Mary Skelter: Nightmares",
-    "url": "https://www.compileheart.com/mary-skelter/",
-    "imgURL": "https://www.compileheart.com/mary-skelter/gallery/img/cg/1.jpg",
-    "date": "13 Oct 2016",
-    "added": "6 Dec 2021"
-  },
-  {
-    "title": "Selection Project",
-    "url": "http://pjselection.com/",
-    "imgURL": "http://pjselection.com/assets/top/v2/vis.jpg",
-    "date": "1 Oct 2021",
-    "added": "6 Dec 2021",
-    "ref":"http://pjselection.com/news.html#news-211001-1"
+    "imgURL": "https://blue-reflection.com/img/01.png",
+    "date": "30 Mar 2017",
+    "added": "22 Jan 2022"
   }
-
 ]
