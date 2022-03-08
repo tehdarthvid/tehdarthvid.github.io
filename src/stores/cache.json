@@ -1,11 +1,35 @@
 [
   {
+    "title": "Blue Archive",
+    "url": "https://bluearchive.nexon.com/",
+    "imgURL": "https://static.wikia.nocookie.net/blue-archive/images/4/44/BA_Visual_1.png",
+    "date": "4 Feb 2021",
+    "added": "8 Mar 2022",
+    "ref":"https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/"
+  },
+  {
+    "title": "ソフィーのアトリエ2 ～不思議な夢の錬金術士～",
+    "url": "http://www.gamecity.ne.jp/atelier/sophie2/",
+    "imgURL": "http://www.gamecity.ne.jp/atelier/sophie2/img/top/kv/kv.webp",
+    "date": "24 Feb 2022",
+    "added": "8 Mar 2022",
+    "ref":"https://twitter.com/GustAtelierPR/status/1496500286592065546"
+  },
+  {
     "title": "その 着せ替え人形 は 恋 を する",
     "url": "https://bisquedoll-anime.com/",
     "imgURL": "https://bisquedoll-anime.com/assets/img/top/kv.jpg",
-    "date": "9 Jan 2022",
+    "date": "8 Jan 2022",
     "added": "22 Jan 2022",
     "ref":"https://twitter.com/kisekoi_anime/status/1479830262087254016"
+  },
+  {
+    "title": "スローループ",
+    "url": "https://slowlooptv.com/",
+    "imgURL": "https://slowlooptv.com/images/top/v_004.jpg",
+    "date": "7 Jan 2022",
+    "added": "8 Mar 2022",
+    "ref":"https://twitter.com/slowloop_tv/status/1479460313254793221"
   },
   {
     "title": "プリンセスコネクト！Re:Dive Season 2",
@@ -23,12 +47,5 @@
     "added": "22 Jan 2022",
     "ref":"https://twitter.com/cue_anime/status/1479498080445939712",
     "ref2":"https://twitter.com/cue_anime/status/1479512236037218306"
-  },
-  {
-    "title": "Blue Reflection",
-    "url": "https://blue-reflection.com/",
-    "imgURL": "https://blue-reflection.com/img/01.png",
-    "date": "30 Mar 2017",
-    "added": "22 Jan 2022"
-  }
+  } 
 ]
