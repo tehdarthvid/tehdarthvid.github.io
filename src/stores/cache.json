@@ -1,13 +1,5 @@
 [
   {
-    "title": "Blue Archive",
-    "url": "https://bluearchive.nexon.com/",
-    "imgURL": "https://static.wikia.nocookie.net/blue-archive/images/4/44/BA_Visual_1.png",
-    "date": "4 Feb 2021",
-    "added": "8 Mar 2022",
-    "ref":"https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/"
-  },
-  {
     "title": "リコリス・リコイル",
     "url": "https://lycoris-recoil.com/",
     "imgURL": "https://lycoris-recoil.com/assets/img/top/img_main-02.jpg",
@@ -17,13 +9,26 @@
     "hastag": "#リコリコ"
   },
   {
-    "title": "惑星のさみだれ",
-    "url": "https://hoshinosamidare.jp/",
-    "imgURL": "https://cdn.animenewsnetwork.com/thumbnails/max500x600/encyc/A25217-3908538092.1650166584.jpg",
-    "date": "9 Jul 2021",
-    "added": "14 Jul 2022",
-    "ref":"https://twitter.com/AnimeSamidare/status/1545180862525882368",
-    "hashtag":"#惑星のさみだれ"
+    "title": "Blue Archive",
+    "url": "https://bluearchive.nexon.com/",
+    "imgURL": "https://static.wikia.nocookie.net/blue-archive/images/4/44/BA_Visual_1.png",
+    "date": "4 Feb 2021",
+    "added": "8 Mar 2022",
+    "ref":"https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/"
+  },
+  {
+    "title": "AI: The Somnium Files – Nirvana Initiative",
+    "url": "https://www.spike-chunsoft.com/games/ai-the-somnium-files-nirvana-initiative/",
+    "imgURL": "https://www.spike-chunsoft.com/wp-content/uploads/AI2_324x400_r2.jpg",
+    "date": "23 Jun 2019",
+    "added": "22 Sep 2022"
+  },
+  {
+    "title": "AI: The Somnium Files",
+    "url": "http://spike-chunsoft.com/ai/",
+    "imgURL": "https://www.spike-chunsoft.com/wp-content/uploads/AI_324x400.jpg",
+    "date": "17 Sep 2019",
+    "added": "22 Sep 2022"
   },
   {
     "title": "てっぺんっ!!!!!!!!!!!!!!!",
@@ -33,5 +38,14 @@
     "added": "14 Jul 2022",
     "ref":"https://twitter.com/teppen_anime/status/1543217936290045953",
     "hashtag":"#アニメてっぺんっ"
+  },
+  {
+    "title": "惑星のさみだれ",
+    "url": "https://hoshinosamidare.jp/",
+    "imgURL": "https://cdn.animenewsnetwork.com/thumbnails/max500x600/encyc/A25217-3908538092.1650166584.jpg",
+    "date": "9 Jul 2021",
+    "added": "14 Jul 2022",
+    "ref":"https://twitter.com/AnimeSamidare/status/1545180862525882368",
+    "hashtag":"#惑星のさみだれ"
   }
 ]
