@@ -1,12 +1,12 @@
 [
   {
-    "title": "機動戦士ガンダム 水星の魔女",
-    "url": "https://g-witch.net/",
-    "imgURL": "https://g-witch.net/shared/img/top/visual_main3.jpg",
-    "date": "2 Oct 2022",
-    "added": "8 Oct 2022",
-    "ref":"https://twitter.com/G_Witch_M/status/1576481848510672896",
-    "hastag": ["#水星の魔女", "#G_Witch"]
+    "title": "ぼっち・ざ・ろっく!",
+    "url": "https://bocchi.rocks/",
+    "imgURL": "https://wannasin.s3.ap-southeast-1.amazonaws.com/news/attach/WePwFyCiA9Q2IXMi.jpg",
+    "date": "8 Oct 2022",
+    "added": "6 Nov 2022",
+    "ref":"https://twitter.com/BTR_anime/status/1578759621124161538",
+    "hastag": "#ぼっち・ざ・ろっく"
   },
   {
     "title": "Overwatch 2",
@@ -18,19 +18,28 @@
     "ref2":"https://twitter.com/PlayOverwatch/status/1577382778538172418"
   },
   {
-    "title": "Scarlet Nexus",
-    "url": "https://snx.bn-ent.net/",
-    "imgURL": "https://snx.bn-ent.net/assets/img/product/pak_01.png",
-    "date": "25 Jun 2021",
-    "added": "2 Oct 2022"
-  },
-  {
     "title": "Blue Archive",
     "url": "https://bluearchive.nexon.com/",
     "imgURL": "https://static.wikia.nocookie.net/blue-archive/images/4/44/BA_Visual_1.png",
     "date": "4 Feb 2021",
     "added": "8 Mar 2022",
     "ref":"https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/"
+  },
+  {
+    "title": "機動戦士ガンダム 水星の魔女",
+    "url": "https://g-witch.net/",
+    "imgURL": "https://g-witch.net/shared/img/top/visual_main3.jpg",
+    "date": "2 Oct 2022",
+    "added": "8 Oct 2022",
+    "ref":"https://twitter.com/G_Witch_M/status/1576481848510672896",
+    "hastag": ["#水星の魔女", "#G_Witch"]
+  },
+  {
+    "title": "Scarlet Nexus",
+    "url": "https://snx.bn-ent.net/",
+    "imgURL": "https://snx.bn-ent.net/assets/img/product/pak_01.png",
+    "date": "25 Jun 2021",
+    "added": "2 Oct 2022"
   },
   {
     "title": "リコリス・リコイル",
@@ -40,19 +49,5 @@
     "added": "14 Jul 2022",
     "ref":"https://twitter.com/lycoris_recoil/status/1543239821958828041",
     "hastag": "#リコリコ"
-  },
-  {
-    "title": "AI: The Somnium Files – Nirvana Initiative",
-    "url": "https://www.spike-chunsoft.com/games/ai-the-somnium-files-nirvana-initiative/",
-    "imgURL": "https://www.spike-chunsoft.com/wp-content/uploads/AI2_324x400_r2.jpg",
-    "date": "23 Jun 2022",
-    "added": "22 Sep 2022"
-  },
-  {
-    "title": "AI: The Somnium Files",
-    "url": "http://spike-chunsoft.com/ai/",
-    "imgURL": "https://www.spike-chunsoft.com/wp-content/uploads/AI_324x400.jpg",
-    "date": "17 Sep 2019",
-    "added": "22 Sep 2022"
   }
 ]
