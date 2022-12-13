@@ -34,7 +34,8 @@ jobs:
           # PUBLIC_GITHUB_SHA: ${{ env.GITHUB_SHA }}
         run: |
           export PUBLIC_GITHUB_SHA=${{ env.GITHUB_SHA }}
-          printenv PUBLIC_GITHUB_SHA
+          echo $PUBLIC_GITHUB_SHA
+          echo $GITHUB_SHA
           npm install
           npm run build
 
