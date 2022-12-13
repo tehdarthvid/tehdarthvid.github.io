@@ -1,8 +1,8 @@
-import json_data from "./cache.json";
+import json_data from '$lib/data/cache.json';
 
 export default function initDeck(set) {
-  set(json_data);
-  /*
+	set(json_data);
+	/*
   var urly = process.env.url_recent_deck;
   fetch(urly)
     .then(res => res.json())

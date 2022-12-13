@@ -32,3 +32,13 @@ a:hover {
 a:visited {
   color: #669966;
 }
+
+header,
+main,
+footer {
+  text-align: center;
+}
+
+#build {
+  font-size: 0.38195em;
+}

@@ -4,7 +4,9 @@ Just the source for my homepage. Hosted on GitHub Pages.
 
 This `dev` branch is the _main branch_ . `master` is where the static site is hosted at GitHub Pages and is auto-generated from this branch.
 
-Currently implemented in Svelte using rollup and npm.
+Currently implemented in SvelteKit using npm.
+
+!!DOCUMENTATION TO BE UPDATED!!
 
 ## Automation
 

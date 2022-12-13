@@ -11,14 +11,14 @@ on:
       - dev
       - main
     paths:
-      - "**"
-      - "!README.md"
-      - "!CHANGELOG.md"
+      - '**'
+      - '!README.md'
+      - '!CHANGELOG.md'
 
 #   4. Update destination branch and artifact folder source.
 env:
-  DEST_BRANCH: "host-me"
-  ARTIFACT_DIR: "public"
+  DEST_BRANCH: 'host-me'
+  ARTIFACT_DIR: 'build'
 
 jobs:
   build-job:
@@ -32,6 +32,7 @@ jobs:
           #          URL_RECENT_DECK: ${{ secrets.URL_RECENT_DECK }}
           GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
         run: |
+          export PUBLIC_GITHUB_SHA=$GITHUB_SHA
           npm install
           npm run build
 
