@@ -30,10 +30,11 @@ jobs:
       - name: Build ${{ github.ref }}
         env:
           #          URL_RECENT_DECK: ${{ secrets.URL_RECENT_DECK }}
-          GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+          GA_TRACKING_ID: ${{ secrets.PUBLIC_GA_TRACKING_ID }}
           # PUBLIC_GITHUB_SHA: ${{ env.GITHUB_SHA }}
         run: |
           export PUBLIC_GITHUB_SHA=$GITHUB_SHA
+          export PUBLIC_GA_TRACKING_ID=$GA_TRACKING_ID
           npm install
           npm run build
 
