@@ -31,6 +31,7 @@ jobs:
         env:
           #          URL_RECENT_DECK: ${{ secrets.URL_RECENT_DECK }}
           GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+          # PUBLIC_GITHUB_SHA: ${{ env.GITHUB_SHA }}
         run: |
           export PUBLIC_GITHUB_SHA=$GITHUB_SHA
           npm install
