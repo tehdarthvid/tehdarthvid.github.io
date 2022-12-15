@@ -9,7 +9,7 @@
 	<div id="build">
 		&nbsp;
 		<p>
-			<a href="https://github.com/tehdarthvid/tehdarthvid.github.io/tree/dev"> source </a>
+			<a href="https://github.com/tehdarthvid/tehdarthvid.github.io/"> source </a>
 		</p>
 		<p>
 			<a href="https://github.com/tehdarthvid/tehdarthvid.github.io/commit/{PUBLIC_GITHUB_SHA}">
