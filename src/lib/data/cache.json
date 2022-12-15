@@ -1,37 +1,36 @@
 [
-  {
-    "title": "ぼっち・ざ・ろっく!",
-    "url": "https://bocchi.rocks/",
-    "imgURL": "https://wannasin.s3.ap-southeast-1.amazonaws.com/news/attach/WePwFyCiA9Q2IXMi.jpg",
-    "date": "8 Oct 2022",
-    "added": "6 Nov 2022",
-    "ref":"https://twitter.com/BTR_anime/status/1578759621124161538",
-    "hastag": "#ぼっち・ざ・ろっく"
-  },
-  {
-    "title": "サマータイムレンダ",
-    "url": "https://shonenjumpplus.com/episode/13932016480029133982",
-    "imgURL": "https://upload.wikimedia.org/wikipedia/en/7/79/Summer_Time_Rendering_volume_1_cover.jpg",
-    "date": "23 Oct 2017 - 1 Feb 2021",
-    "added": "3 Dec 2022",
-    "hastag": "#サマータイムレンダ"
-  },
-  {
-    "title": "艦これ いつかあの海で",
-    "url": "https://kancolle-itsuumi.com/",
-    "imgURL": "https://kancolle-itsuumi.com/core_sys/images/main/tz/kv2.webp",
-    "date": "4 Nov 2022",
-    "added": "3 Dec 2022",
-    "ref":"",
-    "hastag": "#艦これ"
-  },
-  {
-    "title": "Blue Archive",
-    "url": "https://bluearchive.nexon.com/",
-    "imgURL": "https://static.wikia.nocookie.net/blue-archive/images/4/44/BA_Visual_1.png",
-    "date": "4 Feb 2021",
-    "added": "8 Mar 2022",
-    "ref":"https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/"
-  }
-  
+	{
+		"title": "ぼっち・ざ・ろっく!",
+		"url": "https://bocchi.rocks/",
+		"imgURL": "https://wannasin.s3.ap-southeast-1.amazonaws.com/news/attach/WePwFyCiA9Q2IXMi.jpg",
+		"date": "8 Oct 2022",
+		"added": "6 Nov 2022",
+		"ref": "https://twitter.com/BTR_anime/status/1578759621124161538",
+		"hastag": "#ぼっち・ざ・ろっく"
+	},
+	{
+		"title": "サマータイムレンダ",
+		"url": "https://shonenjumpplus.com/episode/13932016480029133982",
+		"imgURL": "https://upload.wikimedia.org/wikipedia/en/7/79/Summer_Time_Rendering_volume_1_cover.jpg",
+		"date": "23 Oct 2017 - 1 Feb 2021",
+		"added": "3 Dec 2022",
+		"hastag": "#サマータイムレンダ"
+	},
+	{
+		"title": "艦これ いつかあの海で",
+		"url": "https://kancolle-itsuumi.com/",
+		"imgURL": "https://kancolle-itsuumi.com/core_sys/images/main/tz/kv2.webp",
+		"date": "4 Nov 2022",
+		"added": "3 Dec 2022",
+		"ref": "",
+		"hastag": "#艦これ"
+	},
+	{
+		"title": "Blue Archive",
+		"url": "https://bluearchive.nexon.com/",
+		"imgURL": "https://static.wikia.nocookie.net/blue-archive/images/4/44/BA_Visual_1.png",
+		"date": "4 Feb 2021",
+		"added": "8 Mar 2022",
+		"ref": "https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/"
+	}
 ]

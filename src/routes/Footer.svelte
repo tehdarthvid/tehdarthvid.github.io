@@ -11,9 +11,11 @@
 		<p>
 			<a href="https://github.com/tehdarthvid/tehdarthvid.github.io/tree/dev"> source </a>
 		</p>
-		<a href="https://github.com/tehdarthvid/tehdarthvid.github.io/commit/{PUBLIC_GITHUB_SHA}">
-			build {strGitHash}
-		</a>
+		<p>
+			<a href="https://github.com/tehdarthvid/tehdarthvid.github.io/commit/{PUBLIC_GITHUB_SHA}">
+				build {strGitHash}
+			</a>
+		</p>
 	</div>
 </footer>
 

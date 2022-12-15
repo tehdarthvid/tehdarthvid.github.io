@@ -1,44 +1,44 @@
 /* @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro|Noto+Sans+JP&display=swap"); */
 
 body {
-  color: #f7f7f7;
-  background-color: #333333;
-  font-family: "Source Code Pro", "Lexend Deca", "Ubuntu", "Noto Sans JP",
-    "Avenir", Helvetica, Arial, sans-serif;
-  font-size: 1.23em;
+	color: #f7f7f7;
+	background-color: #333333;
+	font-family: 'Source Code Pro', 'Lexend Deca', 'Ubuntu', 'Noto Sans JP', 'Avenir', Helvetica,
+		Arial, sans-serif;
+	font-size: 1.23em;
 }
 
 @media only screen and (max-width: 640px) {
-  body {
-    font-size: 1em;
-  }
+	body {
+		font-size: 1em;
+	}
 }
 
 @media only screen and (min-width: 1920px) {
-  body {
-    font-size: 1.618em;
-  }
+	body {
+		font-size: 1.618em;
+	}
 }
 
 a {
-  color: #66aa66;
-  text-decoration: none;
+	color: #66aa66;
+	text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline overline;
+	text-decoration: underline overline;
 }
 
 a:visited {
-  color: #669966;
+	color: #669966;
 }
 
 header,
 main,
 footer {
-  text-align: center;
+	text-align: center;
 }
 
 #build {
-  font-size: 0.38195em;
+	font-size: 0.38195em;
 }

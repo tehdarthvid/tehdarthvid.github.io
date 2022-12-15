@@ -1,14 +1,13 @@
 <script>
-  export let title;
-  export let url;
+	export let title;
+	export let url;
 </script>
 
-<style scoped>
-
-</style>
-
 <div class="linkto">
-  【
-  <a href={url}>{title}</a>
-  】
+	【
+	<a href={url}>{title}</a>
+	】
 </div>
+
+<style scoped>
+</style>

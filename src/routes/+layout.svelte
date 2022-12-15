@@ -14,16 +14,18 @@
 <div class="app">
 	<Header />
 
-	<Analytics/>
+	<Analytics />
 
 	<main>
 		<slot />
 	</main>
 
 	<Footer />
-	
+
 	<!--
 		Firefox woraround for FocusEvent, supposedly during inspector only.
 	-->
-	<script>0</script>
+	<script>
+		0;
+	</script>
 </div>
