@@ -38,6 +38,11 @@ jobs:
           npm install
           npm run build
 
+      - name: Test the build
+        run: |
+          npx playwright install --with-deps
+          npm run test
+
       - name: Check-out '${{ env.DEST_BRANCH }}' to 'temp'
         run: |
           git clone -b ${{ env.DEST_BRANCH }} --single-branch http://github.com/${{ github.repository }}.git temp
