@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { select_multiple_value } from 'svelte/internal';
 
 /*
 test('index page has expected h1', async ({ page }) => {
@@ -30,13 +31,21 @@ test('has has footer', async ({ page }) => {
 	await page.goto('/');
 
 	// footer
-	await expect(page.locator('text=source')).toContainText('source');
-	await expect(page.locator('text=build')).toContainText('build');
+	await expect(page.locator('text=source')).toBeVisible();
+	await expect(page.locator('text=build')).toBeVisible();
 });
 
 test('has has all content', async ({ page }) => {
 	await page.goto('/');
 
-	await expect(page.locator('text=LinkedIn')).toContainText('LinkedIn');
-	await expect(page.locator('text=this site')).toContainText('this site');
+	// links
+	await expect(page.locator('text=LinkedIn')).toBeVisible();
+	// projects
+	await expect(page.locator('text=this site')).toBeVisible();
+	// can do
+	await expect(page.locator('text=JavaScript')).toBeHidden();
+	// want to do/learn
+	await expect(page.locator('text=Rust')).toBeHidden();
+	// currently into
+	await expect(page.locator('.card').first()).toBeVisible();
 });
