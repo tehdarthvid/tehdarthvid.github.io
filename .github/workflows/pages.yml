@@ -41,6 +41,8 @@ jobs:
       - name: Test the build
         run: |
           npx playwright install --with-deps
+          export PUBLIC_GITHUB_SHA=$GITHUB_SHA
+          export PUBLIC_GA_TRACKING_ID=$GA_TRACKING_ID
           npm run test
 
       - name: Check-out '${{ env.DEST_BRANCH }}' to 'temp'
