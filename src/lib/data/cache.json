@@ -17,14 +17,12 @@
 		"added": "19 Dec 2022"
 	},
 	{
-		"title": "Do It Yourself!! -どぅー・いっと・ゆあせるふ-",
-		"url": "https://diy-anime.com/",
-		"imgURL": "https://diy-anime.com/assets/images/pc/index/img_kv-8.png",
-		"date": "6 Oct 2022",
-		"added": "18 Dec 2022",
-		"ref":"https://twitter.com/diy_anime/status/1577682526625181698",
-		"hastag": "#diyアニメ"
-	},
+		"title": "英雄伝説零の軌跡",
+		"url": "https://www.falcom.co.jp/zero_psp/",
+		"imgURL": "https://m.media-amazon.com/images/I/81gXJmATGDL._AC_SY679_.jpg",
+		"date": "30 Sep 2010",
+		"added": "24 Dec 2022"
+	},	
 	{
 		"title": "サマータイムレンダ",
 		"url": "https://shonenjumpplus.com/episode/13932016480029133982",
@@ -32,6 +30,15 @@
 		"date": "23 Oct 2017 - 1 Feb 2021",
 		"added": "3 Dec 2022",
 		"hastag": "#サマータイムレンダ"
+	},
+	{
+		"title": "Do It Yourself!! -どぅー・いっと・ゆあせるふ-",
+		"url": "https://diy-anime.com/",
+		"imgURL": "https://diy-anime.com/assets/images/pc/index/img_kv-8.png",
+		"date": "6 Oct 2022",
+		"added": "18 Dec 2022",
+		"ref":"https://twitter.com/diy_anime/status/1577682526625181698",
+		"hastag": "#diyアニメ"
 	},
 	{
 		"title": "艦これ いつかあの海で",
