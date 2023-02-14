@@ -1,63 +1,19 @@
 [
 	{
+		"title": "Children of Memory",
+		"url": "https://www.hachettebookgroup.com/titles/adrian-tchaikovsky/children-of-memory/9780316466400/",
+		"imgURL": "https://www.hachettebookgroup.com/wp-content/uploads/2022/11/9780316466400-1.jpg",
+		"date": "31 Jan 2023",
+		"added": "15 Feb 2023"
+	},
+	{
 		"title": "トモちゃんは女の子！",
 		"url": "https://sai-zen-sen.jp/comics/twi4/tomochan/",
 		"imgURL": "https://upload.wikimedia.org/wikipedia/en/9/99/Tomo-chan_is_a_Girl%21_volume_1_cover.jpg",
 		"date": "7 Apr 2015 - 14 Jul 2019",
 		"added": "15 Jan 2023",
 		"hastag": "#tomochan"
-	},
-	{
-		"title": "ぼっち・ざ・ろっく!",
-		"url": "https://bocchi.rocks/",
-		"imgURL": "https://wannasin.s3.ap-southeast-1.amazonaws.com/news/attach/WePwFyCiA9Q2IXMi.jpg",
-		"date": "8 Oct 2022",
-		"added": "6 Nov 2022",
-		"ref": "https://twitter.com/BTR_anime/status/1578759621124161538",
-		"hastag": "#ぼっち・ざ・ろっく"
-	},
-	{
-		"title": "Dwarf Fortress (Steam)",
-		"url": "https://twitter.com/KitfoxGames/status/1600146060357341184",
-		"ytVideoID": "xawsp16oxb0",
-		"imgURL": "https://www.kitfoxgames.com/press/dwarf_fortress/images/DFKeyArt_1920Horizontalnologo.png",
-		"date": "8 Aug 2006, 6 Dec 2022 (Steam)",
-		"added": "19 Dec 2022"
-	},
-	{
-		"title": "英雄伝説零の軌跡",
-		"url": "https://www.falcom.co.jp/zero_psp/",
-		"imgURL": "https://m.media-amazon.com/images/I/81gXJmATGDL._AC_SY679_.jpg",
-		"date": "30 Sep 2010",
-		"added": "24 Dec 2022"
-	},
-	{
-		"title": "Vampire Survivors",
-		"url": "https://linktr.ee/vampiresurvivors",
-		"ytVideoID": "aS7JqyHdQQA",
-		"imgURL": "https://upload.wikimedia.org/wikipedia/en/e/e6/Vampire_Survivors_key_art.jpg",
-		"date": "20 Oct 2022",
-		"added": "26 Dec 2022",
-		"ref": "https://twitter.com/Steam/status/1583261329896263680",
-		"hastag": "#VampireSurvivors"
-	},
-	{
-		"title": "サマータイムレンダ",
-		"url": "https://shonenjumpplus.com/episode/13932016480029133982",
-		"imgURL": "https://upload.wikimedia.org/wikipedia/en/7/79/Summer_Time_Rendering_volume_1_cover.jpg",
-		"date": "23 Oct 2017 - 1 Feb 2021",
-		"added": "3 Dec 2022",
-		"hastag": "#サマータイムレンダ"
-	},
-	{
-		"title": "Do It Yourself!! -どぅー・いっと・ゆあせるふ-",
-		"url": "https://diy-anime.com/",
-		"imgURL": "https://diy-anime.com/assets/images/pc/index/img_kv-8.png",
-		"date": "6 Oct 2022",
-		"added": "18 Dec 2022",
-		"ref":"https://twitter.com/diy_anime/status/1577682526625181698",
-		"hastag": "#diyアニメ"
-	},
+	},	
 	{
 		"title": "艦これ いつかあの海で",
 		"url": "https://kancolle-itsuumi.com/",
