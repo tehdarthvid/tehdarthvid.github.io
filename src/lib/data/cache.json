@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Path of Exile",
+		"url": "https://www.pathofexile.com/",
+		"imgURL": "https://upload.wikimedia.org/wikipedia/en/0/08/Path_of_Exile_Logo.png",
+		"date": "23 Jan 2013 (v0.10.0 open beta)",
+		"added": "25 Jul 2023"
+	},
+	{
 		"title": "Last Epoch",
 		"url": "https://lastepoch.com/",
 		"imgURL": "https://cdn.cloudflare.steamstatic.com/steam/apps/899770/capsule_616x353.jpg",
