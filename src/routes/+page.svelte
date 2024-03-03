@@ -41,6 +41,14 @@
 <!--
 
 -->
+<header>
+	{#if null != site_data.name}
+		<h1>
+			<a href="/">{site_data.name}</a>
+		</h1>
+	{/if}
+</header>
+
 <section>
 	{#if null != site_data.links}
 		<div id="is-at">

@@ -15,9 +15,4 @@
 	{#if null != site_data.welcome_msg}
 		<p>{site_data.welcome_msg}</p>
 	{/if}
-	{#if null != site_data.name}
-		<h1>
-			<a href="/">{site_data.name}</a>
-		</h1>
-	{/if}
 </header>
