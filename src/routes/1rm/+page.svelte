@@ -52,13 +52,11 @@
 -->
 <header>
 	<h1>1rm calculator</h1>
-	<p>by <a href="/">darthvid</a></p>
 </header>
 
 <section>
-	<p>enter your numbers:</p>
 	<div class="input">
-		<input
+		weight: <input
 			name="weight"
 			placeholder="weight"
 			type="number"
@@ -68,7 +66,8 @@
 				weight = value.target.value;
 			}}
 		/>
-		<span>×</span>
+		<br />
+		reps:
 		<input
 			name="reps"
 			placeholder="reps"
@@ -95,22 +94,27 @@
 			<div class="formula-result">{OConner_result}</div>
 		</div>
 	</div>
+
+	<p class="madeby">by <a href="/">darthvid</a></p>
 </section>
 
 <style>
+	input {
+		height: 1.23em;
+		font-size: 1.23em;
+	}
 	.wrapus {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
 	.input {
-		/*
-		height: 3em;
-		*/
+		font-size: 2em;
 	}
 	.grid-container {
 		display: grid;
 		grid-template-columns: auto 1em auto;
+		font-size: 2em;
 	}
 	.formula {
 		grid-column: 1;
@@ -119,5 +123,8 @@
 	.formula-result {
 		grid-column: 3;
 		text-align: left;
+	}
+	.madeby {
+		font-size: 1em;
 	}
 </style>
