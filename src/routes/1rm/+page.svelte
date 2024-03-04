@@ -106,11 +106,6 @@
 		height: 1.23em;
 		font-size: 1.23em;
 	}
-	.wrapus {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
 	.input {
 		font-size: 2em;
 	}
