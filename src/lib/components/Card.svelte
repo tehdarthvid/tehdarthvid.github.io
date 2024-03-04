@@ -60,6 +60,8 @@
 </script>
 
 <div
+	role="img"
+	aria-label={params.title ? params.title : ''}
 	class="card-wrap"
 	on:mousemove={handleMouseMove}
 	on:mouseenter={handleMouseEnter}
@@ -152,14 +154,21 @@
 		transform: translateY(0);
 	}
 	.card-wrap:hover .card-bg {
-		transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+		transition:
+			0.6s cubic-bezier(0.23, 1, 0.32, 1),
 			opacity 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 		opacity: 0.9;
 	}
 	.card-wrap:hover .card {
-		transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
-		box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, rgba(255, 255, 255, 1) 0 0 0 1px,
-			rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
+		transition:
+			0.6s cubic-bezier(0.23, 1, 0.32, 1),
+			box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+		box-shadow:
+			rgba(255, 255, 255, 0.2) 0 0 40px 5px,
+			rgba(255, 255, 255, 1) 0 0 0 1px,
+			rgba(0, 0, 0, 0.66) 0 30px 60px 0,
+			inset #333 0 0 0 5px,
+			inset white 0 0 0 6px;
 	}
 	.card {
 		position: relative;
@@ -170,7 +179,9 @@
 		background-color: #333;
 		overflow: hidden;
 		border-radius: 5px;
-		box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px,
+		box-shadow:
+			rgba(0, 0, 0, 0.66) 0 30px 60px 0,
+			inset #333 0 0 0 5px,
 			inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
 		transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 	}
@@ -185,7 +196,8 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
+		transition:
+			1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
 			opacity 2s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 		pointer-events: none;
 	}
