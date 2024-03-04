@@ -36,6 +36,7 @@
 	$: Mayhew_result = ((100 * weight) / (52.2 + 41.9 * Math.exp(-0.055 * reps))).toFixed(2);
 	$: OConner_result = (weight * (1 + 0.025 * reps)).toFixed(2);
 	$: Wathan_result = ((100 * weight) / (48.8 + 53.8 * Math.exp(-0.075 * reps))).toFixed(2);
+	$: Wendler_result = (weight * (reps * 0.0333) + weight).toFixed(2);
 </script>
 
 <svelte:head>
@@ -80,8 +81,8 @@
 	</div>
 	<div class="result">
 		<div class="grid-container">
-			<div class="formula">Wathan</div>
-			<div class="formula-result">{Wathan_result}</div>
+			<div class="formula">Wendler</div>
+			<div class="formula-result">{Wendler_result}</div>
 			<div class="formula">Brzycki</div>
 			<div class="formula-result">{Brzycki_result}</div>
 			<div class="formula">Elpey</div>
@@ -92,6 +93,8 @@
 			<div class="formula-result">{Mayhew_result}</div>
 			<div class="formula">O'Conner et al.</div>
 			<div class="formula-result">{OConner_result}</div>
+			<div class="formula">Wathan</div>
+			<div class="formula-result">{Wathan_result}</div>
 		</div>
 	</div>
 
