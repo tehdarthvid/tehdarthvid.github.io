@@ -16,6 +16,10 @@
 	],
 	"projects": [
 		{
+			"title": "1rm calculator",
+			"url": "/1rm"
+		},
+		{
 			"title": "influences",
 			"url": "https://dna.darthvid.com"
 		},
