@@ -32,29 +32,39 @@
 </header>
 
 <section>
-	<div class="input">
-		weight: <input
-			name="weight"
-			placeholder="weight"
-			type="number"
-			step="0.5"
-			value={weight}
-			on:input={(value) => {
-				//console.log(typeof (weight * (reps * 0.0333) + weight));
-				weight = value.target.value;
-			}}
-		/>
-		<br />
-		reps:
-		<input
-			name="reps"
-			placeholder="reps"
-			type="number"
-			value={reps}
-			on:input={(value) => {
-				reps = value.target.value;
-			}}
-		/>
+	<div class="input-grid">
+		<div class="weight-text">weight</div>
+		<div class="reps-text">reps</div>
+		<div class="weight-input">
+			<div class="input">
+				<input
+					name="weight"
+					placeholder="weight"
+					type="number"
+					step="0.5"
+					size="6"
+					value={weight}
+					on:input={(value) => {
+						//console.log(typeof (weight * (reps * 0.0333) + weight));
+						weight = value.target.value;
+					}}
+				/>
+			</div>
+		</div>
+		<div class="reps-input">
+			<div class="input">
+				<input
+					name="reps"
+					placeholder="reps"
+					type="number"
+					size="3"
+					value={reps}
+					on:input={(value) => {
+						reps = value.target.value;
+					}}
+				/>
+			</div>
+		</div>
 	</div>
 	<div class="result">
 		<div class="grid-container">
@@ -82,6 +92,26 @@
 	input {
 		height: 1.23em;
 		font-size: 1.23em;
+	}
+	.input-grid {
+		display: grid;
+		grid-template-columns: auto auto;
+	}
+	.weight-text {
+		grid-row: 1;
+		grid-column: 1;
+	}
+	.weight-input {
+		grid-row: 2;
+		grid-column: 1;
+	}
+	.reps-text {
+		grid-row: 1;
+		grid-column: 2;
+	}
+	.reps-input {
+		grid-row: 2;
+		grid-column: 2;
 	}
 	.input {
 		font-size: 2em;
