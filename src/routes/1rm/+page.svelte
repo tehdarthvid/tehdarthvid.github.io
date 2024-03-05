@@ -1,42 +1,18 @@
 <script>
 	//import cache_data from '$lib/data/cache.json';
-	//export let gaID;
-	//export let git_hash;
 
-	import * as json_data from '$lib/data/content.json';
-	var site_data;
-	try {
-		site_data = json_data;
-		if (null == site_data) {
-			site_data = {};
-		}
-	} catch {
-		site_data = {};
-	}
-
-	import Icon from '$lib/components/icon.svelte';
-	import LinkTo from '$lib/components/linkto.svelte';
-
-	import Deck from '$lib/views/Deck.svelte';
-
-	/*
-	//TODO
-	//this seems to need to be loaded on client side, but we're setup for SSR/prerender
-	//https://www.reddit.com/r/sveltejs/comments/mhcmv0/sveltekit_window_is_not_defined/
-	let gaID = '0123456789';
-	import { googleAnalytics } from '$lib/analytics/google-analytics.js';
-	if (gaID) googleAnalytics(gaID);
-	*/
 	let weight = 85.5;
 	let reps = 5;
 
+	//$: Brzycki_result = weight;
 	$: Brzycki_result = (weight / (1.0278 - 0.0278 * reps)).toFixed(2);
 	$: Epley_result = (weight * (1 + 0.0333 * reps)).toFixed(2);
 	$: Lander_result = ((100 * weight) / (101.3 - 2.67123 * reps)).toFixed(2);
 	$: Mayhew_result = ((100 * weight) / (52.2 + 41.9 * Math.exp(-0.055 * reps))).toFixed(2);
 	$: OConner_result = (weight * (1 + 0.025 * reps)).toFixed(2);
 	$: Wathan_result = ((100 * weight) / (48.8 + 53.8 * Math.exp(-0.075 * reps))).toFixed(2);
-	$: Wendler_result = (weight * (reps * 0.0333) + weight).toFixed(2);
+	//$: Wendler_result = (weight * (reps * 0.0333) + weight).toFixed(2);
+	$: Wendler_result = Epley_result;
 </script>
 
 <svelte:head>
@@ -64,6 +40,7 @@
 			step="0.5"
 			value={weight}
 			on:input={(value) => {
+				//console.log(typeof (weight * (reps * 0.0333) + weight));
 				weight = value.target.value;
 			}}
 		/>
