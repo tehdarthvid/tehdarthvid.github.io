@@ -23,16 +23,16 @@
 		"deploy": "gh-pages -b host-me -d public"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.43.1",
+		"@playwright/test": "^1.44.1",
 		"@sveltejs/adapter-static": "^3.0.1",
-		"@sveltejs/kit": "^2.5.7",
+		"@sveltejs/kit": "^2.5.10",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.38.0",
-		"prettier": "^3.2.5",
-		"prettier-plugin-svelte": "^3.2.3",
-		"svelte": "^4.2.15",
-		"vite": "^5.2.11",
+		"eslint-plugin-svelte": "^2.39.3",
+		"prettier": "^3.3.1",
+		"prettier-plugin-svelte": "^3.2.4",
+		"svelte": "^4.2.18",
+		"vite": "^5.2.13",
 		"vitest": "^1.6.0"
 	},
 	"type": "module"
