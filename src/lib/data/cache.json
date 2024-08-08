@@ -1,32 +1,40 @@
 [
 	{
-		"title": "Hades II",
-		"url": "https://www.supergiantgames.com/games/hades-ii/",
-		"imgURL": "https://images.ctfassets.net/5owu3y35gz1g/4MRA3yUs13a4P5iY3xEU8M/b8ea98dd782537d724c5d2bcc971487f/H2_PackArt_600px.png",
-		"date": "7 May 2024 ea",
-		"added": "7 May 2024",
-		"ref": "https://twitter.com/SupergiantGames/status/1787526288116523479"
+		"title": "Zenless Zone Zero",
+		"url": "https://zenless.hoyoverse.com/",
+		"ytVideoID": "KGOynaQoofc",
+		"vidURL": "https://fastcdn.hoyoverse.com/mi18n/nap_global/m20240603hy38zhr2tc/upload/cc3bb675f914697becea1c994e7a98f8_8142939383232387095.mp4",
+		"date": "4 Jul 2024",
+		"added": "8 Aug 2024",
+		"ref": "https://x.com/ZZZ_EN/status/1808682192383660246"
 	},
 	{
-		"title": "夜のクラゲは泳げない",
-		"url": "https://yorukura-anime.com/",
-		"imgURL": "https://upload.wikimedia.org/wikipedia/en/1/1e/Jellyfish_Can%27t_Swim_in_the_Night_Anime_Teaser_Visual_4.jpg",
-		"date": "7 Apr 2024",
-		"added": "7 May 2024"
+		"title": "〈物語〉シリーズ オフ &モンスターシーズン",
+		"url": "https://www.monogatari-series.com/oms/",
+		"ytVideoID": "o7nneWWYtC4",
+		"imgURL": "https://www.monogatari-series.com/oms/assets/img/kv.jpg",
+		"date": "6 Jul 2024",
+		"added": "8 Aug 2024",
+		"ref": "https://x.com/nisioisin_anime/status/1809573014477951160"
 	},
 	{
-		"title": "終末トレイン どこへいく？",
-		"url": "https://shumatsu-train.com/",
-		"imgURL": "https://upload.wikimedia.org/wikipedia/en/7/79/Sh%C5%ABmatsu_Train_Doko_e_Iku_key_visual.jpg",
-		"date": "1 Apr 2024",
-		"added": "7 May 2024"
+		"title": "負けヒロインが 多すぎる！",
+		"url": "https://makeine-anime.com/",
+		"ytVideoID": "uytJ6_KTCZI",
+		"imgURL": "https://makeine-anime.com/assets/img/top/main/kv_visual06.jpg",
+		"date": "14 Jul 2024",
+		"added": "8 Aug 2024",
+		"ref": "https://x.com/makeine_anime/status/1812429329911124303"
 	},
 	{
-		"title": "Chapterhouse: Dune",
-		"url": "https://en.wikipedia.org/wiki/Chapterhouse:_Dune",
-		"imgURL": "https://upload.wikimedia.org/wikipedia/en/8/82/Chapterhouse_Dune-Frank_Herbert_%281985%29_First_edition.jpg",
-		"date": "Apr 1985",
-		"added": "7 May 2024"
+		"title": "疑似ハーレム",
+		"url": "https://gijiharem.com/",
+		"ytVideoID": "PlA02yr5gyQ",
+		"imgURL": "https://gijiharem.com/core_sys/images/main/home/kv01.jpg",
+		"date": "5 Jul 2024",
+		"added": "8 Aug 2024",
+		"ref": "https://x.com/makeine_anime/status/1812429329911124303",
+		"hashtag":"#疑似ハーレム"
 	},
 	{
 		"title": "Blue Archive",
