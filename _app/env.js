@@ -1,1 +1,1 @@
-export const env={"PUBLIC_GITHUB_SHA":"f18e3ec79352bbdb6ad3e42751c7adfd9b5d6d70","PUBLIC_GA_TRACKING_ID":""}
+export const env={"PUBLIC_GITHUB_SHA":"4854f957e20eefb2d5c4e1889d7199d5e6e1ce20","PUBLIC_GA_TRACKING_ID":""}
