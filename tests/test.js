@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { select_multiple_value } from 'svelte/internal';
+//import { select_multiple_value } from 'svelte/internal';
 
 /*
 test('index page has expected h1', async ({ page }) => {
