@@ -63,10 +63,10 @@
 	role="img"
 	aria-label={params.title ? params.title : ''}
 	class="card-wrap"
-	on:mousemove={handleMouseMove}
-	on:mouseenter={handleMouseEnter}
-	on:mouseleave={handleMouseLeave}
-	on:dblclick={handleDblClick}
+	onmousemove={handleMouseMove}
+	onmouseenter={handleMouseEnter}
+	onmouseleave={handleMouseLeave}
+	ondblclick={handleDblClick}
 >
 	<div class="card" style="transform: rotateY({rX}deg) rotateX({rY}deg)">
 		{#if null != params.ytVideoID}
@@ -86,7 +86,8 @@
 					loop="1"
 					allowfullscreen
 					onStateChange={handleImageLoaded}
-				/>
+				>
+				</iframe>
 			</div>
 		{:else if null != params.vidURL}
 			<div
@@ -99,15 +100,17 @@
 					autoplay="true"
 					loop="true"
 					muted="true"
-					on:playing={handleImageLoaded}
-				/>
+					onplaying={handleImageLoaded}
+				>
+				</video>
 			</div>
 		{:else if null != params.imgURL}
 			<div
 				class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
 				style="transform: translateX({tX}px) translateY({tY}px);
         background-image: url({params.imgURL})"
-			/>
+			>
+			</div>
 		{/if}
 
 		<div class="card-info">
