@@ -10,34 +10,13 @@
 		"hashtag":["#zzzero", "#zenlesszonezero"]
 	},
 	{
-		"title": "〈物語〉シリーズ オフ &モンスターシーズン",
-		"url": "https://www.monogatari-series.com/oms/",
-		"ytVideoID": "o7nneWWYtC4",
-		"imgURL": "https://www.monogatari-series.com/oms/assets/img/kv.jpg",
-		"date": "6 Jul 2024",
-		"added": "8 Aug 2024",
-		"ref": "https://x.com/nisioisin_anime/status/1809573014477951160",
-		"hashtag":"#物語oms"
-	},
-	{
-		"title": "負けヒロインが 多すぎる！",
-		"url": "https://makeine-anime.com/",
-		"ytVideoID": "uytJ6_KTCZI",
-		"imgURL": "https://makeine-anime.com/assets/img/top/main/kv_visual06.jpg",
-		"date": "14 Jul 2024",
-		"added": "8 Aug 2024",
-		"ref": "https://x.com/makeine_anime/status/1812429329911124303",
-		"hashtag":"#マケイン"
-	},
-	{
-		"title": "疑似ハーレム",
-		"url": "https://gijiharem.com/",
-		"ytVideoID": "PlA02yr5gyQ",
-		"imgURL": "https://gijiharem.com/core_sys/images/main/home/kv01.jpg",
-		"date": "5 Jul 2024",
-		"added": "8 Aug 2024",
-		"ref": "https://x.com/makeine_anime/status/1812429329911124303",
-		"hashtag":"#疑似ハーレム"
+		"title": "Hades II",
+		"url": "https://www.supergiantgames.com/games/hades-ii/",
+		"imgURL": "https://images.ctfassets.net/5owu3y35gz1g/4MRA3yUs13a4P5iY3xEU8M/b8ea98dd782537d724c5d2bcc971487f/H2_PackArt_600px.png",
+		"date": "7 May 2024 ea",
+		"added": "7 May 2024",
+		"ref": "https://twitter.com/SupergiantGames/status/1787526288116523479",
+		"hashtag":["#HadesGame", "#Hades2", "#DeathToChronos"]
 	},
 	{
 		"title": "Blue Archive",
@@ -45,6 +24,7 @@
 		"imgURL": "https://static.wikia.nocookie.net/blue-archive/images/4/44/BA_Visual_1.png",
 		"date": "4 Feb 2021",
 		"added": "8 Mar 2022",
-		"ref": "https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/"
+		"ref": "https://www.siliconera.com/blue-archive-release-date-set-for-february-2021-in-japan/",
+		"hashtag":["#BlueArchive"]
 	}
 ]
