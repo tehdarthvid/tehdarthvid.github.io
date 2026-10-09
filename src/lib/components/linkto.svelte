@@ -1,6 +1,5 @@
 <script>
-	export let title;
-	export let url;
+	let { title, url } = $props();
 </script>
 
 <div class="linkto">

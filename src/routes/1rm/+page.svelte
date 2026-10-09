@@ -1,18 +1,20 @@
 <script>
 	//import cache_data from '$lib/data/cache.json';
 
-	let weight = 85.5;
-	let reps = 5;
+	let weight = $state(85.5);
+	let reps = $state(5);
 
-	//$: Brzycki_result = weight;
-	$: Brzycki_result = (weight / (1.0278 - 0.0278 * reps)).toFixed(2);
-	$: Epley_result = (weight * (1 + 0.0333 * reps)).toFixed(2);
-	$: Lander_result = ((100 * weight) / (101.3 - 2.67123 * reps)).toFixed(2);
-	$: Mayhew_result = ((100 * weight) / (52.2 + 41.9 * Math.exp(-0.055 * reps))).toFixed(2);
-	$: OConner_result = (weight * (1 + 0.025 * reps)).toFixed(2);
-	$: Wathan_result = ((100 * weight) / (48.8 + 53.8 * Math.exp(-0.075 * reps))).toFixed(2);
-	//$: Wendler_result = (weight * (reps * 0.0333) + weight).toFixed(2);
-	$: Wendler_result = Epley_result;
+	const Brzycki_result = $derived((weight / (1.0278 - 0.0278 * reps)).toFixed(2));
+	const Epley_result = $derived((weight * (1 + 0.0333 * reps)).toFixed(2));
+	const Lander_result = $derived(((100 * weight) / (101.3 - 2.67123 * reps)).toFixed(2));
+	const Mayhew_result = $derived(
+		((100 * weight) / (52.2 + 41.9 * Math.exp(-0.055 * reps))).toFixed(2)
+	);
+	const OConner_result = $derived((weight * (1 + 0.025 * reps)).toFixed(2));
+	const Wathan_result = $derived(
+		((100 * weight) / (48.8 + 53.8 * Math.exp(-0.075 * reps))).toFixed(2)
+	);
+	const Wendler_result = $derived(Epley_result);
 </script>
 
 <svelte:head>
@@ -39,7 +41,7 @@
 			type="number"
 			step="0.5"
 			value={weight}
-			on:input={(value) => {
+			oninput={(value) => {
 				//console.log(typeof (weight * (reps * 0.0333) + weight));
 				weight = value.target.value;
 			}}
@@ -51,7 +53,7 @@
 			placeholder="reps"
 			type="number"
 			value={reps}
-			on:input={(value) => {
+			oninput={(value) => {
 				reps = value.target.value;
 			}}
 		/>

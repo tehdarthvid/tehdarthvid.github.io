@@ -1,20 +1,15 @@
 <script>
-	import { afterUpdate } from 'svelte';
+	let { title, url, imgURL } = $props();
 
-	export let title;
-	export let url;
-	export let imgURL;
-
-	let isBgImageLoaded = false;
-	let img = null;
+	let isBgImageLoaded = $state(false);
 
 	/*
 	 * Svelte lifecycle handlers
 	 */
 
-	afterUpdate(() => {
+	$effect(() => {
 		if (!isBgImageLoaded && imgURL) {
-			img = new Image();
+			const img = new Image();
 			img.onload = handleImageLoaded;
 			img.src = imgURL;
 		}
@@ -45,6 +40,8 @@
 		padding: 1px;
 	}
 	.icon:hover {
-		box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, rgb(66, 99, 66) 0 0 0 1px;
+		box-shadow:
+			rgba(255, 255, 255, 0.2) 0 0 40px 5px,
+			rgb(66, 99, 66) 0 0 0 1px;
 	}
 </style>

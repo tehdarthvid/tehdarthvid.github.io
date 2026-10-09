@@ -1,56 +1,48 @@
 <script>
-	import { onDestroy, afterUpdate } from 'svelte';
+	let { params } = $props();
 
-	export let params;
+	let mX = $state(0);
+	let mY = $state(0);
+	const rX = $derived(mX * 30);
+	const rY = $derived(mY * -30);
+	const tX = $derived(mX * -40);
+	const tY = $derived(mY * -40);
 
-	let mX = 0;
-	let mY = 0;
-	$: rX = mX * 30;
-	$: rY = mY * -30;
-	$: tX = mX * -40;
-	$: tY = mY * -40;
-
-	let isBgImageLoaded = false;
-	let img = null;
+	let isBgImageLoaded = $state(false);
 	let mouseLeaveDelay = null;
 
 	/*
 	 * Svelte lifecycle handlers
 	 */
 
-	afterUpdate(() => {
+	$effect(() => {
 		if (!params.vidURL && !isBgImageLoaded && params.imgURL) {
-			img = new Image();
+			const img = new Image();
 			img.onload = handleImageLoaded;
 			img.src = params.imgURL;
 		}
-		//console.log("afterUpdate: " + params.title);
 	});
-	onDestroy(() => {
-		//console.log("the component is being destroyed");
-		clearTimeout(mouseLeaveDelay);
-	});
+	$effect(() => () => clearTimeout(mouseLeaveDelay));
 
 	/*
 	 * event handlers
 	 */
 
-	// The behaviour changes if this is not an anonymous function.
 	const handleImageLoaded = () => {
 		// console.log(params.title);
 		isBgImageLoaded = true;
 	};
 	function handleMouseMove(e) {
-		mX = (e.pageX - this.offsetLeft - this.clientWidth / 2) / this.clientWidth;
-		mY = (e.pageY - this.offsetTop - this.clientHeight / 2) / this.clientHeight;
-		//console.log(title + " " + mX);
+		const el = e.currentTarget;
+		mX = (e.pageX - el.offsetLeft - el.clientWidth / 2) / el.clientWidth;
+		mY = (e.pageY - el.offsetTop - el.clientHeight / 2) / el.clientHeight;
 	}
 	function handleMouseEnter(e) {
 		clearTimeout(mouseLeaveDelay);
 	}
 	function handleMouseLeave(e) {
 		mouseLeaveDelay = setTimeout(() => {
-			rX = rY = tX = tY = 0;
+			mX = mY = 0;
 		}, 1000);
 	}
 	function handleDblClick(e) {
@@ -109,8 +101,7 @@
 				class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
 				style="transform: translateX({tX}px) translateY({tY}px);
         background-image: url({params.imgURL})"
-			>
-			</div>
+			></div>
 		{/if}
 
 		<div class="card-info">
