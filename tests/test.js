@@ -105,3 +105,33 @@ test('homepage links match content.json', async ({ page }) => {
 		);
 	}
 });
+
+test('dice page defaults to 2 dice', async ({ page }) => {
+	await page.goto('/dice');
+
+	await expect(page).toHaveTitle('dice roller');
+	await expect(page.locator('h1')).toHaveText('dice roller');
+	await expect(page.locator('input[name="count"]')).toHaveValue('2');
+	await expect(page.locator('.die')).toHaveCount(2);
+});
+
+test('dice roll gives values 1-6 and a matching total', async ({ page }) => {
+	await page.goto('/dice');
+
+	await page.fill('input[name="count"]', '5');
+	await expect(page.locator('.die')).toHaveCount(5);
+
+	await page.getByRole('button', { name: 'roll' }).click();
+	// button re-enables once the animation finishes
+	await expect(page.getByRole('button', { name: 'roll' })).toBeEnabled();
+
+	const values = await page
+		.locator('.die')
+		.evaluateAll((dice) => dice.map((d) => Number(d.dataset.value)));
+	expect(values).toHaveLength(5);
+	for (const v of values) {
+		expect(v).toBeGreaterThanOrEqual(1);
+		expect(v).toBeLessThanOrEqual(6);
+	}
+	await expect(page.locator('.total span')).toHaveText(String(values.reduce((a, b) => a + b, 0)));
+});

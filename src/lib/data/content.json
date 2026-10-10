@@ -24,6 +24,10 @@
 			"url": "/1rm"
 		},
 		{
+			"title": "dice roller",
+			"url": "/dice"
+		},
+		{
 			"title": "influences",
 			"url": "https://dna.darthvid.com"
 		},

@@ -24,7 +24,7 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 - `src/lib/data/cache.json` is the "currently into" card list. It flows `deckStore.js` → `actions.js` → `src/lib/views/Deck.svelte` → `src/lib/components/Card.svelte`. `actions.js` has a commented-out remote `fetch`, so the list is currently a static import. Cards support `ytVideoID`, `vidURL`, or `imgURL` backgrounds.
 - Editing a link, project, or card usually means editing these JSON files, not Svelte code.
 
-**Routes.** `/` is the homepage. `/1rm` is a standalone 1RM calculator in `src/routes/1rm/+page.svelte`. It is self-contained, with reactive `$:` formulas.
+**Routes.** `/` is the homepage. `/1rm` is a standalone 1RM calculator in `src/routes/1rm/+page.svelte`. `/dice` is a standalone dice roller in `src/routes/dice/+page.svelte` (CSS 3D cubes, default 2 dice, max 20). Both are self-contained runes components.
 
 **Shared shell.** `src/routes/+layout.svelte` wraps every page with `Header`, `Analytics`, `main`, and `Footer`. `Analytics.svelte` injects the gtag script and `dataLayer` setup.
 
