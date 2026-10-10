@@ -42,6 +42,22 @@
 	],
 	"toybox": [
 		{
+			"title": "Claude",
+			"url": "https://claude.ai/",
+			"imgURL": "assets/images/claude.svg"
+		},
+		{
+			"title": "Gemini",
+			"url": "https://gemini.google.com/",
+			"imgURL": "assets/images/gemini.svg"
+		},
+
+		{
+			"title": "Svelte",
+			"url": "https://svelte.dev/",
+			"imgURL": "assets/images/svelte.png"
+		},
+		{
 			"title": "JavaScript",
 			"url": "https://en.wikipedia.org/wiki/JavaScript",
 			"imgURL": "assets/images/javascript.svg"
@@ -51,16 +67,7 @@
 			"url": "https://nodejs.org/",
 			"imgURL": "assets/images/nodejs.svg"
 		},
-		{
-			"title": "Svelte",
-			"url": "https://svelte.dev/",
-			"imgURL": "assets/images/svelte.png"
-		},
-		{
-			"title": "Vue.js",
-			"url": "https://vuejs.org/",
-			"imgURL": "assets/images/vue.png"
-		},
+		
 
 		{
 			"title": "Amazon Web Services",
@@ -73,17 +80,7 @@
 			"imgURL": "assets/images/gcp.png"
 		},
 
-		{
-			"title": "GitHub Actions",
-			"url": "https://github.com/features/actions",
-			"imgURL": "assets/images/gh-actions.svg"
-		},
-
-		{
-			"title": "C/C++",
-			"url": "http://csapp.cs.cmu.edu/3e/docs/chistory.html",
-			"imgURL": "assets/images/clang.jpg"
-		},
+		
 
 		{
 			"title": "fish",
@@ -95,37 +92,18 @@
 			"url": "https://code.visualstudio.com/",
 			"imgURL": "assets/images/vscode.png"
 		},
+
 		{
-			"title": "kitty",
-			"url": "https://sw.kovidgoyal.net/kitty/",
-			"imgURL": "assets/images/kitty.png"
+			"title": "C/C++",
+			"url": "http://csapp.cs.cmu.edu/3e/docs/chistory.html",
+			"imgURL": "assets/images/clang.jpg"
 		}
 	],
 	"shelf": [
 		{
-			"title": "Go",
-			"url": "https://golang.org/",
-			"imgURL": "assets/images/go-gopher.png"
-		},
-		{
-			"title": "Deno",
-			"url": "https://deno.land/",
-			"imgURL": "assets/images/deno.png"
-		},
-		{
-			"title": "Blender",
-			"url": "https://www.blender.org/",
-			"imgURL": "assets/images/blender.png"
-		},
-		{
-			"title": "Rust",
-			"url": "https://www.rust-lang.org/",
-			"imgURL": "assets/images/rust-ferris.svg"
-		},
-		{
-			"title": "Flutter",
-			"url": "https://flutter.dev/",
-			"imgURL": "assets/images/flutter.svg"
+			"title": "Hermes Agent",
+			"url": "https://github.com/NousResearch/hermes-agent",
+			"imgURL": "assets/images/hermes-agent.svg"
 		}
 	]
 }
