@@ -1,5 +1,5 @@
 <script>
-	import * as json_data from '$lib/data/content.json';
+	import * as json_data from '#lib/data/content.json';
 	var site_data;
 	try {
 		site_data = json_data;

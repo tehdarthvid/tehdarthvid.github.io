@@ -1,4 +1,4 @@
-import json_data from '$lib/data/cache.json';
+import json_data from '#lib/data/cache.json';
 
 export default function initDeck(set) {
 	set(json_data);

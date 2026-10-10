@@ -1,5 +1,5 @@
 <script>
-	import { PUBLIC_GA_TRACKING_ID } from '$env/static/public';
+	import { PUBLIC_GA_TRACKING_ID } from '$app/env/public';
 
 	try {
 		if (typeof window !== 'undefined' && window) {

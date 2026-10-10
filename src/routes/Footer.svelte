@@ -1,5 +1,5 @@
 <script>
-	import { PUBLIC_GITHUB_SHA } from '$env/static/public';
+	import { PUBLIC_GITHUB_SHA } from '$app/env/public';
 
 	let strGitHash = PUBLIC_GITHUB_SHA;
 	strGitHash = strGitHash.slice(0, 7);

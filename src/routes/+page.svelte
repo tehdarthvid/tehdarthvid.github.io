@@ -1,9 +1,9 @@
 <script>
-	//import cache_data from '$lib/data/cache.json';
+	//import cache_data from '#lib/data/cache.json';
 	//export let gaID;
 	//export let git_hash;
 
-	import * as json_data from '$lib/data/content.json';
+	import * as json_data from '#lib/data/content.json';
 	var site_data;
 	try {
 		site_data = json_data;
@@ -14,17 +14,17 @@
 		site_data = {};
 	}
 
-	import Icon from '$lib/components/icon.svelte';
-	import LinkTo from '$lib/components/linkto.svelte';
+	import Icon from '#lib/components/icon.svelte';
+	import LinkTo from '#lib/components/linkto.svelte';
 
-	import Deck from '$lib/views/Deck.svelte';
+	import Deck from '#lib/views/Deck.svelte';
 
 	/*
 	//TODO
 	//this seems to need to be loaded on client side, but we're setup for SSR/prerender
 	//https://www.reddit.com/r/sveltejs/comments/mhcmv0/sveltekit_window_is_not_defined/
 	let gaID = '0123456789';
-	import { googleAnalytics } from '$lib/analytics/google-analytics.js';
+	import { googleAnalytics } from '#lib/analytics/google-analytics.js';
 	if (gaID) googleAnalytics(gaID);
 	*/
 </script>

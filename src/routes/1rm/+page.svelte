@@ -1,5 +1,5 @@
 <script>
-	//import cache_data from '$lib/data/cache.json';
+	//import cache_data from '#lib/data/cache.json';
 
 	let weight = $state(85.5);
 	let reps = $state(5);
