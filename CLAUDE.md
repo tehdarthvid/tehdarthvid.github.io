@@ -32,7 +32,7 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 
 ## Deployment
 
-`.github/workflows/pages.yml` runs on pushes to `dev` (and `main`) and does: `npm install && npm run build` → `npm run test` (Playwright) → copy `build/` into the `host-me` branch, force-push it with `PERSONAL_ACCESS_TOKEN`. The README says `master` is the hosting branch, but the workflow's `DEST_BRANCH` is `host-me`. Trust the workflow. The README is marked as outdated.
+`.github/workflows/pages.yml` runs on pushes to `dev`, `main`, and `claude-experiments` (so pushing this branch deploys to the live site) and does: `npm install && npm run build` → `npm run test` (Playwright) → copy `build/` into the `host-me` branch, force-push it with `PERSONAL_ACCESS_TOKEN`. The README says `master` is the hosting branch, but the workflow's `DEST_BRANCH` is `host-me`. Trust the workflow. The README is marked as outdated.
 
 ## Style
 
