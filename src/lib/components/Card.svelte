@@ -79,6 +79,7 @@
 					class="center_video"
 					width="560"
 					height="315"
+					loading="lazy"
 					src="https://www.youtube.com/embed/{params.ytVideoID}?rel=0&controls=0&autoplay=1&mute=1&loop=1&playlist={params.ytVideoID}"
 					frameborder="0"
 					allow="accelerometer; autoplay; encrypted-media; gyroscope;
