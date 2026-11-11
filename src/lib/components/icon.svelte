@@ -34,7 +34,7 @@
 	</a>
 </div>
 
-<style scoped>
+<style>
 	.icon {
 		height: 8vh;
 		width: 8vh;

@@ -117,7 +117,7 @@
 	</div>
 </div>
 
-<style scoped>
+<style>
 	p {
 		font-size: 0.618em;
 	}

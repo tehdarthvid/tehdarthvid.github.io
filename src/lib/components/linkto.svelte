@@ -9,5 +9,5 @@
 	】
 </div>
 
-<style scoped>
+<style>
 </style>
