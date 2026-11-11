@@ -20,6 +20,7 @@ Build-time env: `Footer.svelte` and `Analytics.svelte` import `PUBLIC_GITHUB_SHA
 SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to GitHub user pages (`tehdarthvid.github.io`, `static/CNAME`). `src/routes/+layout.js` sets `prerender = true`, so all output is static HTML.
 
 **Content is data-driven.** Most of the site's text and links live in JSON, not in components:
+
 - `src/lib/data/content.json` drives the homepage (`src/routes/+page.svelte`, `src/routes/Header.svelte`): `name`, `welcome_msg`, `links`, `projects`.
 - `src/lib/data/cache.json` is the "currently into" card list. It flows `deckStore.js` → `actions.js` → `src/lib/views/Deck.svelte` → `src/lib/components/Card.svelte`. `actions.js` has a commented-out remote `fetch`, so the list is currently a static import. Cards support `ytVideoID`, `vidURL`, or `imgURL` backgrounds.
 - Editing a link, project, or card usually means editing these JSON files, not Svelte code.

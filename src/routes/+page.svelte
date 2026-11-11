@@ -1,4 +1,6 @@
 <script>
+	import { resolve } from '$app/paths';
+
 	//import cache_data from '#lib/data/cache.json';
 	//export let gaID;
 	//export let git_hash;
@@ -44,7 +46,7 @@
 <header>
 	{#if null != site_data.name}
 		<h1>
-			<a href="/">{site_data.name}</a>
+			<a href={resolve('/')}>{site_data.name}</a>
 		</h1>
 	{/if}
 </header>
@@ -54,7 +56,7 @@
 		<div id="is-at">
 			<h2>is at</h2>
 			<div class="wrapus">
-				{#each site_data.links as linkData}
+				{#each site_data.links as linkData (linkData.url)}
 					<LinkTo {...linkData} />
 				{/each}
 			</div>
@@ -67,7 +69,7 @@
 		<div id="dabbles-in">
 			<h2>dabbles in</h2>
 			<div class="wrapus">
-				{#each site_data.projects as linkData}
+				{#each site_data.projects as linkData (linkData.url)}
 					<LinkTo {...linkData} />
 				{/each}
 			</div>
@@ -78,7 +80,7 @@
 		<div id="plays-with">
 			<h2>plays with</h2>
 			<div class="wrapus">
-				{#each site_data.toybox as linkData}
+				{#each site_data.toybox as linkData (linkData.url)}
 					<Icon {...linkData} />
 				{/each}
 			</div>
@@ -89,7 +91,7 @@
 		<div id="wants-to-play">
 			<h2>wants to play</h2>
 			<div class="wrapus">
-				{#each site_data.shelf as linkData}
+				{#each site_data.shelf as linkData (linkData.url)}
 					<Icon {...linkData} />
 				{/each}
 			</div>

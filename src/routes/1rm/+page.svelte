@@ -1,4 +1,6 @@
 <script>
+	import { resolve } from '$app/paths';
+
 	//import cache_data from '#lib/data/cache.json';
 
 	let weight = $state(85.5);
@@ -77,7 +79,7 @@
 		</div>
 	</div>
 
-	<p class="madeby">by <a href="/">darthvid</a></p>
+	<p class="madeby">by <a href={resolve('/')}>darthvid</a></p>
 </section>
 
 <style>

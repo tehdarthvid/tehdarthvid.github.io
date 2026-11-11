@@ -67,7 +67,6 @@
 			"url": "https://nodejs.org/",
 			"imgURL": "assets/images/nodejs.svg"
 		},
-		
 
 		{
 			"title": "Amazon Web Services",
@@ -79,8 +78,6 @@
 			"url": "https://cloud.google.com/",
 			"imgURL": "assets/images/gcp.png"
 		},
-
-		
 
 		{
 			"title": "fish",

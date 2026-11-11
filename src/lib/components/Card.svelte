@@ -37,15 +37,15 @@
 		mX = (e.pageX - el.offsetLeft - el.clientWidth / 2) / el.clientWidth;
 		mY = (e.pageY - el.offsetTop - el.clientHeight / 2) / el.clientHeight;
 	}
-	function handleMouseEnter(e) {
+	function handleMouseEnter() {
 		clearTimeout(mouseLeaveDelay);
 	}
-	function handleMouseLeave(e) {
+	function handleMouseLeave() {
 		mouseLeaveDelay = setTimeout(() => {
 			mX = mY = 0;
 		}, 1000);
 	}
-	function handleDblClick(e) {
+	function handleDblClick() {
 		console.log(params.title + ' dblclick');
 		window.open(params.url, '_blank');
 	}

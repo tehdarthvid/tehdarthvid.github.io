@@ -11,7 +11,7 @@
 			gtag('js', new Date());
 			gtag('config', googleAnalyticsId);
 		}
-	} catch (error) {
+	} catch {
 		console.error('Failed to initialize Analytics');
 	}
 </script>

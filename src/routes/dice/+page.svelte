@@ -1,4 +1,6 @@
 <script>
+	import { resolve } from '$app/paths';
+
 	const MAX_DICE = 20;
 
 	// Which cells of a 3x3 grid hold a pip, per face value.
@@ -95,7 +97,7 @@
 				>
 					{#each FACES as face (face)}
 						<div class="face face-{face}">
-							{#each Array(9) as _, cell (cell)}
+							{#each [...Array(9).keys()] as cell (cell)}
 								<span class="cell">
 									{#if PIPS[face].includes(cell)}<span class="pip"></span>{/if}
 								</span>
@@ -109,7 +111,7 @@
 
 	<p class="total" aria-live="polite">total: <span>{rolling ? '…' : total}</span></p>
 
-	<p class="madeby">by <a href="/">darthvid</a></p>
+	<p class="madeby">by <a href={resolve('/')}>darthvid</a></p>
 </section>
 
 <style>

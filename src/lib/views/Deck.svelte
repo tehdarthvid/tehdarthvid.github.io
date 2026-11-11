@@ -7,7 +7,7 @@
 	{#if null != $deck}
 		<h2>currently into</h2>
 		<div class="container">
-			{#each $deck as card}
+			{#each $deck as card (card.title)}
 				<Card params={{ ...card }} />
 			{/each}
 		</div>
