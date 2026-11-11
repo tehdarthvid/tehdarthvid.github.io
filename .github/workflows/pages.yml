@@ -40,6 +40,10 @@ jobs:
           npm run build
 
       - name: Test the build
+        # The test run rebuilds into build/ (Playwright webServer), and that is what gets deployed,
+        # so it needs the same env as the build step.
+        env:
+          GA_TRACKING_ID: ${{ secrets.PUBLIC_GA_TRACKING_ID }}
         run: |
           npx playwright install --with-deps
           export PUBLIC_GITHUB_SHA=$GITHUB_SHA
