@@ -37,7 +37,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx playwright install --with-deps
+      - run: npx playwright install chromium
         timeout-minutes: 5
 
       # Playwright's webServer runs `npm run build`, so build/ is produced here and is what gets deployed.
