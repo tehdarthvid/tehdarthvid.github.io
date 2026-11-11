@@ -8,12 +8,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run dev` — Vite dev server.
 - `npm run build` — static prerender into `build/` (adapter-static; every route is prerendered).
 - `npm run preview` — serve `build/` on port 4173.
-- `npm test` — Playwright. Its `webServer` runs `npm run build && npm run preview` first, so no separate server is needed. Run `npx playwright install` once per machine.
+- `npm test` — Playwright. Its `webServer` runs `npm run build && npm run preview` first, so no separate server is needed. Run `npx playwright install` once per machine (CI installs only Chromium, which is all the tests use).
 - Single test: `npx playwright test tests/test.js -g "has title and header"`.
 - `npm run lint` — Prettier `--check` plus ESLint. `npm run format` writes Prettier fixes.
-- `npm run deploy` is stale (`gh-pages -d public`, but output is `build/`). Don't use it; deployment goes through CI.
+- There is no local deploy script. Deployment goes through CI only (see Deployment).
 
-Build-time env: `Footer.svelte` and `Analytics.svelte` import `PUBLIC_GITHUB_SHA` and `PUBLIC_GA_TRACKING_ID` from `$env/static/public`. CI sets them from `GITHUB_SHA` and a repo secret. For a local build you'll need matching values in `.env` or the shell. I haven't verified what happens when they're missing.
+Build-time env: `Footer.svelte` and `Analytics.svelte` import `PUBLIC_GITHUB_SHA` and `PUBLIC_GA_TRACKING_ID` from `$app/env/public` (SvelteKit 3 API; the variables are declared with `defineEnvVars` in `src/env.js`). CI sets them from `GITHUB_SHA` and the `PUBLIC_GA_TRACKING_ID` repo secret. For a local build, set them in `.env` or the shell. `Analytics.svelte` skips GA entirely when the ID is empty. I haven't verified what happens when `PUBLIC_GITHUB_SHA` is missing.
 
 ## Architecture
 
@@ -22,7 +22,7 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 **Content is data-driven.** Most of the site's text and links live in JSON, not in components:
 
 - `src/lib/data/content.json` drives the homepage (`src/routes/+page.svelte`, `src/routes/Header.svelte`): `name`, `welcome_msg`, `links`, `projects`.
-- `src/lib/data/cache.json` is the "currently into" card list. It flows `deckStore.js` → `actions.js` → `src/lib/views/Deck.svelte` → `src/lib/components/Card.svelte`. `actions.js` has a commented-out remote `fetch`, so the list is currently a static import. Cards support `ytVideoID`, `vidURL`, or `imgURL` backgrounds.
+- `src/lib/data/cache.json` is the "currently into" card list. `src/lib/views/Deck.svelte` imports it directly and renders each entry with `src/lib/components/Card.svelte`. Cards support `ytVideoID`, `vidURL`, or `imgURL` backgrounds.
 - Editing a link, project, or card usually means editing these JSON files, not Svelte code.
 
 **Routes.** `/` is the homepage. `/1rm` is a standalone 1RM calculator in `src/routes/1rm/+page.svelte`. `/dice` is a standalone dice roller in `src/routes/dice/+page.svelte` (CSS 3D cubes, default 2 dice, max 20). Both are self-contained runes components.
@@ -33,7 +33,13 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 
 ## Deployment
 
-`.github/workflows/pages.yml` runs on pushes to `dev`, `main`, and `claude-experiments` (so pushing this branch deploys to the live site) and does: `npm install && npm run build` → `npm run test` (Playwright) → copy `build/` into the `host-me` branch, force-push it with `PERSONAL_ACCESS_TOKEN`. The README says `master` is the hosting branch, but the workflow's `DEST_BRANCH` is `host-me`. Trust the workflow. The README is marked as outdated.
+`.github/workflows/pages.yml` runs on pushes to `dev`, `main`, and `claude-experiments`.
+
+- **build job** (all three branches): `npm ci` → `npx playwright install chromium` → `npm run test` (Playwright's `webServer` runs the one `npm run build`, and that `build/` is what gets deployed) → `actions/upload-pages-artifact`. Env: `PUBLIC_GA_TRACKING_ID` from the repo secret, `PUBLIC_GITHUB_SHA` from `GITHUB_SHA`.
+- **deploy job** (`dev` and `main` only): `actions/deploy-pages` to the `github-pages` environment. Pushing `claude-experiments` builds and tests but does not deploy.
+- Runners are pinned to `ubuntu-24.04` and the job has timeouts. Playwright is installed without `--with-deps` on purpose: the Ubuntu apt mirrors were unresolvable from GitHub runners (2026-11-11) and hung the job.
+- Repo settings this depends on: Pages source is "GitHub Actions"; the custom domain (`darthvid.com`) is set in Pages settings (not via `static/CNAME`); the `github-pages` environment must list `dev` and `main` as allowed deployment branches, or the deploy job is rejected.
+- The old `host-me` branch and `PERSONAL_ACCESS_TOKEN` secret are gone. The README still describes the old flow and is outdated; trust the workflow.
 
 ## Style
 
