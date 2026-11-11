@@ -6,9 +6,11 @@
 	//export let gaID;
 	//import { PUBLIC_GA_TRACKING_ID } from '$env/static/public';
 	//let gaID = PUBLIC_GA_TRACKING_ID;
-	//import { googleAnalytics } from '$lib/analytics/google-analytics.js';
+	//import { googleAnalytics } from '#lib/analytics/google-analytics.js';
 	//if (gaID) googleAnalytics(gaID);
-	import Analytics from '$lib/analytics/Analytics.svelte';
+	import Analytics from '#lib/analytics/Analytics.svelte';
+
+	let { children } = $props();
 </script>
 
 <div class="app">
@@ -17,7 +19,7 @@
 	<Analytics />
 
 	<main>
-		<slot />
+		{@render children()}
 	</main>
 
 	<Footer />

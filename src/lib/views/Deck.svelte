@@ -1,20 +1,18 @@
 <script>
 	import Card from '../components/Card.svelte';
-	import { deck } from '../stores/deckStore.js';
+	import deck from '#lib/data/cache.json';
 </script>
 
 <div id="ran-into">
-	{#if null != $deck}
-		<h2>currently into</h2>
-		<div class="container">
-			{#each $deck as card}
-				<Card params={{ ...card }} />
-			{/each}
-		</div>
-	{/if}
+	<h2>currently into</h2>
+	<div class="container">
+		{#each deck as card (card.title)}
+			<Card params={{ ...card }} />
+		{/each}
+	</div>
 </div>
 
-<style scoped>
+<style>
 	.container {
 		display: flex;
 		flex-wrap: wrap;
