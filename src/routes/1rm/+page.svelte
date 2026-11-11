@@ -42,23 +42,11 @@
 			placeholder="weight"
 			type="number"
 			step="0.5"
-			value={weight}
-			oninput={(value) => {
-				//console.log(typeof (weight * (reps * 0.0333) + weight));
-				weight = value.target.value;
-			}}
+			bind:value={weight}
 		/>
 		<br />
 		reps:
-		<input
-			name="reps"
-			placeholder="reps"
-			type="number"
-			value={reps}
-			oninput={(value) => {
-				reps = value.target.value;
-			}}
-		/>
+		<input name="reps" placeholder="reps" type="number" bind:value={reps} />
 	</div>
 	<div class="result">
 		<div class="grid-container">

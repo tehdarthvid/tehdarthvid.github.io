@@ -1,6 +1,7 @@
 <script>
 	import * as json_data from '#lib/data/content.json';
-	var site_data;
+	/** @type {Partial<typeof json_data>} */
+	let site_data;
 	try {
 		site_data = json_data;
 		if (null == site_data) {

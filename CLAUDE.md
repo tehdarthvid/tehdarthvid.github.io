@@ -10,6 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run preview` — serve `build/` on port 4173.
 - `npm test` — Playwright. Its `webServer` runs `npm run build && npm run preview` first, so no separate server is needed. Run `npx playwright install` once per machine (CI installs only Chromium, which is all the tests use).
 - Single test: `npx playwright test tests/test.js -g "has title and header"`.
+- `npm run check` — `svelte-kit sync` + `svelte-check` against `jsconfig.json` (`checkJs`, `strict`; no TypeScript, types are JSDoc). Run it without `--tsconfig`: passing the flag fails to resolve `$app/tsconfig`. Global type additions go in `src/app.d.ts`.
 - `npm run lint` — Prettier `--check` plus ESLint. `npm run format` writes Prettier fixes.
 - There is no local deploy script. Deployment goes through CI only (see Deployment).
 

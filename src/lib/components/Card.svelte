@@ -1,4 +1,10 @@
 <script>
+	/**
+	 * @type {{ params: {
+	 *   title?: string, date?: string, url?: string,
+	 *   ytVideoID?: string, vidURL?: string, imgURL?: string
+	 * } }}
+	 */
 	let { params } = $props();
 
 	let mX = $state(0);
@@ -9,7 +15,8 @@
 	const tY = $derived(mY * -40);
 
 	let isBgImageLoaded = $state(false);
-	let mouseLeaveDelay = null;
+	/** @type {ReturnType<typeof setTimeout> | undefined} */
+	let mouseLeaveDelay;
 
 	/*
 	 * Svelte lifecycle handlers
@@ -32,6 +39,7 @@
 		// console.log(params.title);
 		isBgImageLoaded = true;
 	};
+	/** @param {MouseEvent & { currentTarget: HTMLElement }} e */
 	function handleMouseMove(e) {
 		const el = e.currentTarget;
 		mX = (e.pageX - el.offsetLeft - el.clientWidth / 2) / el.clientWidth;
@@ -75,9 +83,7 @@
 					frameborder="0"
 					allow="accelerometer; autoplay; encrypted-media; gyroscope;
           picture-in-picture"
-					loop="1"
 					allowfullscreen
-					onStateChange={handleImageLoaded}
 				>
 				</iframe>
 			</div>
@@ -89,9 +95,9 @@
 				<video
 					class="center_video"
 					src={params.vidURL}
-					autoplay="true"
-					loop="true"
-					muted="true"
+					autoplay
+					loop
+					muted
 					onplaying={handleImageLoaded}
 				>
 				</video>

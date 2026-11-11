@@ -4,6 +4,7 @@
 	const MAX_DICE = 20;
 
 	// Which cells of a 3x3 grid hold a pip, per face value.
+	/** @type {Record<number, number[]>} */
 	const PIPS = {
 		1: [4],
 		2: [0, 8],
@@ -14,6 +15,7 @@
 	};
 
 	// Cube rotation that brings each face value to the front.
+	/** @type {Record<number, { x: number, y: number }>} */
 	const FACE_ROTATION = {
 		1: { x: 0, y: 0 },
 		2: { x: -90, y: 0 },
@@ -28,6 +30,7 @@
 
 	let count = $state(2);
 	let rolling = $state(false);
+	/** @type {ReturnType<typeof setTimeout> | undefined} */
 	let rollTimer;
 
 	// Deterministic initial state so the prerendered HTML matches hydration.
@@ -40,6 +43,10 @@
 	const total = $derived(shown.reduce((sum, die) => sum + die.value, 0));
 
 	// Next multiple of 360 at or above `angle`, plus some whole extra turns.
+	/**
+	 * @param {number} angle
+	 * @param {number} target
+	 */
 	function spinFrom(angle, target) {
 		const turns = 2 + Math.floor(Math.random() * 3);
 		return Math.ceil(angle / 360) * 360 + turns * 360 + target;

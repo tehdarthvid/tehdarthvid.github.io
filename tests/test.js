@@ -63,6 +63,7 @@ test('1rm shows default results', async ({ page }) => {
 	await page.goto('/1rm');
 
 	// defaults: weight 85.5, reps 5
+	/** @param {string} name */
 	const result = (name) => page.locator('.formula', { hasText: name }).locator('+ .formula-result');
 	await expect(result('Elpey')).toHaveText('99.74');
 	await expect(result('Brzycki')).toHaveText('96.20');
