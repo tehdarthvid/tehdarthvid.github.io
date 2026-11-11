@@ -1,10 +1,8 @@
 name: GitHub Pages Deploy
 
-# Ensure the following 4 items are defined/updated:
-#   1. runner env GA_TRACKING_ID: Google Analytics tracking ID
-#   2. runner env PERSONAL_ACCESS_TOKEN: GitHub Personal Access Token with rights to the repo.
-
-#   3. Update source branch and other trigger filters.
+# Requires:
+#   - repo secret PUBLIC_GA_TRACKING_ID: Google Analytics measurement ID
+#   - Settings > Pages > Source set to "GitHub Actions"
 on:
   push:
     branches:
@@ -16,64 +14,51 @@ on:
       - '!README.md'
       - '!CHANGELOG.md'
 
-#   4. Update destination branch and artifact folder source.
-env:
-  DEST_BRANCH: 'host-me'
-  ARTIFACT_DIR: 'build'
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build-job:
+  build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_GA_TRACKING_ID: ${{ secrets.PUBLIC_GA_TRACKING_ID }}
     steps:
-      - name: Check-out ${{ github.ref }}
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
 
-      - name: Build ${{ github.ref }}
-        env:
-          #          URL_RECENT_DECK: ${{ secrets.URL_RECENT_DECK }}
-          GA_TRACKING_ID: ${{ secrets.PUBLIC_GA_TRACKING_ID }}
-          # PUBLIC_GITHUB_SHA: ${{ env.GITHUB_SHA }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps
+
+      # Playwright's webServer runs `npm run build`, so build/ is produced here and is what gets deployed.
+      - name: Build and test
         run: |
           export PUBLIC_GITHUB_SHA=$GITHUB_SHA
-          export PUBLIC_GA_TRACKING_ID=$GA_TRACKING_ID
-          npm install
-          npm run build
-
-      - name: Test the build
-        # The test run rebuilds into build/ (Playwright webServer), and that is what gets deployed,
-        # so it needs the same env as the build step.
-        env:
-          GA_TRACKING_ID: ${{ secrets.PUBLIC_GA_TRACKING_ID }}
-        run: |
-          npx playwright install --with-deps
-          export PUBLIC_GITHUB_SHA=$GITHUB_SHA
-          export PUBLIC_GA_TRACKING_ID=$GA_TRACKING_ID
           npm run test
 
-      - name: Check-out '${{ env.DEST_BRANCH }}' to 'temp'
-        run: |
-          git clone -b ${{ env.DEST_BRANCH }} --single-branch http://github.com/${{ github.repository }}.git temp
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: build
 
-      - name: Clean '${{ env.DEST_BRANCH }}' at 'temp'
-        run: |
-          rm -rf temp/*
-          rm -rf temp/.github/
-          echo '.git' folder retained at 'temp'
-
-      - name: Transfer '${{ env.ARTIFACT_DIR }}' contents to 'temp'
-        run: |
-          cp -r ${{ env.ARTIFACT_DIR }}/. temp/
-
-      - name: Commit new artifacts to cleaned '${{ env.DEST_BRANCH }}'
-        working-directory: ./temp
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@bots.github.com"
-          git add .
-          git commit -m "updating from ${{ github.sha }}"
-
-      - name: Soft force-push new artifacts to '${{ env.DEST_BRANCH }}' for GitHub Pages rendering
-        working-directory: ./temp
-        run: |
-          git remote set-url origin "https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git" # includes access token
-          git push --force-with-lease
+  deploy:
+    # Only dev and main go live; other branches just build and test.
+    if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
