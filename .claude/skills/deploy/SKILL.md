@@ -26,7 +26,7 @@ Deployment is CI-only (`.github/workflows/pages.yml`). Pushing `dev` or `main` d
 5. **Merge into `dev` and push.** `git checkout dev && git merge claude-experiments`. It is normally a fast-forward. If `dev` has diverged (e.g. a merge commit such as af78869), do not force anything: show the situation and ask. Push `dev`, then `git checkout claude-experiments`.
 6. **Watch the deploy** the same way on `--branch dev`. Both the build and deploy jobs must succeed.
 7. **Verify live.** Always pass a timeout: `curl -s -m 20 https://darthvid.com` (a bare `curl` once hung for 2 minutes). Grep the footer for the deployed commit SHA, e.g. `... | grep -o "$(git rev-parse HEAD)"`, since JS-only changes don't show up in the HTML. Allow a short delay if it is not there yet.
-8. Report the commit range deployed and the result. Mention that `dev` and `claude-experiments` are in sync.
+8. Report the commit range deployed and the result. Mention that `dev` and `claude-experiments` are in sync. Write the site as a clickable markdown link, `[darthvid.com](https://darthvid.com)`, so the user can open the live site in one click.
 
 ## Repo settings this relies on
 
