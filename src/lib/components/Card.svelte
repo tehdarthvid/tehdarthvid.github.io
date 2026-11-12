@@ -71,7 +71,7 @@
 	<div class="card" style="transform: rotateY({rX}deg) rotateX({rY}deg)">
 		{#if null != params.ytVideoID}
 			<div
-				class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg card-bg__fade-in'}
+				class={isBgImageLoaded ? 'card-bg card-bg__fade-in' : 'card-bg'}
 				style="transform: translateX({tX}px) translateY({tY}px); "
 			>
 				<iframe
@@ -80,6 +80,7 @@
 					width="560"
 					height="315"
 					loading="lazy"
+					onload={handleImageLoaded}
 					src="https://www.youtube.com/embed/{params.ytVideoID}?rel=0&controls=0&autoplay=1&mute=1&loop=1&playlist={params.ytVideoID}"
 					frameborder="0"
 					allow="accelerometer; autoplay; encrypted-media; gyroscope;
