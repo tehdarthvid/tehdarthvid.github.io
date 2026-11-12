@@ -51,6 +51,37 @@ test('has has all content', async ({ page }) => {
 	await expect(page.locator('.card').first()).toBeVisible();
 });
 
+test('renders one card per cache.json entry', async ({ page }) => {
+	const cache = JSON.parse(
+		readFileSync(new URL('../src/lib/data/cache.json', import.meta.url), 'utf-8')
+	);
+	await page.goto('/');
+
+	await expect(page.locator('.card-wrap')).toHaveCount(cache.length);
+});
+
+test('youtube card fades in only after its iframe loads', async ({ page }) => {
+	// hold every YouTube embed request until released, then answer with a stub page
+	/** @type {() => void} */
+	let release = () => {};
+	const released = new Promise((resolve) => (release = () => resolve(undefined)));
+	await page.route('https://www.youtube.com/embed/**', async (route) => {
+		await released;
+		await route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>stub</title>' });
+	});
+
+	// the held iframe request would block the `load` event
+	await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+	const bg = page.locator('.card-wrap:has(iframe) .card-bg').first();
+	await bg.scrollIntoViewIfNeeded();
+	await expect(bg).toHaveClass(/card-bg/);
+	await expect(bg).not.toHaveClass(/card-bg__fade-in/);
+
+	release();
+	await expect(bg).toHaveClass(/card-bg__fade-in/);
+});
+
 test('1rm page loads', async ({ page }) => {
 	await page.goto('/1rm');
 
