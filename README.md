@@ -2,7 +2,7 @@
 
 Just the source for my homepage. Hosted on GitHub Pages.
 
-This `dev` branch is the _main branch_ for development. `host-me` is where the static site is hosted at GitHub Pages and is auto-generated from this branch by the workflow below.
+The `dev` branch is the _main branch_ for development. Pushing to `dev` (or `main`) builds, tests and deploys the site to GitHub Pages through the workflow below.
 
 Currently implemented in SvelteKit (Svelte 5) using npm, with a static build via `@sveltejs/adapter-static`.
 
@@ -16,23 +16,39 @@ npm run preview    # serve build/ on port 4173
 npm test           # Playwright end-to-end tests (builds and previews first)
 npm run lint       # Prettier check + ESLint
 npm run format     # Prettier write
+npm run check      # svelte-check (types via JSDoc)
 ```
+
+The build reads two public env vars (set them in `.env` or the shell for a local build):
+
+- `PUBLIC_GITHUB_SHA`: commit SHA shown in the footer
+- `PUBLIC_GA_TRACKING_ID`: Google Analytics measurement ID. Analytics is skipped when empty.
 
 ## Automation
 
 ![GitHub Pages Deploy](https://github.com/tehdarthvid/tehdarthvid.github.io/workflows/GitHub%20Pages%20Deploy/badge.svg)
 
-`.github/workflows/pages.yml` is a GitHub Action triggered by pushes to the `dev` and `main` branches (except if the push only touches `README.md` or `CHANGELOG.md`). The action does the following:
+`.github/workflows/pages.yml` is a GitHub Action triggered by pushes to the `dev`, `main` and `claude-experiments` branches (except if the push only touches `README.md` or `CHANGELOG.md`). It has two jobs:
+
+**build** (all three branches)
 
 1. checks out the pushed branch
-1. installs dependencies and builds the site into `build/`
-1. runs the Playwright tests against the build
-1. clones the `host-me` branch
-1. removes all local `host-me` content (to handle files possibly removed in the new build), keeping the `.git` folder
-1. copies the contents of `build/` into the local `host-me` checkout
-1. commits and force-pushes `host-me` (`--force-with-lease`)
+1. installs dependencies (`npm ci`) and Chromium for Playwright
+1. runs the Playwright tests, which first build the site into `build/` and preview it
+1. uploads `build/` as the Pages artifact
 
-After pushing to `host-me`, a _GitHub Pages Deploy_ action is triggered that processes these files and serves them to your GitHub Page.
+**deploy** (`dev` and `main` only)
+
+1. publishes the artifact to the `github-pages` environment with `actions/deploy-pages`
+
+Pushes to `claude-experiments` build and test but do not deploy.
+
+Repo settings this relies on:
+
+- Pages source is set to "GitHub Actions"
+- the custom domain is configured in the Pages settings
+- the `github-pages` environment allows `dev` and `main` as deployment branches
+- the `PUBLIC_GA_TRACKING_ID` repo secret holds the Google Analytics ID
 
 ## Learnings
 
