@@ -82,6 +82,22 @@ test('youtube card fades in only after its iframe loads', async ({ page }) => {
 	await expect(bg).toHaveClass(/card-bg__fade-in/);
 });
 
+test('double-clicking a card opens its url in a new tab', async ({ page, context }) => {
+	const cache = JSON.parse(
+		readFileSync(new URL('../src/lib/data/cache.json', import.meta.url), 'utf-8')
+	);
+	const card = cache.find((/** @type {{ url?: string }} */ c) => c.url);
+	// answer the new tab with a stub so the test doesn't depend on the external site
+	await context.route(card.url, (route) =>
+		route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>stub</title>' })
+	);
+	await page.goto('/');
+
+	const popup = page.waitForEvent('popup');
+	await page.getByRole('img', { name: card.title, exact: true }).dblclick();
+	expect((await popup).url()).toBe(card.url);
+});
+
 test('1rm page loads', async ({ page }) => {
 	await page.goto('/1rm');
 

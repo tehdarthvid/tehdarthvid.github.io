@@ -23,7 +23,7 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 **Content is data-driven.** Most of the site's text and links live in JSON, not in components:
 
 - `src/lib/data/content.json` drives the homepage (`src/routes/+page.svelte`, `src/routes/Header.svelte`): `name`, `welcome_msg`, `links`, `projects`.
-- `src/lib/data/cache.json` is the "currently into" card list. `src/lib/views/Deck.svelte` imports it directly and renders each entry with `src/lib/components/Card.svelte`. Cards support `ytVideoID`, `vidURL`, or `imgURL` backgrounds.
+- `src/lib/data/cache.json` is the "currently into" card list. `src/lib/views/Deck.svelte` imports it directly and renders each entry with `src/lib/components/Card.svelte`. Cards support `ytVideoID`, `vidURL`, or `imgURL` backgrounds. `Card.svelte` must stay byte-identical to the one in the sibling `dna-svelte` repo (this repo's copy is the reference). Site-specific behavior goes in each site's `Deck.svelte`: here Deck passes `onopen` to open the card's `url` in a new tab on double-click; dna's Deck opens a modal instead.
 - Editing a link, project, or card usually means editing these JSON files, not Svelte code.
 
 **Routes.** `/` is the homepage. `/1rm` is a standalone 1RM calculator in `src/routes/1rm/+page.svelte`. `/dice` is a standalone dice roller in `src/routes/dice/+page.svelte` (CSS 3D cubes, default 2 dice, max 20). Both are self-contained runes components.

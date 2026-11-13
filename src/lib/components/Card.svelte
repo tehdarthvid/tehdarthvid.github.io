@@ -3,9 +3,11 @@
 	 * @type {{ params: {
 	 *   title?: string, date?: string, url?: string,
 	 *   ytVideoID?: string, vidURL?: string, imgURL?: string
-	 * } }}
+	 * },
+	 *   onopen?: (params: object) => void
+	 * }}
 	 */
-	let { params } = $props();
+	let { params, onopen } = $props();
 
 	let mX = $state(0);
 	let mY = $state(0);
@@ -54,8 +56,7 @@
 		}, 1000);
 	}
 	function handleDblClick() {
-		console.log(params.title + ' dblclick');
-		window.open(params.url, '_blank');
+		onopen?.(params);
 	}
 </script>
 
