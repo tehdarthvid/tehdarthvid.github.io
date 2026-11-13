@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint` — Prettier `--check` plus ESLint. `npm run format` writes Prettier fixes.
 - There is no local deploy script. Deployment goes through CI only (see Deployment).
 
-Build-time env: `Footer.svelte` and `Analytics.svelte` import `PUBLIC_GITHUB_SHA` and `PUBLIC_GA_TRACKING_ID` from `$app/env/public` (SvelteKit 3 API; the variables are declared with `defineEnvVars` in `src/env.js`). CI sets them from `GITHUB_SHA` and the `PUBLIC_GA_TRACKING_ID` repo secret. For a local build, set them in `.env` or the shell. `Analytics.svelte` skips GA entirely when the ID is empty. I haven't verified what happens when `PUBLIC_GITHUB_SHA` is missing.
+Build-time env: `Footer.svelte` and `Analytics.svelte` import `PUBLIC_GITHUB_SHA` and `PUBLIC_GA_TRACKING_ID` from `$app/env/public` (SvelteKit 3 API; the variables are declared with `defineEnvVars` in `src/env.js`). CI sets them from `GITHUB_SHA` and the `PUBLIC_GA_TRACKING_ID` repo secret. Both are optional: the SHA defaults to `dev`, and an empty GA ID makes `Analytics.svelte` skip GA entirely. For a local build, set them in `.env` or the shell.
 
 ## Architecture
 
@@ -38,6 +38,7 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 
 - **build job** (all three branches): `npm ci` → `npx playwright install chromium` → `npm run test` (Playwright's `webServer` runs the one `npm run build`, and that `build/` is what gets deployed) → `actions/upload-pages-artifact`. Env: `PUBLIC_GA_TRACKING_ID` from the repo secret, `PUBLIC_GITHUB_SHA` from `GITHUB_SHA`.
 - **deploy job** (`dev` and `main` only): `actions/deploy-pages` to the `github-pages` environment. Pushing `claude-experiments` builds and tests but does not deploy.
+- **check-ga job** (after deploy): fetches the live page (retrying until it shows the deployed commit, up to ~10 min) and looks for the gtag script with the secret's ID. If it's missing, it emits a warning and opens (or comments on) one `GA missing on live site` issue; when GA is back it closes that issue. It never fails the run for missing GA. Permissions: `issues: write` only, via `GITHUB_TOKEN`.
 - Runners are pinned to `ubuntu-24.04` and the job has timeouts. Playwright is installed without `--with-deps` on purpose: the Ubuntu apt mirrors were unresolvable from GitHub runners (2026-11-11) and hung the job.
 - Repo settings this depends on: Pages source is "GitHub Actions"; the custom domain (`darthvid.com`) is set in Pages settings (not via `static/CNAME`); the `github-pages` environment must list `dev` and `main` as allowed deployment branches, or the deploy job is rejected.
 - The old `host-me` branch and `PERSONAL_ACCESS_TOKEN` secret are gone. The README still describes the old flow and is outdated; trust the workflow.
