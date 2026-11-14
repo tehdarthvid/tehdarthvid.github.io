@@ -7,7 +7,10 @@
 	<h2>currently into</h2>
 	<div class="container">
 		{#each deck as card (card.title)}
-			<Card params={{ ...card }} onopen={() => window.open(card.url, '_blank')} />
+			<Card
+				params={{ ...card }}
+				onopen={() => window.open(card.url, '_blank', 'noopener,noreferrer')}
+			/>
 		{/each}
 	</div>
 </div>

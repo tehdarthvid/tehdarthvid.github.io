@@ -27,7 +27,7 @@
 
 <div class="icon">
 	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- external URL from content.json -->
-	<a href={url} {title} target="noopener noreferrer">
+	<a href={url} {title} target="_blank" rel="noopener noreferrer">
 		{#if isBgImageLoaded}
 			<img class="icon" alt={title} src={imgURL} />
 		{/if}

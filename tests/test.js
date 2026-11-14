@@ -95,7 +95,20 @@ test('double-clicking a card opens its url in a new tab', async ({ page, context
 
 	const popup = page.waitForEvent('popup');
 	await page.getByRole('img', { name: card.title, exact: true }).dblclick();
-	expect((await popup).url()).toBe(card.url);
+	const tab = await popup;
+	expect(tab.url()).toBe(card.url);
+	// opened with noopener, so the external site can't reach back into this tab
+	expect(await tab.evaluate(() => window.opener)).toBeNull();
+});
+
+test('icon links open in a new tab without opener access', async ({ page }) => {
+	await page.goto('/');
+	const links = page.locator('div.icon > a');
+	expect(await links.count()).toBeGreaterThan(0);
+	for (const link of await links.all()) {
+		await expect(link).toHaveAttribute('target', '_blank');
+		await expect(link).toHaveAttribute('rel', /\bnoopener\b/);
+	}
 });
 
 test('1rm page loads', async ({ page }) => {
