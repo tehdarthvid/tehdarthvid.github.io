@@ -22,10 +22,6 @@
 <svelte:head>
 	<title>darthvid</title>
 	<meta name="description" content="a personal homepage" />
-	<link
-		href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Noto+Sans+JP&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <header>

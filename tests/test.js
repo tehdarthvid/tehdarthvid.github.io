@@ -196,3 +196,28 @@ test('dice roll gives values 1-6 and a matching total', async ({ page }) => {
 	}
 	await expect(page.locator('.total span')).toHaveText(String(values.reduce((a, b) => a + b, 0)));
 });
+
+test('fonts are self-hosted and allowed by the CSP', async ({ page }) => {
+	// keep the test offline: YouTube players aren't what this checks
+	await page.route(/youtube\.com|ytimg\.com|googlevideo\.com/, (route) => route.abort());
+	/** @type {string[]} */
+	const fontHosts = [];
+	/** @type {string[]} */
+	const cspErrors = [];
+	page.on('request', (r) => {
+		if (r.resourceType() === 'font' || /fonts\.(googleapis|gstatic)\.com/.test(r.url())) {
+			fontHosts.push(new URL(r.url()).host);
+		}
+	});
+	page.on('console', (m) => {
+		if (/Content Security Policy/.test(m.text())) cspErrors.push(m.text());
+	});
+	await page.goto('/');
+	await page.evaluate(() => document.fonts.ready);
+	await expect
+		.poll(() => page.evaluate(() => document.fonts.check('16px "Noto Sans JP"', 'サイト')))
+		.toBe(true);
+	expect(fontHosts.length).toBeGreaterThan(0);
+	expect(new Set(fontHosts)).toEqual(new Set([new URL(page.url()).host]));
+	expect(cspErrors).toEqual([]);
+});

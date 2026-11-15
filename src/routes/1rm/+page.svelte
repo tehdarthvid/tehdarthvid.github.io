@@ -20,10 +20,6 @@
 <svelte:head>
 	<title>1rm calculator</title>
 	<meta name="description" content="1rm computer by darthvid" />
-	<link
-		href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Noto+Sans+JP&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <!--

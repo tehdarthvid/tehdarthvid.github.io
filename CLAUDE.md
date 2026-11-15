@@ -30,6 +30,8 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 
 **Shared shell.** `src/routes/+layout.svelte` wraps every page with `Header`, `Analytics`, `main`, and `Footer`. `Analytics.svelte` injects the gtag script and `dataLayer` setup.
 
+**Fonts** are self-hosted from Fontsource packages (`@fontsource/source-code-pro`, `@fontsource/noto-sans-jp`, weight 400), imported in `+layout.svelte`: the Latin Source Code Pro face is preloaded, and Noto Sans JP's CSS (~120 unicode-range subsets) is imported after hydration so it doesn't block render. `vite.config.js` keeps `.woff`/`.woff2` out of asset inlining, because the CSP has no `data:` font source. Don't add Google Fonts links back; a Playwright test checks that fonts come only from the site's own host.
+
 **Tests** (`tests/test.js`) are Playwright end-to-end checks against the built homepage. They assert on the Japanese welcome text and on content from `content.json`, so if you change those strings, update the tests too.
 
 ## Deployment

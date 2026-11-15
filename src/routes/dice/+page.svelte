@@ -72,10 +72,6 @@
 <svelte:head>
 	<title>dice roller</title>
 	<meta name="description" content="dice roller by darthvid" />
-	<link
-		href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Noto+Sans+JP&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <header>
