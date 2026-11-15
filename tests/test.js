@@ -131,6 +131,62 @@ test('youtube cards keep the still frame when reduced motion is on', async ({ pa
 	await expect(page.locator('.card-wrap iframe')).toHaveCount(0);
 });
 
+/**
+ * Skips when no video loops were built (they need ffmpeg: `node scripts/clips.js`).
+ * @param {import('@playwright/test').Page} page
+ */
+async function skipWithoutLoops(page) {
+	test.skip(
+		(await page.locator('.card-wrap video, .card-wrap img.cover').count()) === 0,
+		'no loops'
+	);
+}
+
+test('loop cards show their poster first, then add the self-hosted video', async ({ page }) => {
+	await page.route(/youtube|ytimg/, (route) => route.abort());
+	await page.goto('/', { waitUntil: 'domcontentloaded' });
+	await skipWithoutLoops(page);
+
+	const wrap = page.locator('.card-wrap:has(img.cover)').first();
+	await wrap.scrollIntoViewIfNeeded();
+	const video = wrap.locator('video');
+	// served from the site itself: the CSP's media-src is 'self'
+	await expect(video).toHaveAttribute('src', /\/_app\/immutable\/assets\/.+\.mp4$/);
+	expect(new URL(/** @type {string} */ (await video.getAttribute('src')), page.url()).host).toBe(
+		new URL(page.url()).host
+	);
+	await expect(video).toHaveJSProperty('muted', true);
+	await expect(video).toHaveAttribute('playsinline', '');
+});
+
+for (const [name, setup] of /** @type {const} */ ([
+	[
+		'data saver',
+		(/** @type {import('@playwright/test').Page} */ page) =>
+			page.addInitScript(() =>
+				Object.defineProperty(navigator, 'connection', { value: { saveData: true } })
+			)
+	],
+	[
+		'reduced motion',
+		(/** @type {import('@playwright/test').Page} */ page) =>
+			page.emulateMedia({ reducedMotion: 'reduce' })
+	]
+])) {
+	test(`loop cards keep the poster when ${name} is on`, async ({ page }) => {
+		await setup(page);
+		await page.route(/youtube|ytimg/, (route) => route.abort());
+		await page.goto('/');
+		await skipWithoutLoops(page);
+
+		const wrap = page.locator('.card-wrap:has(img.cover)').first();
+		await wrap.scrollIntoViewIfNeeded();
+		await expect(wrap.locator('.card-bg')).toHaveClass(/card-bg__fade-in/);
+		await page.waitForTimeout(500);
+		await expect(page.locator('.card-wrap video')).toHaveCount(0);
+	});
+}
+
 test('double-clicking a card opens its url in a new tab', async ({ page, context }) => {
 	const cache = JSON.parse(
 		readFileSync(new URL('../src/lib/data/cache.json', import.meta.url), 'utf-8')
