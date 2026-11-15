@@ -30,14 +30,17 @@ Deployment is CI-only (`.github/workflows/pages.yml`). Pushing `dev` or `main` d
    git fetch origin
    git checkout -B deploy-tmp origin/dev
    git merge --no-ff --no-commit origin/claude-experiments   # a modify/delete conflict on CLAUDE.md is expected
-   git rm -rq --ignore-unmatch CLAUDE.md .claude
-   git ls-files -z '*CLAUDE.md' | xargs -0r git rm -q        # nested CLAUDE.md, if any
+   git rm -rqf --ignore-unmatch CLAUDE.md .claude          # -f: the merge stages them, and plain rm refuses
+   git ls-files -z '*CLAUDE.md' | xargs -0r git rm -qf       # nested CLAUDE.md, if any
    git status --short                                       # must show no other conflicts; if it does, stop and ask
    git commit -m "Deploy claude-experiments to dev (without Claude-only files)"
    git diff --name-only origin/claude-experiments HEAD      # must list only Claude-only paths
+   git ls-tree -r --name-only HEAD | grep -E 'CLAUDE\.md|^\.claude/'   # must print nothing
    git push origin HEAD:dev
    git checkout claude-experiments && git branch -D deploy-tmp
    ```
+
+   Run these one at a time (or with `set -e`), and check each result: on 2026-11-15 a chained `git rm` failed silently and CLAUDE.md reached `dev` (removed in a follow-up commit).
 
    Never merge `dev` back into `claude-experiments` (it would delete the Claude-only files there), and never force-push.
 
