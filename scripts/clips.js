@@ -7,7 +7,16 @@
 // clip.src is a direct video URL (MP4 or HLS), or `steam:<appid>` for the app's first Steam
 // store trailer. clip.start is in seconds.
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import {
+	appendFileSync,
+	existsSync,
+	mkdirSync,
+	readdirSync,
+	readFileSync,
+	rmSync,
+	statSync,
+	writeFileSync
+} from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { clipName } from '../src/lib/clip-name.js';
 
@@ -52,6 +61,7 @@ const cards = JSON.parse(
 );
 mkdirSync(DIR, { recursive: true });
 const keep = new Set();
+const total = cards.filter((c) => c.clip).length;
 
 for (const card of cards) {
 	if (!card.clip) continue;
@@ -81,6 +91,17 @@ for (const card of cards) {
 		console.warn(`::warning::${name}: no loop, card keeps its fallback (${e})`);
 	}
 }
+
+// "X of N" with sizes, in the run's summary on GitHub
+const report = [`${keep.size} of ${total} video loops built`, ''];
+for (const name of keep) {
+	const kb = (/** @type {string} */ ext) =>
+		Math.round(statSync(`${DIR}${name}.${ext}`).size / 1024);
+	report.push(`- ${name}: ${kb('mp4')} KB loop, ${kb('webp')} KB poster`);
+}
+console.log(report.join('\n'));
+if (process.env.GITHUB_STEP_SUMMARY)
+	appendFileSync(process.env.GITHUB_STEP_SUMMARY, report.join('\n') + '\n');
 
 // drop loops whose card is gone or failed
 for (const file of readdirSync(DIR)) {
