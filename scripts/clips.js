@@ -29,7 +29,9 @@ const INPUT = ['-protocol_whitelist', 'https,tls,tcp,crypto'];
 // streams in ffmpeg 6 (CI got empty clips)
 const VIDEO = [
 	['-t', SECONDS, '-an', '-vf', `${FRAME},fps=30`, '-c:v', 'libx264', '-profile:v', 'high'],
-	['-preset', 'slow', '-crf', '28', '-pix_fmt', 'yuv420p', '-movflags', '+faststart']
+	['-preset', 'slow', '-crf', '28', '-pix_fmt', 'yuv420p', '-movflags', '+faststart'],
+	// cap busy scenes (Expedition 33's combat was 1.3 MB) at about 0.5 MB per loop
+	['-maxrate', '700k', '-bufsize', '1400k']
 ].flat();
 // counts the video frames a clip really has
 const PROBE = [
