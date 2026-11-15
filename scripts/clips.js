@@ -14,12 +14,18 @@ import { clipName } from '../src/lib/clip-name.js';
 const DIR = fileURLToPath(new URL('../src/lib/clips/', import.meta.url));
 const SECONDS = 6;
 const FRAME = 'scale=480:640:force_original_aspect_ratio=increase,crop=480:640';
-// input options: read only over https (no local files), from `start`
-/** @param {number} start */
-const input = (start) => ['-protocol_whitelist', 'https,tls,tcp,crypto', '-ss', String(start)];
+// read the source only over https (no local files)
+const INPUT = ['-protocol_whitelist', 'https,tls,tcp,crypto'];
+// `-ss` goes after `-i` (decode up to `start`): seeking the input breaks Steam's fMP4 HLS
+// streams in ffmpeg 6 (CI got empty clips)
 const VIDEO = [
 	['-t', SECONDS, '-an', '-vf', `${FRAME},fps=30`, '-c:v', 'libx264', '-profile:v', 'high'],
 	['-preset', 'slow', '-crf', '28', '-pix_fmt', 'yuv420p', '-movflags', '+faststart']
+].flat();
+// counts the video frames a clip really has
+const PROBE = [
+	['-v', 'error', '-count_frames', '-select_streams', 'v:0'],
+	['-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0']
 ].flat();
 const POSTER = ['-frames:v', '1', '-vf', FRAME, '-c:v', 'libwebp', '-quality', '68'];
 
@@ -52,7 +58,7 @@ for (const card of cards) {
 	const name = clipName(card);
 	const { src, start = 0 } = card.clip;
 	// a loop is remade only when its source, timing or encoding changes
-	const stamp = JSON.stringify({ src, start, VIDEO, POSTER });
+	const stamp = JSON.stringify({ src, start, INPUT, VIDEO, POSTER });
 	const stampFile = `${DIR}${name}.json`;
 	keep.add(name);
 	if (existsSync(stampFile) && readFileSync(stampFile, 'utf-8') === stamp) {
@@ -61,12 +67,17 @@ for (const card of cards) {
 	}
 	try {
 		const url = await resolve(src);
-		ffmpeg([...input(start), '-i', url, ...VIDEO, `${DIR}${name}.mp4`]);
-		ffmpeg([...input(start), '-i', url, ...POSTER, `${DIR}${name}.webp`]);
+		const mp4 = `${DIR}${name}.mp4`;
+		ffmpeg([...INPUT, '-i', url, '-ss', start, ...VIDEO, mp4]);
+		ffmpeg(['-i', mp4, ...POSTER, `${DIR}${name}.webp`]);
+		// ffmpeg can "succeed" with an empty clip, so check what came out
+		const frames = Number(execFileSync('ffprobe', [...PROBE, mp4]));
+		if (!(frames >= (SECONDS - 0.5) * 30)) throw new Error(`clip has ${frames} frames`);
 		writeFileSync(stampFile, stamp);
 		console.log(`${name}: made`);
 	} catch (e) {
 		keep.delete(name);
+		for (const ext of ['mp4', 'webp', 'json']) rmSync(`${DIR}${name}.${ext}`, { force: true });
 		console.warn(`::warning::${name}: no loop, card keeps its fallback (${e})`);
 	}
 }
