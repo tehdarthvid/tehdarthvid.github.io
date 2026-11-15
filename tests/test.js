@@ -60,26 +60,75 @@ test('renders one card per cache.json entry', async ({ page }) => {
 	await expect(page.locator('.card-wrap')).toHaveCount(cache.length);
 });
 
-test('youtube card fades in only after its iframe loads', async ({ page }) => {
-	// hold every YouTube embed request until released, then answer with a stub page
+// 1x1 PNG, served for YouTube still frames so tests stay offline
+const STILL = Buffer.from(
+	'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+	'base64'
+);
+
+test('youtube card shows its still frame first, then plays once loaded', async ({ page }) => {
+	await page.route('https://i.ytimg.com/**', (route) =>
+		route.fulfill({ contentType: 'image/png', body: STILL })
+	);
+	// hold every player request until released, then answer with a stub page
 	/** @type {() => void} */
 	let release = () => {};
 	const released = new Promise((resolve) => (release = () => resolve(undefined)));
-	await page.route('https://www.youtube.com/embed/**', async (route) => {
+	/** @type {string[]} */
+	const playerHosts = [];
+	page.on('request', (r) => {
+		if (/youtube/.test(r.url())) playerHosts.push(new URL(r.url()).host);
+	});
+	await page.route('https://www.youtube-nocookie.com/embed/**', async (route) => {
 		await released;
 		await route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>stub</title>' });
 	});
 
-	// the held iframe request would block the `load` event
 	await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-	const bg = page.locator('.card-wrap:has(iframe) .card-bg').first();
-	await bg.scrollIntoViewIfNeeded();
-	await expect(bg).toHaveClass(/card-bg/);
-	await expect(bg).not.toHaveClass(/card-bg__fade-in/);
+	const wrap = page.locator('.card-wrap:has(img.yt-still)').first();
+	await wrap.scrollIntoViewIfNeeded();
+	// the still frame fades the card in without waiting for the player
+	await expect(wrap.locator('.card-bg')).toHaveClass(/card-bg__fade-in/);
 
+	// the player loads after the page, and stays invisible until its iframe loads
+	const iframe = wrap.locator('iframe');
+	await expect(iframe).toHaveClass(/yt-pending/);
 	release();
-	await expect(bg).toHaveClass(/card-bg__fade-in/);
+	await expect(iframe).not.toHaveClass(/yt-pending/);
+	expect(new Set(playerHosts)).toEqual(new Set(['www.youtube-nocookie.com']));
+});
+
+test('youtube cards keep the still frame when data saver is on', async ({ page }) => {
+	await page.addInitScript(() =>
+		Object.defineProperty(navigator, 'connection', { value: { saveData: true } })
+	);
+	await page.route('https://i.ytimg.com/**', (route) =>
+		route.fulfill({ contentType: 'image/png', body: STILL })
+	);
+	await page.route(/youtube/, (route) => route.abort());
+	await page.goto('/');
+
+	const wrap = page.locator('.card-wrap:has(img.yt-still)').first();
+	await wrap.scrollIntoViewIfNeeded();
+	await expect(wrap.locator('.card-bg')).toHaveClass(/card-bg__fade-in/);
+	await page.waitForTimeout(500);
+	await expect(page.locator('.card-wrap iframe')).toHaveCount(0);
+});
+
+test('youtube cards keep the still frame when reduced motion is on', async ({ page }) => {
+	await page.emulateMedia({ reducedMotion: 'reduce' });
+	await page.route('https://i.ytimg.com/**', (route) =>
+		route.fulfill({ contentType: 'image/png', body: STILL })
+	);
+	await page.route(/youtube/, (route) => route.abort());
+	await page.goto('/');
+
+	const wrap = page.locator('.card-wrap:has(img.yt-still)').first();
+	await wrap.scrollIntoViewIfNeeded();
+	await expect(wrap.locator('.card-bg')).toHaveClass(/card-bg__fade-in/);
+	await page.waitForTimeout(500);
+	await expect(page.locator('.card-wrap iframe')).toHaveCount(0);
 });
 
 test('double-clicking a card opens its url in a new tab', async ({ page, context }) => {
