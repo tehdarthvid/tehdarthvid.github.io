@@ -54,6 +54,7 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 - GitHub Pages can't set response headers (it serves everything with `cache-control: max-age=600` and no HSTS on the custom domain). The only security header is the CSP `<meta>` in `src/app.html`; other headers are not set as `<meta>` because browsers ignore them there. Keep dev-only hosts (`localhost`, `ws:`) out of the CSP: `'self'` already covers Vite's dev server and HMR socket.
 - Runners are pinned to `ubuntu-24.04` and the job has timeouts. Playwright is installed without `--with-deps` on purpose: the Ubuntu apt mirrors were unresolvable from GitHub runners (2026-11-11) and hung the job.
 - Repo settings this depends on: Pages source is "GitHub Actions"; the custom domain (`darthvid.com`) is set in Pages settings (not via `static/CNAME`); the `github-pages` environment must list `dev` and `main` as allowed deployment branches, or the deploy job is rejected.
+- Claude-only files (`CLAUDE.md` anywhere, `.claude/`) live only on `claude-experiments` and never go to `dev`/`main`: a deploy merges `claude-experiments` into `dev` with those paths removed (see the `deploy` skill). So `dev` is never a fast-forward and is never merged back into `claude-experiments`. The workflow ignores pushes that only change these paths.
 - The old `host-me` branch and `PERSONAL_ACCESS_TOKEN` secret are gone. The README still describes the old flow and is outdated; trust the workflow.
 
 ## Style

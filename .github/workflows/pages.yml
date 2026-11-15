@@ -14,6 +14,9 @@ on:
       - '**'
       - '!README.md'
       - '!CHANGELOG.md'
+      # Claude-only files (they stay on claude-experiments, see CLAUDE.md)
+      - '!**/CLAUDE.md'
+      - '!.claude/**'
 
 permissions:
   contents: read

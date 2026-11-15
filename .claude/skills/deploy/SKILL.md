@@ -1,6 +1,6 @@
 ---
 name: deploy
-description: Deploy this site to darthvid.com. Verifies on claude-experiments, pushes it for a CI check, then (after confirmation) merges into dev, pushes, and checks the live site. Use when the user asks to deploy, ship, or publish changes.
+description: Deploy this site to darthvid.com. Verifies on claude-experiments, pushes it for a CI check, then (after confirmation) merges into dev without the Claude-only files, pushes, and checks the live site. Use when the user asks to deploy, ship, or publish changes.
 ---
 
 # Deploy darthvid.com
@@ -10,6 +10,7 @@ Deployment is CI-only (`.github/workflows/pages.yml`). Pushing `dev` or `main` d
 ## Rules
 
 - Work happens on `claude-experiments`. `dev` is only touched to deploy.
+- Claude-only files (`CLAUDE.md` anywhere, `.claude/`) stay on `claude-experiments` and never go to `dev`. So `dev` is never a fast-forward: each deploy is a merge commit without those paths.
 - Never push `dev` or `main` unless the user has asked for a deploy. Confirm before step 5 even if they asked to "deploy" earlier in the session, unless they said to go all the way.
 - Push over SSH with whatever key the user normally uses for GitHub. If a plain `git push origin <branch>` is rejected for auth, check memory or ask for the key.
 - Do not add `--with-deps` to `npx playwright install` in the workflow: Ubuntu apt mirrors hang on GitHub runners.
@@ -22,11 +23,27 @@ Deployment is CI-only (`.github/workflows/pages.yml`). Pushing `dev` or `main` d
 3. **Push `claude-experiments`** and watch CI:
    `gh run watch $(gh run list --branch claude-experiments --limit 1 --json databaseId -q '.[0].databaseId') --exit-status`
    Wait a few seconds after the push so the new run exists. Expect build to pass and deploy to be skipped. A Node.js 20 deprecation annotation from `upload-artifact` is known and harmless.
-4. **Ask the user to confirm the deploy**, saying what commits will go live (`git log dev..claude-experiments --oneline`).
-5. **Merge into `dev` and push.** `git checkout dev && git merge claude-experiments`. It is normally a fast-forward. If `dev` has diverged (e.g. a merge commit such as af78869), do not force anything: show the situation and ask. Push `dev`, then `git checkout claude-experiments`.
+4. **Ask the user to confirm the deploy**, saying what will go live: `git diff --stat origin/dev origin/claude-experiments -- . ':!**/CLAUDE.md' ':!.claude'` plus the commit list `git log --oneline origin/dev..origin/claude-experiments`. If the diff is empty, there's nothing to deploy (Claude-only changes don't deploy); say so and stop.
+5. **Merge into `dev` without the Claude-only files, and push.**
+
+   ```sh
+   git fetch origin
+   git checkout -B deploy-tmp origin/dev
+   git merge --no-ff --no-commit origin/claude-experiments   # a modify/delete conflict on CLAUDE.md is expected
+   git rm -rq --ignore-unmatch CLAUDE.md .claude
+   git ls-files -z '*CLAUDE.md' | xargs -0r git rm -q        # nested CLAUDE.md, if any
+   git status --short                                       # must show no other conflicts; if it does, stop and ask
+   git commit -m "Deploy claude-experiments to dev (without Claude-only files)"
+   git diff --name-only origin/claude-experiments HEAD      # must list only Claude-only paths
+   git push origin HEAD:dev
+   git checkout claude-experiments && git branch -D deploy-tmp
+   ```
+
+   Never merge `dev` back into `claude-experiments` (it would delete the Claude-only files there), and never force-push.
+
 6. **Watch the deploy** the same way on `--branch dev`. Both the build and deploy jobs must succeed.
 7. **Verify live.** Always pass a timeout: `curl -s -m 20 https://darthvid.com` (a bare `curl` once hung for 2 minutes). Grep the footer for the deployed commit SHA, e.g. `... | grep -o "$(git rev-parse HEAD)"`, since JS-only changes don't show up in the HTML. Allow a short delay if it is not there yet.
-8. Report the commit range deployed and the result. Mention that `dev` and `claude-experiments` are in sync. Write the site as a clickable markdown link, `[darthvid.com](https://darthvid.com)`, so the user can open the live site in one click.
+8. Report the commit range deployed and the result. Mention that `dev` matches `claude-experiments` except for the Claude-only files. Write the site as a clickable markdown link, `[darthvid.com](https://darthvid.com)`, so the user can open the live site in one click.
 
 ## Repo settings this relies on
 
