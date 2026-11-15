@@ -11,6 +11,10 @@
 		"title": "Clair Obscur: Expedition 33",
 		"url": "https://www.expedition33.com/",
 		"ytVideoID": "ejgW-upPMgk",
+		"clip": {
+			"src": "steam:1903340",
+			"start": 30
+		},
 		"date": "24 Apr 2025",
 		"added": "24 Apr 2025",
 		"ref": "https://x.com/expedition33/status/1915301788640571522"
@@ -19,6 +23,10 @@
 		"title": "Dark Deity 2",
 		"url": "https://darkdeitygame.com/",
 		"ytVideoID": "z0HQKVuYa0Y",
+		"clip": {
+			"src": "steam:2446600",
+			"start": 30
+		},
 		"date": "24 Mar 2025",
 		"added": "7 Apr 2025",
 		"ref": "https://x.com/DarkDeityGame/status/1904186524444643624"
@@ -27,7 +35,10 @@
 		"title": "Zenless Zone Zero",
 		"url": "https://zenless.hoyoverse.com/",
 		"ytVideoID": "KGOynaQoofc",
-		"vidURL": "https://fastcdn.hoyoverse.com/mi18n/nap_global/m20240603hy38zhr2tc/upload/cc3bb675f914697becea1c994e7a98f8_8142939383232387095.mp4",
+		"clip": {
+			"src": "https://fastcdn.hoyoverse.com/mi18n/nap_global/m20240603hy38zhr2tc/upload/cc3bb675f914697becea1c994e7a98f8_8142939383232387095.mp4",
+			"start": 2
+		},
 		"date": "4 Jul 2024",
 		"added": "8 Aug 2024",
 		"ref": "https://x.com/ZZZ_EN/status/1808682192383660246",
