@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Site purpose & design philosophy
+
+- The owner's personal site (https://darthvid.com/): current interests, current work and study, and the current tech stack, plus links to related sites and pet projects.
+- Content is seasonal and changes often, so content updates must stay easy (edit the JSON in `src/lib/data/`, not components).
+- Looks flashy, but stays simple, straightforward and fast to load. The code should show that simplicity too: prefer plain CSS, minimal dependencies and minimal abstractions.
+- Stays on GitHub Pages by choice (the sibling `dna-svelte` uses Firebase); don't propose moving hosts.
+- `Card.svelte` is shared with `dna-svelte`, and this copy is the reference. `dna-svelte` is the experimental testbed: complexity added there for experiments must not leak into this site without flagging it.
+
 ## Commands
 
 - `npm install` — install dependencies (uses `package-lock.json`).
