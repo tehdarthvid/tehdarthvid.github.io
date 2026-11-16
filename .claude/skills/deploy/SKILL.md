@@ -12,14 +12,14 @@ Deployment is CI-only (`.github/workflows/pages.yml`). Pushing `dev` or `main` d
 - Work happens on `claude-experiments`. `dev` is only touched to deploy.
 - Claude-only files (`CLAUDE.md` anywhere, `.claude/`) stay on `claude-experiments` and never go to `dev`. So `dev` is never a fast-forward: each deploy is a merge commit without those paths.
 - Never push `dev` or `main` unless the user has asked for a deploy. Confirm before step 5 even if they asked to "deploy" earlier in the session, unless they said to go all the way.
-- Push over SSH with whatever key the user normally uses for GitHub. If a plain `git push origin <branch>` is rejected for auth, check memory or ask for the key.
+- Git auth goes through the Bitwarden SSH agent via Windows `ssh.exe` (see the workspace `CLAUDE.md`, "Git auth"). With the vault locked, a push or pull waits for the user to approve a Bitwarden prompt, so a slow one isn't a failure: don't kill it, ask the user to check Bitwarden. If it fails outright, suspect a locked vault or a missing GitHub entry in `C:\Users\simoun\.ssh\known_hosts`. Do not load keys yourself.
 - Do not add `--with-deps` to `npx playwright install` in the workflow: Ubuntu apt mirrors hang on GitHub runners.
 - Do not push with failing checks. Report failures with the output.
 
 ## Steps
 
 1. **Preflight.** `git branch --show-current` must be `claude-experiments` (switch if not). `git status` must be clean; if not, ask whether to commit.
-2. **Local checks.** `npm run lint`, `npm run check`, `npm test` (Playwright builds and serves on its own; needs `PUBLIC_GA_TRACKING_ID` / `PUBLIC_GITHUB_SHA` only if the build complains, see CLAUDE.md). If every Playwright test fails with `ERR_CONNECTION_REFUSED` on port 4173, the preview server wasn't up yet: rerun once before treating it as a real failure (seen once, cause unknown).
+2. **Local checks.** `npm run lint`, `npm run check`, `npm test` (Playwright builds and serves on its own; needs `PUBLIC_GA_TRACKING_ID` / `PUBLIC_GITHUB_SHA` only if the build complains, see CLAUDE.md). If every Playwright test fails with `ERR_CONNECTION_REFUSED` on port 4173, the preview server wasn't up yet: rerun once before treating it as a real failure (seen once, cause unknown). Use Node 24 (the shell default). If every test instead fails with "Executable doesn't exist", Playwright was bumped: run `npx playwright install chromium` and rerun.
 3. **Push `claude-experiments`** and watch CI:
    `gh run watch $(gh run list --branch claude-experiments --limit 1 --json databaseId -q '.[0].databaseId') --exit-status`
    Wait a few seconds after the push so the new run exists. Expect build to pass and deploy to be skipped. A Node.js 20 deprecation annotation from `upload-artifact` is known and harmless.
