@@ -21,7 +21,7 @@ Icons are self-hosted: download the project's official logo (SVG preferred) into
 
 ## A "currently into" card
 
-Fields: `title`, `url` (opened on double-click), `date` (the item's release date or first airing's start–end, not when the user got into it; `17 Jan 2025` style), `added` (today), optional `ref` (the announcement) and `hashtag` list. Keep the array ordered by `added`, newest first.
+Fields: `title`, `url` (opened on double-click), `date` (the item's release date or first airing's start–end, not when the user got into it; `17 Jan 2025` style), `added` (today), optional `ref` (the announcement) and `hashtag` list. The array is ordered by the user's current interest (first = what interests them most now), not by `added` or date: put a new card where they say, ask if they didn't, and never move other cards without their explicit approval.
 
 Background, decide per card in this order:
 
