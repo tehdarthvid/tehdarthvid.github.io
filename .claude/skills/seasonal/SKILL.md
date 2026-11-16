@@ -27,7 +27,7 @@ Background, decide per card in this order:
 
 1. **Official direct video exists** (a Steam store trailer, or an MP4/HLS file on the publisher's own site or CDN): add `"clip": { "src": "steam:<appid>" | "<https url>", "start": <s> }`, and keep a `ytVideoID` as well if there's an official YouTube trailer, as the fallback when the loop can't be built. Find direct URLs in the official page's source or network requests; Steam app ids are in the store URL.
 2. **Video only on YouTube:** `ytVideoID` only (still frame first, deferred muted player). Never yt-dlp or any YouTube downloader (ToS; see CLAUDE.md).
-3. **No video:** `imgURL` (official key art). CSP `img-src` allows any host, so no CSP change.
+3. **No video:** `imgURL` (official key art). CSP `img-src` allows any `https:` host (set in `vite.config.js`), so no CSP change. A plain `http:` image URL would be blocked.
 
 ### Picking the loop start
 

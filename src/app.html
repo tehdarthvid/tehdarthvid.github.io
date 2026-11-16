@@ -3,17 +3,15 @@
 	<head>
 		<meta charset="utf-8" />
 		<!--
-			GitHub Pages can't set response headers, so the CSP is the only security header here.
-			HSTS, nosniff, Referrer-Policy etc. are ignored by browsers as <meta>, so they aren't set.
+			The CSP is set in vite.config.js (sveltekit({ csp })), not here. SvelteKit writes it as a
+			<meta http-equiv> with hashes of its own inline scripts, at the start of the head
+			placeholder below, so the favicon comes after it to be covered too. GitHub Pages can't set
+			response headers, so it's the only security header; HSTS, nosniff, Referrer-Policy etc. are
+			ignored by browsers as <meta>, so they aren't set.
 		-->
-		<meta
-			http-equiv="Content-Security-Policy"
-			content="default-src 'self' www.youtube-nocookie.com; script-src 'self' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' *; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
-		/>
-
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 	</head>
 	<body>
 		<div style="display: contents">%sveltekit.body%</div>
