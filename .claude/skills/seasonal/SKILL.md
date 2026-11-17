@@ -17,7 +17,7 @@ Content changes are **JSON edits only** (`CLAUDE.md`, "Content is data-driven").
 | plays with (current stack)       | `content.json` `toybox`, icon in `static/assets/images/` |
 | wants to play (next to try)      | `content.json` `shelf`, same icons                       |
 
-Icons are self-hosted: download the project's official logo (SVG preferred) into `static/assets/images/`, refer to it as `assets/images/<file>`. Unused icons already sit in that folder; leave them unless asked.
+Icons are self-hosted: download the project's official logo (SVG preferred) into `static/assets/images/`, refer to it as `assets/images/<file>`. Strip its metadata first (**Image hygiene** in CLAUDE.md: `python3 -I .claude/tools/img-clean.py --strip <file>`). Unused icons already sit in that folder; leave them unless asked.
 
 ## A "currently into" card
 
