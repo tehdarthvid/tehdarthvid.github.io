@@ -1,35 +1,19 @@
 [
 	{
-		"title": "機動戦士 Gundam GQuuuuuuX",
-		"url": "https://www.gundam.info/feature/gquuuuuux/",
-		"ytVideoID": "VZaqtgVtL1M",
-		"date": "17 Jan 2025",
-		"added": "18 Jun 2025",
-		"hashtag": ["#GQuuuuuuX", "#ジークアクス"]
+		"title": "VisionQuest",
+		"url": "https://www.marvel.com/tv-shows/visionquest/1",
+		"ytVideoID": "sXKnmgmbkoE",
+		"date": "13 Oct 2026 – 10 Nov 2026",
+		"added": "17 Nov 2026",
+		"ref": "https://www.marvel.com/articles/tv-shows/marvel-television-visionquest-release-date"
 	},
 	{
-		"title": "Clair Obscur: Expedition 33",
-		"url": "https://www.expedition33.com/",
-		"ytVideoID": "ejgW-upPMgk",
-		"clip": {
-			"src": "steam:1903340",
-			"start": 60
-		},
-		"date": "24 Apr 2025",
-		"added": "24 Apr 2025",
-		"ref": "https://x.com/expedition33/status/1915301788640571522"
-	},
-	{
-		"title": "Dark Deity 2",
-		"url": "https://darkdeitygame.com/",
-		"ytVideoID": "z0HQKVuYa0Y",
-		"clip": {
-			"src": "steam:2446600",
-			"start": 0
-		},
-		"date": "24 Mar 2025",
-		"added": "7 Apr 2025",
-		"ref": "https://x.com/DarkDeityGame/status/1904186524444643624"
+		"title": "魔法騎士レイアース",
+		"url": "https://rayearth-anime.com/",
+		"ytVideoID": "gISc0dl5R_8",
+		"date": "7 Oct 2026",
+		"added": "17 Nov 2026",
+		"ref": "https://www.animenewsnetwork.com/news/2026-07-04/new-magic-knight-rayearth-anime-new-trailer-unveils-more-cast-october-7-debut/.239297"
 	},
 	{
 		"title": "Zenless Zone Zero",
