@@ -22,7 +22,7 @@
 </script>
 
 <div id="ran-into">
-	<h2>currently into</h2>
+	<h2>is into</h2>
 	<div class="container">
 		{#each deck as card (card.title)}
 			<Card

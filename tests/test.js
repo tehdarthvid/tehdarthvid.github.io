@@ -32,8 +32,8 @@ test('has has footer', async ({ page }) => {
 	await page.goto('/');
 
 	// footer
-	await expect(page.locator('text=source')).toBeVisible();
-	await expect(page.locator('text=build')).toBeVisible();
+	await expect(page.locator('footer').getByText('source')).toBeVisible();
+	await expect(page.locator('footer').getByText('build')).toBeVisible();
 });
 
 test('has has all content', async ({ page }) => {
