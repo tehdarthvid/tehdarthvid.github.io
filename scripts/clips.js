@@ -31,14 +31,27 @@ const VIDEO = [
 	['-t', SECONDS, '-an', '-vf', `${FRAME},fps=30`, '-c:v', 'libx264', '-profile:v', 'high'],
 	['-preset', 'slow', '-crf', '28', '-pix_fmt', 'yuv420p', '-movflags', '+faststart'],
 	// cap busy scenes (Expedition 33's combat was 1.3 MB) at about 0.5 MB per loop
-	['-maxrate', '700k', '-bufsize', '1400k']
+	['-maxrate', '700k', '-bufsize', '1400k'],
+	// no metadata copied from the source (titles, dates, tags)
+	['-map_metadata', '-1']
 ].flat();
 // counts the video frames a clip really has
 const PROBE = [
 	['-v', 'error', '-count_frames', '-select_streams', 'v:0'],
 	['-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0']
 ].flat();
-const POSTER = ['-frames:v', '1', '-vf', FRAME, '-c:v', 'libwebp', '-quality', '68'];
+const POSTER = [
+	'-frames:v',
+	'1',
+	'-vf',
+	FRAME,
+	'-c:v',
+	'libwebp',
+	'-quality',
+	'68',
+	'-map_metadata',
+	'-1'
+];
 
 /** @param {string} src */
 async function resolve(src) {
