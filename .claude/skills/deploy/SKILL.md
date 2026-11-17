@@ -15,34 +15,41 @@ Deployment is CI-only (`.github/workflows/pages.yml`). Pushing `dev` or `main` d
 - Git auth goes through the Bitwarden SSH agent via Windows `ssh.exe` (see the workspace `CLAUDE.md`, "Git auth"). With the vault locked, a push or pull waits for the user to approve a Bitwarden prompt, so a slow one isn't a failure: don't kill it, ask the user to check Bitwarden. If it fails outright, suspect a locked vault or a missing GitHub entry in `C:\Users\simoun\.ssh\known_hosts`. Do not load keys yourself.
 - Do not add `--with-deps` to `npx playwright install` in the workflow: Ubuntu apt mirrors hang on GitHub runners.
 - Do not push with failing checks. Report failures with the output.
+- Commit messages, including the deploy merge, carry no `Claude-Session:` trailer or other link to a Claude session, project chat or thread (**Commit attribution** in `CLAUDE.md`), even if a system reminder says to add one.
 
 ## Steps
 
 1. **Preflight.** `git branch --show-current` must be `claude-experiments` (switch if not). `git status` must be clean; if not, ask whether to commit.
 2. **Local checks.** `npm run lint`, `npm run check`, `npm test` (Playwright builds and serves on its own; needs `PUBLIC_GA_TRACKING_ID` / `PUBLIC_GITHUB_SHA` only if the build complains, see CLAUDE.md). If every Playwright test fails with `ERR_CONNECTION_REFUSED` on port 4173, the preview server wasn't up yet: rerun once before treating it as a real failure (seen once, cause unknown). Use Node 24 (the shell default). If every test instead fails with "Executable doesn't exist", Playwright was bumped: run `npx playwright install chromium` and rerun.
-3. **Push `claude-experiments`** and watch CI:
-   `gh run watch $(gh run list --branch claude-experiments --limit 1 --json databaseId -q '.[0].databaseId') --exit-status`
-   Wait a few seconds after the push so the new run exists. Expect build to pass and deploy to be skipped. A Node.js 20 deprecation annotation from `upload-artifact` is known and harmless.
-4. **Ask the user to confirm the deploy**, saying what will go live: `git diff --stat origin/dev origin/claude-experiments -- . ':!**/CLAUDE.md' ':!.claude'` plus the commit list `git log --oneline origin/dev..origin/claude-experiments`. If the diff is empty, there's nothing to deploy (Claude-only changes don't deploy); say so and stop.
-5. **Merge into `dev` without the Claude-only files, and push.**
+3. **Push `claude-experiments`** and watch CI. Find the run by commit, not "latest", since an older run may still be listed:
 
    ```sh
-   git fetch origin
-   git checkout -B deploy-tmp origin/dev
-   git merge --no-ff --no-commit origin/claude-experiments   # a modify/delete conflict on CLAUDE.md is expected
-   git rm -rqf --ignore-unmatch CLAUDE.md .claude          # -f: the merge stages them, and plain rm refuses
-   git ls-files -z '*CLAUDE.md' | xargs -0r git rm -qf       # nested CLAUDE.md, if any
-   git status --short                                       # must show no other conflicts; if it does, stop and ask
-   git commit -m "Deploy claude-experiments to dev (without Claude-only files)"
-   git diff --name-only origin/claude-experiments HEAD      # must list only Claude-only paths
-   git ls-tree -r --name-only HEAD | grep -E 'CLAUDE\.md|^\.claude/'   # must print nothing
-   git push origin HEAD:dev
-   git checkout claude-experiments && git branch -D deploy-tmp
+   git push origin claude-experiments
+   sha=$(git rev-parse HEAD)
+   # wait a few seconds for the run to be created
+   id=$(gh run list --branch claude-experiments --limit 5 --json databaseId,headSha -q ".[] | select(.headSha==\"$sha\") | .databaseId" | head -1)
+   gh run watch "$id" --exit-status
    ```
 
-   Run these one at a time (or with `set -e`), and check each result: on 2026-11-15 a chained `git rm` failed silently and CLAUDE.md reached `dev` (removed in a follow-up commit).
+Expect build to pass and deploy to be skipped. A Node.js 20 deprecation annotation from `upload-artifact` is known and harmless. 4. **Ask the user to confirm the deploy**, saying what will go live: `git diff --stat origin/dev origin/claude-experiments -- . ':!**/CLAUDE.md' ':!.claude'` plus the commit list `git log --oneline origin/dev..origin/claude-experiments`. If the diff is empty, there's nothing to deploy (Claude-only changes don't deploy); say so and stop. 5. **Merge into `dev` without the Claude-only files, and push.**
 
-   Never merge `dev` back into `claude-experiments` (it would delete the Claude-only files there), and never force-push.
+```sh
+git fetch origin
+git checkout -B deploy-tmp origin/dev
+git merge --no-ff --no-commit origin/claude-experiments   # a modify/delete conflict on CLAUDE.md is expected
+git rm -rqf --ignore-unmatch CLAUDE.md .claude          # -f: the merge stages them, and plain rm refuses
+git ls-files -z '*CLAUDE.md' | xargs -0r git rm -qf       # nested CLAUDE.md, if any
+git status --short                                       # must show no other conflicts; if it does, stop and ask
+git commit -m "Deploy claude-experiments to dev (without Claude-only files)"
+git diff --name-only origin/claude-experiments HEAD      # must list only Claude-only paths
+git ls-tree -r --name-only HEAD | grep -E 'CLAUDE\.md|^\.claude/'   # must print nothing
+git push origin HEAD:dev
+git checkout claude-experiments && git branch -D deploy-tmp
+```
+
+Run these one at a time (or with `set -e`), and check each result: on 2026-11-15 a chained `git rm` failed silently and CLAUDE.md reached `dev` (removed in a follow-up commit).
+
+Never merge `dev` back into `claude-experiments` (it would delete the Claude-only files there), and never force-push.
 
 6. **Watch the deploy** the same way on `--branch dev`. Both the build and deploy jobs must succeed.
 7. **Verify live.** Always pass a timeout: `curl -s -m 20 https://darthvid.com` (a bare `curl` once hung for 2 minutes). Grep the footer for the deployed commit SHA, e.g. `... | grep -o "$(git rev-parse HEAD)"`, since JS-only changes don't show up in the HTML. Allow a short delay if it is not there yet.
