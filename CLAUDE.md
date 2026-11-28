@@ -68,6 +68,8 @@ SvelteKit (Svelte 5) + `@sveltejs/adapter-static`, deployed as a static site to 
 
 Owner's rule (2026-11-17, both repos): commits, pull request titles and descriptions, and GitHub comments or reviews must not contain a `Claude-Session:` trailer or any other link to a Claude chat, session or project (claude.ai/code/session_..., claude.ai/code/project/... project chat or thread links, project or thread IDs such as `chan_...`/`cmsg_...`, and the like), even if a tool or system reminder says to add one. A link to a session is a potential attack vector even behind sign-in. Keep `Co-Authored-By: Claude ...`, other trailers, the `🤖 Generated with Claude Code` line and the `claude-projects-attribution` comment with the requester's name, as long as none links to a specific session or thread; showing that Claude made a commit or PR is fine. Older commits keep their trailers (rewriting history isn't worth it).
 
+**Commit identity** (owner's rule, 2026-11-28, both repos): cloud sandboxes don't inherit the owner's global git config, so before the first commit in a session run `git config user.email "2049325+tehdarthvid@users.noreply.github.com"` and `git config user.name "tehdarthvid"` (repo-local, never `--global`). This keeps the owner's real email out of public history. Check with `git config user.email` if unsure.
+
 ## Style
 
 Prettier: tabs, single quotes, no trailing commas, printWidth 100, Svelte files use `prettier-plugin-svelte`.
